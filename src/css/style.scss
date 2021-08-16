@@ -1,0 +1,24 @@
+@import "./home/home";
+@import "./shared/navigation";
+@import "./home/header";
+@import "./shared/search";
+@import "./home/homeBooksPictures";
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: black;
+  background: white;
+}
