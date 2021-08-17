@@ -9,7 +9,9 @@ export default function Search(props) {
   function getData(userInput) {
     if (userInput && userInput.trim().length > 0) {
       setInputOK(true);
-      fetch(`https://www.googleapis.com/books/v1/volumes?q=${userInput}`)
+      fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=0&maxResults=10`
+      )
         // fetch vraća Promise
         // koristimo then metodu da nešto napravimo s promise
         .then(function (response) {
@@ -42,6 +44,7 @@ export default function Search(props) {
           className="search-button-link"
           onClick={() => {
             getData(userInput);
+            getUserInput("");
           }}
         >
           <button className="search-button" type="button">
