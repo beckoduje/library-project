@@ -3,23 +3,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 2rem;
+  padding-top: 0.3rem;
 
   .navigation-links {
     display: flex;
     justify-content: flex-end;
     list-style: none;
 
-    &.results {
-      width: auto;
-      margin-left: 1.5rem;
-    }
-
     .navigation-link {
-      margin-right: 1.5rem;
-
       a {
         text-decoration: none;
         color: black;
+      }
+
+      &:not(:last-child) {
+        margin-right: 1.5rem;
       }
     }
   }

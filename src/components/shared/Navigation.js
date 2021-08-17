@@ -9,7 +9,7 @@ export default function Navigation(props) {
     <nav className="navigation">
       {/* <ThemeToggle /> */}
       <div className="logo">Library Logo</div>
-      <Search hidden={props.hidden} />
+      <Search hidden={props.hidden} setSearchedBooks={props.setSearchedBooks} />
       <ul className="navigation-links">
         <li className="navigation-link">
           <Link to="/">Home</Link>

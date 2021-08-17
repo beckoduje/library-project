@@ -3,11 +3,11 @@ import Search from "../shared/Search";
 import Header from "./Header";
 import HomeBooksPictures from "./HomeBooksPictures";
 
-export default function Home() {
+export default function Home(props) {
   return (
     <div className="home-section">
       <Header />
-      <Search />
+      <Search setSearchedBooks={props.setSearchedBooks} />
       <HomeBooksPictures />
     </div>
   );
