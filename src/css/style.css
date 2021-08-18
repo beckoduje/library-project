@@ -124,8 +124,51 @@
   font-size: 1.5rem;
 }
 
+.results-section .next-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.results-section .next-page .load-next {
+  margin-left: 1.5rem;
+}
+
+.results-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .results-container .results-list {
   list-style: none;
+  width: 50rem;
+}
+
+.results-container .results-list .results-list-item {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr max-content;
+      grid-template-columns: 1fr -webkit-max-content;
+      grid-template-columns: 1fr max-content;
+  -ms-grid-rows: (max-content)[4];
+      grid-template-rows: repeat(4, -webkit-max-content);
+      grid-template-rows: repeat(4, max-content);
+}
+
+.results-container .results-list .results-list-item .book-image-cont {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 4;
+  grid-row: 1 / 5;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
 }
 
 *,

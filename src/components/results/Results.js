@@ -5,13 +5,19 @@ import ResultsList from "./ResultsList";
 export default function Results(props) {
   return (
     <div className="results-section">
-      <Navigation setSearchedBooks={props.setSearchedBooks} results="results" />
+      <Navigation
+        getData={props.getData}
+        getUserInput={props.getUserInput}
+        userInput={props.userInput}
+        inputOK={props.inputOK}
+        results="results"
+      />
       <ResultsList searchedBooks={props.searchedBooks} />
       <div className="next-page">
-        <span className="load load-next">
+        <span className="load load-previous">
           <i className="fas fa-arrow-alt-circle-left"></i>
         </span>
-        <span className="load load-previous">
+        <span className="load load-next">
           <i className="fas fa-arrow-alt-circle-right"></i>
         </span>
       </div>
@@ -19,4 +25,4 @@ export default function Results(props) {
   );
 }
 
-// setSearchedBooks={setSearchedBooks}
+// Maka iz Navigation: setSearchedBooks={props.setSearchedBooks}

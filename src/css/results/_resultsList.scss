@@ -1,5 +1,20 @@
 .results-container {
+  display: flex;
+  justify-content: center;
+
   .results-list {
     list-style: none;
+    width: 50rem;
+
+    .results-list-item {
+      display: grid;
+      grid-template-columns: 1fr max-content;
+      grid-template-rows: repeat(4, max-content);
+
+      .book-image-cont {
+        grid-row: 1 / 5;
+        grid-column: 2 / 3;
+      }
+    }
   }
 }

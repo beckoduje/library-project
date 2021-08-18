@@ -7,8 +7,15 @@ export default function Home(props) {
   return (
     <div className="home-section">
       <Header />
-      <Search setSearchedBooks={props.setSearchedBooks} />
+      <Search
+        getData={props.getData}
+        getUserInput={props.getUserInput}
+        userInput={props.userInput}
+        inputOK={props.inputOK}
+      />
       <HomeBooksPictures />
     </div>
   );
 }
+
+// maka iz Search: setSearchedBooks={props.setSearchedBooks}

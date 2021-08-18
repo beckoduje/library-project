@@ -9,7 +9,13 @@ export default function Navigation(props) {
     <nav className="navigation">
       {/* <ThemeToggle /> */}
       <div className="logo">Library Logo</div>
-      <Search hidden={props.hidden} setSearchedBooks={props.setSearchedBooks} />
+      <Search
+        hidden={props.hidden}
+        getData={props.getData}
+        getUserInput={props.getUserInput}
+        userInput={props.userInput}
+        inputOK={props.inputOK}
+      />
       <ul className="navigation-links">
         <li className="navigation-link">
           <Link to="/">Home</Link>
@@ -24,3 +30,5 @@ export default function Navigation(props) {
     </nav>
   );
 }
+
+// Maknuto iz Search: setSearchedBooks={props.setSearchedBooks}

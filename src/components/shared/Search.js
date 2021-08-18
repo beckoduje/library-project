@@ -3,31 +3,31 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Search(props) {
-  const [userInput, getUserInput] = useState();
-  const [inputOK, setInputOK] = useState(true);
+  // const [userInput, getUserInput] = useState();
+  // const [inputOK, setInputOK] = useState(true);
 
-  function getData(userInput) {
-    if (userInput && userInput.trim().length > 0) {
-      setInputOK(true);
-      fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=0&maxResults=10`
-      )
-        // fetch vraća Promise
-        // koristimo then metodu da nešto napravimo s promise
-        .then(function (response) {
-          // data moramo vratiti i na njemu koristiti json() metodu da dobijemo data (novi promise)
-          return response.json();
-        })
-        // onda opet then metodu
-        .then(function (data) {
-          props.setSearchedBooks(data);
-        });
-      document.querySelector(".search-input").value = "";
-    } else {
-      setInputOK(false);
-      return;
-    }
-  }
+  // function getData(userInput) {
+  //   if (userInput && userInput.trim().length > 0) {
+  //     setInputOK(true);
+  //     fetch(
+  //       `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=0&maxResults=10`
+  //     )
+  //       // fetch vraća Promise
+  //       // koristimo then metodu da nešto napravimo s promise
+  //       .then(function (response) {
+  //         // data moramo vratiti i na njemu koristiti json() metodu da dobijemo data (novi promise)
+  //         return response.json();
+  //       })
+  //       // onda opet then metodu
+  //       .then(function (data) {
+  //         props.setSearchedBooks(data);
+  //       });
+  //     document.querySelector(".search-input").value = "";
+  //   } else {
+  //     setInputOK(false);
+  //     return;
+  //   }
+  // }
 
   return (
     <div
@@ -37,14 +37,14 @@ export default function Search(props) {
         <input
           type="text"
           className="search-input"
-          onChange={(e) => getUserInput(e.target.value)}
+          onChange={(e) => props.getUserInput(e.target.value)} // ----------- dodan props.
         />
         <Link
           to="/results"
           className="search-button-link"
           onClick={() => {
-            getData(userInput);
-            getUserInput("");
+            props.getData(props.userInput); // ----------- dodan props.
+            props.getUserInput(""); // ----------- dodan props.
           }}
         >
           <button className="search-button" type="button">
@@ -54,7 +54,7 @@ export default function Search(props) {
       </form>
       <div
         className={
-          inputOK
+          props.inputOK // ----------- dodan props.
             ? "search-container-error-message"
             : "search-container-error-message show"
         }
