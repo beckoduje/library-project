@@ -28,6 +28,20 @@ export default function ResultsList({ searchedBooks }) {
                   <div className="book-average-rating">
                     {book.volumeInfo.averageRating}
                   </div>
+                  <div className="reading-status-container">
+                    <button className="reading-status">Read</button>
+                    <button className="reading-status">
+                      Currently reading
+                    </button>
+                    <button className="reading-status">Want to read</button>
+                  </div>
+                  <figure className="book-image-cont">
+                    <img
+                      className="book-image"
+                      alt="book image"
+                      src={book.volumeInfo.imageLinks.thumbnail}
+                    />
+                  </figure>
                 </li>
               );
             })}
