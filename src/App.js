@@ -8,6 +8,10 @@ import Results from "./components/results/Results";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
+  const MY_COLLECTION_KEY = "myCollection";
+  const READ_BOOKS_KEY = "readBooks";
+  const READING_BOOKS_KEY = "readingBooks";
+  const WISH_LIST_KEY = "wishList";
   const [myCollection, setMyCollection] = useState();
   const [readBooks, setReadBooks] = useState();
   const [readingBooks, setReadingBooks] = useState();
