@@ -3,32 +3,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Search(props) {
-  // const [userInput, getUserInput] = useState();
-  // const [inputOK, setInputOK] = useState(true);
-
-  // function getData(userInput) {
-  //   if (userInput && userInput.trim().length > 0) {
-  //     setInputOK(true);
-  //     fetch(
-  //       `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=0&maxResults=10`
-  //     )
-  //       // fetch vraća Promise
-  //       // koristimo then metodu da nešto napravimo s promise
-  //       .then(function (response) {
-  //         // data moramo vratiti i na njemu koristiti json() metodu da dobijemo data (novi promise)
-  //         return response.json();
-  //       })
-  //       // onda opet then metodu
-  //       .then(function (data) {
-  //         props.setSearchedBooks(data);
-  //       });
-  //     document.querySelector(".search-input").value = "";
-  //   } else {
-  //     setInputOK(false);
-  //     return;
-  //   }
-  // }
-
   return (
     <div
       className={props.hidden ? `search-container hidden` : `search-container`}
@@ -43,8 +17,11 @@ export default function Search(props) {
           to="/results"
           className="search-button-link"
           onClick={() => {
+            // props.getUserInput(document.querySelector(".search-input").value);  ------------ prebačeno radi next volume
+            console.log(props.userInput);
+            // ne treba ---- props.setStoredUserInput(props.userInput);
             props.getData(props.userInput); // ----------- dodan props.
-            props.getUserInput(""); // ----------- dodan props.
+            //props.getUserInput("");  ----------- dodan props.
           }}
         >
           <button className="search-button" type="button">

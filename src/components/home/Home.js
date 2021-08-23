@@ -12,6 +12,7 @@ export default function Home(props) {
         getUserInput={props.getUserInput}
         userInput={props.userInput}
         inputOK={props.inputOK}
+        // setStoredUserInput={props.setStoredUserInput}
       />
       <HomeBooksPictures />
     </div>

@@ -19,6 +19,7 @@ function App() {
   const [wantList, setWantList] = useState([]);
   const [searchedBooks, setSearchedBooks] = useState();
   const [userInput, getUserInput] = useState();
+  // const [storedUserInput, setStoredUserInput] = useState();
   const [inputOK, setInputOK] = useState(true);
 
   function getData(userInput) {
@@ -159,6 +160,7 @@ function App() {
         <Route path="/results">
           <Results
             searchedBooks={searchedBooks}
+            setSearchedBooks={setSearchedBooks}
             getData={getData}
             getUserInput={getUserInput}
             userInput={userInput}
@@ -177,6 +179,7 @@ function App() {
             getUserInput={getUserInput}
             userInput={userInput}
             inputOK={inputOK}
+            // setStoredUserInput={setStoredUserInput}
           />
         </Route>
       </Switch>
