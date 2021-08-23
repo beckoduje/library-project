@@ -24,7 +24,7 @@ export default function Navigation(props) {
           <a href="#">Categories</a>
         </li>
         <li className="navigation-link">
-          <a href="#">My Collection</a>
+          <Link to="/collection">My Collection</Link>
         </li>
       </ul>
     </nav>

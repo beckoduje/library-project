@@ -12,7 +12,15 @@ export default function Results(props) {
         inputOK={props.inputOK}
         results="results"
       />
-      <ResultsList searchedBooks={props.searchedBooks} />
+      <ResultsList
+        searchedBooks={props.searchedBooks}
+        myCollection={props.myCollection}
+        setMyCollection={props.setMyCollection}
+        setReadBooks={props.setReadBooks}
+        setReadingBooks={props.setReadingBooks}
+        setWantList={props.setWantList}
+        addNewCollectionItem={props.addNewCollectionItem}
+      />
       <div className="next-page">
         <span className="load load-previous">
           <i className="fas fa-arrow-alt-circle-left"></i>
