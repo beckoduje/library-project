@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navigation from "../shared/Navigation";
 import ResultsList from "./ResultsList";
 
@@ -7,11 +7,13 @@ export default function Results(props) {
   function getNextVolume(userInput, startIndex) {
     if (startIndex >= 0) {
       // setStartIndex(startIndex + 10);
-      setStartIndex((prevState) => {
-        return prevState + 10;
-      });
+      // setStartIndex((prevState) => {
+      //   return prevState + 10;
+      // });
       fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${startIndex}&maxResults=10`
+        `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${(
+          startIndex + 10
+        ).toString()}&maxResults=10`
       )
         .then(function (response) {
           return response.json();
@@ -19,8 +21,13 @@ export default function Results(props) {
         .then(function (data) {
           props.setSearchedBooks(data);
         });
+      setStartIndex(startIndex + 10);
     }
   }
+
+  // useEffect(() => {
+  //   getNextVolume(props.userInput, startIndex);
+  // }, []);
 
   console.log(props.searchedBooks, "hej haj");
   console.log(props.userInput);
@@ -29,11 +36,13 @@ export default function Results(props) {
   function getPreviousVolume(userInput, startIndex) {
     if (startIndex > 0) {
       // setStartIndex(startIndex - 10);
-      setStartIndex((prevState) => {
-        return prevState - 10;
-      });
+      // setStartIndex((prevState) => {
+      //   return prevState - 10;
+      // });
       fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${startIndex}&maxResults=10`
+        `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${(
+          startIndex - 10
+        ).toString()}&maxResults=10`
       )
         .then(function (response) {
           return response.json();
@@ -41,8 +50,14 @@ export default function Results(props) {
         .then(function (data) {
           props.setSearchedBooks(data);
         });
+      setStartIndex(startIndex - 10);
     }
   }
+
+  // useEffect(() => {
+  //   getPreviousVolume(props.userInput, startIndex);
+  // }, []);
+
   return (
     <div className="results-section">
       <Navigation

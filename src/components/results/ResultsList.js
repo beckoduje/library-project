@@ -4,7 +4,7 @@ export default function ResultsList(props) {
   return (
     <div className="results-container">
       <ul className="results-list">
-        {!props.searchedBooks
+        {props.searchedBooks.length < 1
           ? ""
           : props.searchedBooks.items.map((book) => {
               return (

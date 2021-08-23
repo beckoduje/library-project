@@ -17,7 +17,7 @@ function App() {
   const [readBooks, setReadBooks] = useState([]);
   const [readingBooks, setReadingBooks] = useState([]);
   const [wantList, setWantList] = useState([]);
-  const [searchedBooks, setSearchedBooks] = useState();
+  const [searchedBooks, setSearchedBooks] = useState([]);
   const [userInput, getUserInput] = useState();
   // const [storedUserInput, setStoredUserInput] = useState();
   const [inputOK, setInputOK] = useState(true);
@@ -77,16 +77,22 @@ function App() {
 
         if (
           e.target.dataset.collection === "read" &&
-          !readBooks.some((book) => book.id === data.id)
+          !readBooks.some((book) => book.id === data.id) &&
+          !readingBooks.some((book) => book.id === data.id) &&
+          !wantList.some((book) => book.id === data.id)
         ) {
           setReadBooks([...readBooks, newCollectionItem]);
         } else if (
           e.target.dataset.collection === "reading" &&
-          !readingBooks.some((book) => book.id === data.id)
+          !readBooks.some((book) => book.id === data.id) &&
+          !readingBooks.some((book) => book.id === data.id) &&
+          !wantList.some((book) => book.id === data.id)
         ) {
           setReadingBooks([...readingBooks, newCollectionItem]);
         } else if (
           e.target.dataset.collection === "want" &&
+          !readBooks.some((book) => book.id === data.id) &&
+          !readingBooks.some((book) => book.id === data.id) &&
           !wantList.some((book) => book.id === data.id)
         ) {
           setWantList([...wantList, newCollectionItem]);
