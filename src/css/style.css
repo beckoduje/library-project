@@ -29,6 +29,18 @@
   list-style: none;
 }
 
+.navigation .navigation-links .navigation-link {
+  position: relative;
+}
+
+.navigation .navigation-links .navigation-link:nth-child(2):hover .genres-list {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
 .navigation .navigation-links .navigation-link a {
   text-decoration: none;
   color: black;
@@ -219,6 +231,36 @@
 
 .myCollection-container .myCollection-list .myCollection-list-item .book-image-cont .book-image {
   height: 100%;
+}
+
+.genres-list {
+  visibility: hidden;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  list-style: none;
+  background: red;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.genres-section {
+  min-height: 100vh;
+  padding: 2rem;
+  font-size: 1.5rem;
 }
 
 *,

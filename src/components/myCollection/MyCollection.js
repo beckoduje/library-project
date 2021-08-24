@@ -14,6 +14,9 @@ export default function MyCollection(props) {
       />
       <MyCollectionList
         myCollection={props.myCollection}
+        readBooks={props.readBooks}
+        readingBooks={props.readingBooks}
+        wantList={props.wantList}
         addNewCollectionItem={props.addNewCollectionItem}
       />
     </div>

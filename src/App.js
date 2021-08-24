@@ -7,6 +7,7 @@ import Results from "./components/results/Results";
 import MyCollection from "./components/myCollection/MyCollection";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Genres from "./components/genres/Genres";
 
 function App() {
   const MY_COLLECTION_KEY = "myCollection";
@@ -26,7 +27,7 @@ function App() {
     if (userInput && userInput.trim().length > 0) {
       setInputOK(true);
       fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=0&maxResults=10`
+        `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=0&maxResults=10&printType=books`
       )
         // fetch vraća Promise
         // koristimo then metodu da nešto napravimo s promise
@@ -161,7 +162,13 @@ function App() {
             myCollection={myCollection}
             setMyCollection={setMyCollection}
             addNewCollectionItem={addNewCollectionItem}
+            readBooks={readBooks}
+            readingBooks={readingBooks}
+            wantList={wantList}
           />
+        </Route>
+        <Route path="/genres">
+          <Genres />
         </Route>
         <Route path="/results">
           <Results

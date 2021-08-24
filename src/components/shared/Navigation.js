@@ -3,6 +3,7 @@ import Search from "./Search";
 // import ThemeToggle from "../home/ThemeToggle";
 
 import { Link } from "react-router-dom";
+import GenresList from "./GenresList";
 
 export default function Navigation(props) {
   return (
@@ -21,7 +22,11 @@ export default function Navigation(props) {
           <Link to="/">Home</Link>
         </li>
         <li className="navigation-link">
-          <a href="#">Categories</a>
+          <a href="#">
+            Browse genres
+            <i className="fas fa-caret-down"></i>
+          </a>
+          <GenresList />
         </li>
         <li className="navigation-link">
           <Link to="/collection">My Collection</Link>

@@ -12,6 +12,15 @@
     list-style: none;
 
     .navigation-link {
+      position: relative;
+
+      &:nth-child(2):hover .genres-list {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0);
+      }
+
       a {
         text-decoration: none;
         color: black;

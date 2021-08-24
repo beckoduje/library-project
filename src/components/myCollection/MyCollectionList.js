@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MyCollectionNav from "./MyCollectionNav";
 
 export default function MyCollectionList(props) {
+  const [showCollectionCategory, setShowCollectionCategory] = useState(
+    props.myCollection
+  );
+
+  // useEffect(() => {
+  //   setShowCollectionCategory(props.myCollection);
+  // }, []);
+
   return (
     <div className="myCollection-container">
-      <MyCollectionNav />
+      <MyCollectionNav
+        setShowCollectionCategory={setShowCollectionCategory}
+        myCollection={props.myCollection}
+        readBooks={props.readBooks}
+        readingBooks={props.readingBooks}
+        wantList={props.wantList}
+      />
       <ul className="myCollection-list">
-        {props.myCollection.length === 0
+        {showCollectionCategory.length === 0
           ? ""
-          : props.myCollection.map((book) => {
+          : showCollectionCategory.map((book) => {
               return (
                 <li key={Math.random()} className="myCollection-list-item">
                   <h4 className="book-title">

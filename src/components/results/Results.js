@@ -13,7 +13,7 @@ export default function Results(props) {
       fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${(
           startIndex + 10
-        ).toString()}&maxResults=10`
+        ).toString()}&maxResults=10&printType=books`
       )
         .then(function (response) {
           return response.json();
@@ -42,7 +42,7 @@ export default function Results(props) {
       fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${(
           startIndex - 10
-        ).toString()}&maxResults=10`
+        ).toString()}&maxResults=10&printType=books`
       )
         .then(function (response) {
           return response.json();
