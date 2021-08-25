@@ -61,6 +61,7 @@ export default function Results(props) {
   return (
     <div className="results-section">
       <Navigation
+        setSearchedBooks={props.setSearchedBooks}
         getData={props.getData}
         getUserInput={props.getUserInput}
         userInput={props.userInput}

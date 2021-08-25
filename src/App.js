@@ -155,6 +155,7 @@ function App() {
         <Route path="/collection">
           <MyCollection
             searchedBooks={searchedBooks}
+            setSearchedBooks={setSearchedBooks}
             getData={getData}
             getUserInput={getUserInput}
             userInput={userInput}
@@ -168,7 +169,15 @@ function App() {
           />
         </Route>
         <Route path="/genres">
-          <Genres />
+          <Genres
+            searchedBooks={searchedBooks}
+            setSearchedBooks={setSearchedBooks}
+            getData={getData}
+            getUserInput={getUserInput}
+            userInput={userInput}
+            inputOK={inputOK}
+            addNewCollectionItem={addNewCollectionItem}
+          />
         </Route>
         <Route path="/results">
           <Results
@@ -188,6 +197,7 @@ function App() {
         </Route>
         <Route path="/">
           <Home
+            setSearchedBooks={setSearchedBooks}
             getData={getData}
             getUserInput={getUserInput}
             userInput={userInput}

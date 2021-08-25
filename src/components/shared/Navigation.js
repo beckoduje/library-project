@@ -26,7 +26,7 @@ export default function Navigation(props) {
             Browse genres
             <i className="fas fa-caret-down"></i>
           </a>
-          <GenresList />
+          <GenresList setSearchedBooks={props.setSearchedBooks} />
         </li>
         <li className="navigation-link">
           <Link to="/collection">My Collection</Link>

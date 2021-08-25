@@ -6,6 +6,7 @@ export default function MyCollection(props) {
   return (
     <div className="myCollection-section">
       <Navigation
+        setSearchedBooks={props.setSearchedBooks}
         getData={props.getData}
         getUserInput={props.getUserInput}
         userInput={props.userInput}

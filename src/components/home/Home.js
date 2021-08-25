@@ -6,7 +6,7 @@ import HomeBooksPictures from "./HomeBooksPictures";
 export default function Home(props) {
   return (
     <div className="home-section">
-      <Header />
+      <Header setSearchedBooks={props.setSearchedBooks} />
       <Search
         getData={props.getData}
         getUserInput={props.getUserInput}
