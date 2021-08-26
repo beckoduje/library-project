@@ -12,6 +12,7 @@ export default function MyCollection(props) {
         userInput={props.userInput}
         inputOK={props.inputOK}
         results="results"
+        setSelectedGenre={props.setSelectedGenre}
       />
       <MyCollectionList
         myCollection={props.myCollection}

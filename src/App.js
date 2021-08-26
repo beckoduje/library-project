@@ -23,6 +23,8 @@ function App() {
   // const [storedUserInput, setStoredUserInput] = useState();
   const [inputOK, setInputOK] = useState(true);
 
+  const [selectedGenre, setSelectedGenre] = useState(1);
+
   function getData(userInput) {
     if (userInput && userInput.trim().length > 0) {
       setInputOK(true);
@@ -166,6 +168,7 @@ function App() {
             readBooks={readBooks}
             readingBooks={readingBooks}
             wantList={wantList}
+            setSelectedGenre={setSelectedGenre}
           />
         </Route>
         <Route path="/genres">
@@ -177,6 +180,8 @@ function App() {
             userInput={userInput}
             inputOK={inputOK}
             addNewCollectionItem={addNewCollectionItem}
+            selectedGenre={selectedGenre}
+            setSelectedGenre={setSelectedGenre}
           />
         </Route>
         <Route path="/results">
@@ -193,6 +198,7 @@ function App() {
             setReadingBooks={setReadingBooks}
             setWantList={setWantList}
             addNewCollectionItem={addNewCollectionItem}
+            setSelectedGenre={setSelectedGenre}
           />
         </Route>
         <Route path="/">
@@ -203,6 +209,7 @@ function App() {
             userInput={userInput}
             inputOK={inputOK}
             // setStoredUserInput={setStoredUserInput}
+            setSelectedGenre={setSelectedGenre}
           />
         </Route>
       </Switch>

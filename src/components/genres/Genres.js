@@ -3,8 +3,6 @@ import GenresResultsList from "./GenresResultsList";
 import Navigation from "../shared/Navigation";
 
 export default function Genres(props) {
-  const [selectedGenre, setSelectedGenre] = useState();
-
   return (
     <div className="genres-section">
       <Navigation
@@ -13,11 +11,11 @@ export default function Genres(props) {
         getUserInput={props.getUserInput}
         userInput={props.userInput}
         inputOK={props.inputOK}
-        setSelectedGenre={setSelectedGenre}
+        setSelectedGenre={props.setSelectedGenre}
         results="results"
       />
       <GenresResultsList
-        selectedGenre={selectedGenre}
+        selectedGenre={props.selectedGenre}
         searchedBooks={props.searchedBooks}
         setMyCollection={props.setMyCollection}
         setReadBooks={props.setReadBooks}

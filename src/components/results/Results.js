@@ -67,6 +67,7 @@ export default function Results(props) {
         userInput={props.userInput}
         inputOK={props.inputOK}
         results="results"
+        setSelectedGenre={props.setSelectedGenre}
       />
       <ResultsList
         searchedBooks={props.searchedBooks}
