@@ -2,6 +2,8 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+import { genresData } from "../genresData.js";
+
 export default function GenresList(props) {
   function getGenresData(genre) {
     fetch(
@@ -21,78 +23,20 @@ export default function GenresList(props) {
 
   return (
     <ul className="genres-list">
-      <li
-        className="single-genre"
-        onClick={() => {
-          getGenresData("Science");
-        }}
-      >
-        <Link to="/genres">Science</Link>
-      </li>
-      <li
-        className="single-genre"
-        onClick={() => {
-          getGenresData("Psychology");
-        }}
-      >
-        <Link to="/genres">Psychology</Link>
-      </li>
-      <li
-        className="single-genre"
-        onClick={() => {
-          getGenresData("Philosophy");
-        }}
-      >
-        <Link to="/genres">Philosophy</Link>
-      </li>
-      <li
-        className="single-genre"
-        onClick={() => {
-          getGenresData("Religion");
-        }}
-      >
-        <Link to="/genres">Religion</Link>
-      </li>
-      <li
-        className="single-genre"
-        onClick={() => {
-          getGenresData("Art");
-        }}
-      >
-        <Link to="/genres">Art</Link>
-      </li>
-      <li
-        className="single-genre"
-        onClick={() => {
-          getGenresData("Astronomy");
-        }}
-      >
-        <Link to="/genres">Astronomy</Link>
-      </li>
-      <li
-        className="single-genre"
-        onClick={() => {
-          getGenresData("Physics");
-        }}
-      >
-        <Link to="/genres">Physics</Link>
-      </li>
-      <li
-        className="single-genre"
-        onClick={() => {
-          getGenresData("Chemistry");
-        }}
-      >
-        <Link to="/genres">Chemistry</Link>
-      </li>
-      <li
-        className="single-genre"
-        onClick={() => {
-          getGenresData("Fiction");
-        }}
-      >
-        <Link to="/genres">Fiction</Link>
-      </li>
+      {genresData.map((genre) => {
+        return (
+          <li
+            key={genre.id}
+            className="single-genre"
+            onClick={() => {
+              getGenresData(genre.title);
+              props.setSelectedGenre(genre.id);
+            }}
+          >
+            <Link to="/genres">{genre.title}</Link>
+          </li>
+        );
+      })}
     </ul>
   );
 }

@@ -1,8 +1,22 @@
 import React from "react";
 
+import { genresData } from "../genresData.js";
+
 export default function GenresResultsList(props) {
+  let selectedGen = props.selectedGenre - 1;
+  console.log(selectedGen);
+  console.log(genresData[selectedGen]);
+  console.log(genresData[selectedGen].description);
   return (
-    <div className="results-container">
+    <div className="results-container genres">
+      <div className="genre-description-container">
+        <h2 className="genre-description-title">
+          {genresData ? "" : genresData[selectedGen].title}
+        </h2>
+        <p className="genre-description">
+          {genresData ? "" : genresData[selectedGen].description}
+        </p>
+      </div>
       <ul className="results-list">
         {props.searchedBooks.length < 1
           ? ""
