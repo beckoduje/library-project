@@ -9,7 +9,11 @@ export default function Navigation(props) {
   return (
     <nav className="navigation">
       {/* <ThemeToggle /> */}
-      <div className="logo">Library Logo</div>
+      <div className="logo">
+        {/* <i className="fas fa-book"></i> */}
+        <i className="fas fa-book-open logo-image"></i>
+        <span className="logo-name">library</span>
+      </div>
       <Search
         hidden={props.hidden}
         getData={props.getData}
@@ -23,8 +27,8 @@ export default function Navigation(props) {
         </li>
         <li className="navigation-link">
           <a href="#">
-            Browse genres
-            <i className="fas fa-caret-down"></i>
+            Genres
+            <i className="fas fa-caret-down menu-open"></i>
           </a>
           <GenresList
             setSearchedBooks={props.setSearchedBooks}

@@ -26,6 +26,10 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  color: black;
-  background: white;
+  color: white;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("../images/backgroundBook.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }

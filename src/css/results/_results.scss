@@ -1,7 +1,16 @@
 .results-section {
   min-height: 100vh;
   padding: 2rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
   font-size: 1.5rem;
+  background-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 60%,
+    rgba(244, 163, 67, 0.8) 60%,
+    rgba(244, 163, 67, 0.8) 100%
+  );
 
   .next-page {
     display: flex;
