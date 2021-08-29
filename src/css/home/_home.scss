@@ -1,8 +1,11 @@
 .home-section {
   height: 100vh;
-  padding: 2rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  display: grid;
+  grid-template-columns: 60% 1fr;
+  grid-template-rows: repeat(3, max-content) 1fr;
+  // padding: 2rem;
+  // padding-left: 4rem;
+  // padding-right: 4rem;
   font-size: 1.5rem;
   background-image: linear-gradient(
     to right,
@@ -11,4 +14,13 @@
     rgba(244, 163, 67, 0.8) 60%,
     rgba(244, 163, 67, 0.8) 100%
   );
+
+  .header-title {
+    grid-column: 1 / 2;
+    align-self: flex-end;
+    padding-left: 8.5rem;
+    padding-bottom: 1rem;
+    font-weight: 400;
+    text-transform: capitalize;
+  }
 }

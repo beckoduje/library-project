@@ -1,6 +1,7 @@
 @import "./home/home";
 @import "./shared/navigation";
 @import "./home/header";
+@import "./home/homeQuotes";
 @import "./shared/search";
 @import "./home/homeBooksPictures";
 @import "./results/results";
@@ -32,4 +33,9 @@ body {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+  font-weight: 500;
 }

@@ -9,7 +9,6 @@ export default function Header(props) {
         hidden="hidden"
         setSelectedGenre={props.setSelectedGenre}
       />
-      <h1 className="header-title">Browse the Library</h1>
     </header>
   );
 }

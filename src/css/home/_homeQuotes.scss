@@ -1,0 +1,31 @@
+.home-page-quotes {
+  position: relative;
+  grid-column: 1 / 2;
+  padding-right: 8rem;
+  padding-left: 8rem;
+  font-size: 7rem;
+  font-style: italic;
+  line-height: 1.6;
+
+  .quote {
+    &.quote-1 {
+      margin-bottom: 5rem;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: "\201C";
+        font-size: 30rem;
+        font-family: sans-serif;
+        color: rgba(244, 163, 67, 0.35);
+        top: -10.5rem;
+        left: -3rem;
+        z-index: -1;
+      }
+    }
+    &.quote-2 {
+      font-size: 3rem;
+      display: none;
+    }
+  }
+}

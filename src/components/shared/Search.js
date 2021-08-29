@@ -9,6 +9,7 @@ export default function Search(props) {
     >
       <form action="#" method="post" className="search-form">
         <input
+          placeholder="Search"
           type="text"
           className="search-input"
           onChange={(e) => props.getUserInput(e.target.value)} // ----------- dodan props.
