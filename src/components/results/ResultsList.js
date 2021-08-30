@@ -17,6 +17,7 @@ export default function ResultsList(props) {
                     {!book.volumeInfo.title ? `-` : book.volumeInfo.title}
                   </h4>
                   <div className="book-authors-cont">
+                    by&nbsp;
                     {!book.volumeInfo.authors ? (
                       <span className="book-author">-</span>
                     ) : (

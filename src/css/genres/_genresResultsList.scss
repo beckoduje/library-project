@@ -1,4 +1,17 @@
 .results-container.genres {
-  flex-direction: column;
-  align-items: center;
+  .genre-description-container {
+    width: calc(60% - 8rem);
+    margin-bottom: 2rem;
+
+    .genre-description-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .genre-description {
+      font-size: 1.6rem;
+      text-align: justify;
+    }
+  }
 }

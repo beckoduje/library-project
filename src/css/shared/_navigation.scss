@@ -7,6 +7,11 @@
   padding-left: 8rem;
   padding-right: 8rem;
 
+  & > a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
   .logo {
     display: flex;
     flex-direction: column;

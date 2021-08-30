@@ -11,7 +11,7 @@ export default function MyCollectionList(props) {
   // }, []);
 
   return (
-    <div className="myCollection-container">
+    <div className="results-container myCollection-container">
       <MyCollectionNav
         setShowCollectionCategory={setShowCollectionCategory}
         myCollection={props.myCollection}
@@ -19,12 +19,15 @@ export default function MyCollectionList(props) {
         readingBooks={props.readingBooks}
         wantList={props.wantList}
       />
-      <ul className="myCollection-list">
+      <ul className="results-list myCollection-list">
         {showCollectionCategory.length === 0
           ? ""
           : showCollectionCategory.map((book) => {
               return (
-                <li key={Math.random()} className="myCollection-list-item">
+                <li
+                  key={Math.random()}
+                  className="results-list-item myCollection-list-item"
+                >
                   <h4 className="book-title">
                     {!book.title ? `-` : book.title}
                   </h4>

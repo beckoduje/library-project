@@ -9,11 +9,13 @@ export default function Navigation(props) {
   return (
     <nav className="navigation">
       {/* <ThemeToggle /> */}
-      <div className="logo">
-        {/* <i className="fas fa-book"></i> */}
-        <i className="fas fa-book-open logo-image"></i>
-        <span className="logo-name">library</span>
-      </div>
+      <Link to="/">
+        <div className="logo">
+          {/* <i className="fas fa-book"></i> */}
+          <i className="fas fa-book-open logo-image"></i>
+          <span className="logo-name">library</span>
+        </div>
+      </Link>
       <Search
         hidden={props.hidden}
         getData={props.getData}
