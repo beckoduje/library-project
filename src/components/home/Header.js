@@ -6,8 +6,11 @@ export default function Header(props) {
     <header className="header">
       <Navigation
         setSearchedBooks={props.setSearchedBooks}
-        hidden="hidden"
         setSelectedGenre={props.setSelectedGenre}
+        getData={props.getData}
+        getUserInput={props.getUserInput}
+        userInput={props.userInput}
+        inputOK={props.inputOK}
       />
     </header>
   );

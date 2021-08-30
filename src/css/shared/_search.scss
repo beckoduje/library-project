@@ -2,18 +2,25 @@
   position: relative;
   display: flex;
   justify-content: flex-start;
+  // padding-right: 8rem;
+  // padding-left: 8rem;
+  // grid-column: 1 / 2;
+  width: 50rem;
+  margin-left: auto;
+  margin-right: 2.5rem;
+  padding-right: 0;
+  padding-left: 0;
+
+  //&.hidden {
+  // visibility: hidden;
+  // width: 50rem;
   // margin-left: auto;
   // margin-right: 2.5rem;
-  padding-right: 8rem;
-  padding-left: 8rem;
-  grid-column: 1 / 2;
-
-  &.hidden {
-    visibility: hidden;
-  }
+  // padding-right: 0;
+  // padding-left: 0;
+  //}
 
   .search-form {
-    // width: 50rem;
     width: 100%;
     display: flex;
     position: relative;

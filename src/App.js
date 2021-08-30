@@ -208,7 +208,6 @@ function App() {
             getUserInput={getUserInput}
             userInput={userInput}
             inputOK={inputOK}
-            // setStoredUserInput={setStoredUserInput}
             setSelectedGenre={setSelectedGenre}
           />
         </Route>
@@ -216,8 +215,5 @@ function App() {
     </Router>
   );
 }
-
-// maka iz Home: setSearchedBooks={setSearchedBooks}
-// maka iz Results: setSearchedBooks={setSearchedBooks}
 
 export default App;

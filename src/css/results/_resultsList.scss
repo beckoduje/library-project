@@ -1,10 +1,11 @@
 .results-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 8rem;
 
   .results-list {
     list-style: none;
-    width: 50rem;
+    width: calc(60% - 8rem);
 
     .results-list-item {
       display: grid;

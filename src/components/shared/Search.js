@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 
 export default function Search(props) {
   return (
-    <div
-      className={props.hidden ? `search-container hidden` : `search-container`}
-    >
+    <div className="search-container">
       <form action="#" method="post" className="search-form">
         <input
-          placeholder="Search"
+          placeholder="Search here..."
           type="text"
           className="search-input"
           onChange={(e) => props.getUserInput(e.target.value)} // ----------- dodan props.

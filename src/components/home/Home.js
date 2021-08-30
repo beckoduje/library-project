@@ -10,16 +10,20 @@ export default function Home(props) {
       <Header
         setSearchedBooks={props.setSearchedBooks}
         setSelectedGenre={props.setSelectedGenre}
+        getData={props.getData}
+        getUserInput={props.getUserInput}
+        userInput={props.userInput}
+        inputOK={props.inputOK}
       />
       <HomeQuotes />
-      <h3 className="header-title">Browse our library:</h3>
-      <Search
+      {/* <h3 className="header-title">Browse our library:</h3> */}
+      {/* <Search
         getData={props.getData}
         getUserInput={props.getUserInput}
         userInput={props.userInput}
         inputOK={props.inputOK}
         // setStoredUserInput={props.setStoredUserInput}
-      />
+      /> */}
       <HomeBooksPictures />
     </div>
   );

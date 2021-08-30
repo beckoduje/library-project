@@ -1,8 +1,8 @@
 .home-books-pictures {
   color: red;
-  margin-top: 5rem;
   display: flex;
   justify-content: center;
   grid-column: 2 / 3;
-  grid-row: 2 / 4;
+  grid-row: 2 / 3;
+  align-self: center;
 }
