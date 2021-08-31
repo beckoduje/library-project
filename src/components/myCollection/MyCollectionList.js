@@ -45,7 +45,18 @@ export default function MyCollectionList(props) {
                     )}
                   </div>
                   <div className="book-average-rating">
-                    {!book.averageRating ? `-` : book.averageRating}
+                    {!book.averageRating
+                      ? `-`
+                      : Array.from({ length: 5 }, (v, i) => (
+                          <i
+                            key={`star_${i + 1}`}
+                            className={
+                              i < book.averageRating
+                                ? "fas fa-star start-rating full"
+                                : "fas fa-star start-rating empty"
+                            }
+                          />
+                        ))}
                   </div>
                   <div className="reading-status-container">
                     <button
@@ -72,6 +83,9 @@ export default function MyCollectionList(props) {
                       />
                     )}
                   </figure>
+                  <button className="remove-book-btn">
+                    <i className="fas fa-times"></i>
+                  </button>
                 </li>
               );
             })}

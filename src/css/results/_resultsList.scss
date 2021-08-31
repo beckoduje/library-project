@@ -17,6 +17,7 @@
       padding: 2rem;
       border-radius: 12px;
       margin-bottom: 2rem;
+      position: relative;
 
       &:nth-child(odd) {
         background: rgba(255, 255, 255, 0.5);
@@ -50,6 +51,21 @@
         color: #353535;
       }
 
+      .book-average-rating {
+        .start-rating {
+          font-size: 2.6rem;
+          margin-right: 0.7rem;
+
+          &.full {
+            color: #209b80;
+          }
+
+          &.empty {
+            color: rgba(255, 255, 255, 0.5);
+          }
+        }
+      }
+
       .book-image-cont {
         grid-row: 1 / 5;
         grid-column: 2 / 3;
@@ -72,6 +88,27 @@
           text-transform: uppercase;
           padding: 1rem;
           margin-right: 1rem;
+        }
+      }
+
+      .remove-book-btn {
+        background: rgba(244, 163, 67, 0.65);
+        height: 2.5rem;
+        width: 2.5rem;
+        outline: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        position: absolute;
+        top: -1rem;
+        right: -1rem;
+        cursor: pointer;
+
+        i {
+          font-size: 1.5rem;
+          color: white;
         }
       }
     }

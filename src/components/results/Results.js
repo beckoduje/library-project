@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import FeatherImg from "../shared/FeatherImg";
 import Navigation from "../shared/Navigation";
 import ResultsList from "./ResultsList";
 
@@ -96,6 +97,7 @@ export default function Results(props) {
           <i className="fas fa-arrow-alt-circle-right"></i>
         </span>
       </div>
+      <FeatherImg />
     </div>
   );
 }

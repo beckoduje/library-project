@@ -1,7 +1,6 @@
 import React from "react";
-import Search from "../shared/Search";
+import FeatherImg from "../shared/FeatherImg";
 import Header from "./Header";
-import HomeBooksPictures from "./HomeBooksPictures";
 import HomeQuotes from "./HomeQuotes";
 
 export default function Home(props) {
@@ -16,17 +15,7 @@ export default function Home(props) {
         inputOK={props.inputOK}
       />
       <HomeQuotes />
-      {/* <h3 className="header-title">Browse our library:</h3> */}
-      {/* <Search
-        getData={props.getData}
-        getUserInput={props.getUserInput}
-        userInput={props.userInput}
-        inputOK={props.inputOK}
-        // setStoredUserInput={props.setStoredUserInput}
-      /> */}
-      <HomeBooksPictures />
+      <FeatherImg />
     </div>
   );
 }
-
-// maka iz Search: setSearchedBooks={props.setSearchedBooks}

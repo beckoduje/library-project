@@ -52,7 +52,16 @@ export default function GenresResultsList(props) {
                   <div className="book-average-rating">
                     {!book.volumeInfo.averageRating
                       ? `-`
-                      : book.volumeInfo.averageRating}
+                      : Array.from({ length: 5 }, (v, i) => (
+                          <i
+                            key={`star_${i + 1}`}
+                            className={
+                              i < book.volumeInfo.averageRating
+                                ? "fas fa-star start-rating full"
+                                : "fas fa-star start-rating empty"
+                            }
+                          />
+                        ))}
                   </div>
                   <div className="reading-status-container">
                     <button

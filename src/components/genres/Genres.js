@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import GenresResultsList from "./GenresResultsList";
 import Navigation from "../shared/Navigation";
+import FeatherImg from "../shared/FeatherImg";
 
 export default function Genres(props) {
   return (
@@ -23,6 +24,7 @@ export default function Genres(props) {
         setWantList={props.setWantList}
         addNewCollectionItem={props.addNewCollectionItem}
       />
+      <FeatherImg />
     </div>
   );
 }

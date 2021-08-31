@@ -1,4 +1,5 @@
 import React from "react";
+import FeatherImg from "../shared/FeatherImg";
 import Navigation from "../shared/Navigation";
 import MyCollectionList from "./MyCollectionList";
 
@@ -21,6 +22,7 @@ export default function MyCollection(props) {
         wantList={props.wantList}
         addNewCollectionItem={props.addNewCollectionItem}
       />
+      <FeatherImg />
     </div>
   );
 }
