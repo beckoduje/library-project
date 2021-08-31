@@ -35,13 +35,14 @@ export default function MyCollectionList(props) {
                     {!book.authors ? (
                       <span className="book-author">-</span>
                     ) : (
+                      ("by&nbsp",
                       book.authors.map((author) => {
                         return (
                           <span key={Math.random()} className="book-author">
                             {author}
                           </span>
                         );
-                      })
+                      }))
                     )}
                   </div>
                   <div className="book-average-rating">
