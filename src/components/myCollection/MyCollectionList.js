@@ -6,9 +6,9 @@ export default function MyCollectionList(props) {
     props.myCollection
   );
 
-  // useEffect(() => {
-  //   setShowCollectionCategory(props.myCollection);
-  // }, []);
+  useEffect(() => {
+    setShowCollectionCategory(props.myCollection);
+  }, [props.myCollection]);
 
   return (
     <div className="results-container myCollection-container">
@@ -27,6 +27,7 @@ export default function MyCollectionList(props) {
                 <li
                   key={Math.random()}
                   className="results-list-item myCollection-list-item"
+                  data-id-number={book.id}
                 >
                   <h4 className="book-title">
                     {!book.title ? `-` : book.title}
@@ -84,7 +85,10 @@ export default function MyCollectionList(props) {
                       />
                     )}
                   </figure>
-                  <button className="remove-book-btn">
+                  <button
+                    className="remove-book-btn"
+                    onClick={() => props.removeCollectionItem(book.id)}
+                  >
                     <i className="fas fa-times"></i>
                   </button>
                 </li>

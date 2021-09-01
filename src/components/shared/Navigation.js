@@ -1,17 +1,14 @@
 import React from "react";
 import Search from "./Search";
-// import ThemeToggle from "../home/ThemeToggle";
+import GenresList from "./GenresList";
 
 import { Link } from "react-router-dom";
-import GenresList from "./GenresList";
 
 export default function Navigation(props) {
   return (
     <nav className="navigation">
-      {/* <ThemeToggle /> */}
       <Link to="/">
         <div className="logo">
-          {/* <i className="fas fa-book"></i> */}
           <i className="fas fa-book-open logo-image"></i>
           <span className="logo-name">library</span>
         </div>
@@ -44,5 +41,3 @@ export default function Navigation(props) {
     </nav>
   );
 }
-
-// Maknuto iz Search: setSearchedBooks={props.setSearchedBooks}

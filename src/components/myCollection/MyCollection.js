@@ -21,6 +21,7 @@ export default function MyCollection(props) {
         readingBooks={props.readingBooks}
         wantList={props.wantList}
         addNewCollectionItem={props.addNewCollectionItem}
+        removeCollectionItem={props.removeCollectionItem}
       />
       <FeatherImg />
     </div>

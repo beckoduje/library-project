@@ -20,7 +20,6 @@ function App() {
   const [wantList, setWantList] = useState([]);
   const [searchedBooks, setSearchedBooks] = useState([]);
   const [userInput, getUserInput] = useState();
-  // const [storedUserInput, setStoredUserInput] = useState();
   const [inputOK, setInputOK] = useState(true);
 
   const [selectedGenre, setSelectedGenre] = useState(1);
@@ -104,6 +103,13 @@ function App() {
     console.log(myCollection);
   }
 
+  function removeCollectionItem(id) {
+    setMyCollection(myCollection.filter((book) => book.id !== id));
+    setReadBooks(readBooks.filter((book) => book.id !== id));
+    setReadingBooks(readingBooks.filter((book) => book.id !== id));
+    setWantList(wantList.filter((book) => book.id !== id));
+  }
+
   // -------------------------- ALL COLLECTION --------------------------
   useEffect(() => {
     const myCollectionJSON = localStorage.getItem(MY_COLLECTION_KEY);
@@ -169,6 +175,7 @@ function App() {
             readingBooks={readingBooks}
             wantList={wantList}
             setSelectedGenre={setSelectedGenre}
+            removeCollectionItem={removeCollectionItem}
           />
         </Route>
         <Route path="/genres">

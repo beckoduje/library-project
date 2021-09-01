@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 export default function Search(props) {
+  let history = useHistory();
+
   return (
     <div className="search-container">
       <form action="#" method="post" className="search-form">
@@ -11,6 +13,13 @@ export default function Search(props) {
           type="text"
           className="search-input"
           onChange={(e) => props.getUserInput(e.target.value)} // ----------- dodan props.
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              props.getData(props.userInput);
+              history.push("/results");
+            }
+          }}
         />
         <Link
           to="/results"
