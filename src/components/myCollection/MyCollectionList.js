@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import MyCollectionListTest from "./MyCollectionListTest";
 import MyCollectionNav from "./MyCollectionNav";
 
 // //create your forceUpdate hook
@@ -11,9 +12,21 @@ export default function MyCollectionList(props) {
   // // call your hook here
   // const forceUpdate = useForceUpdate();
 
-  const [showCollectionCategory, setShowCollectionCategory] = useState(
-    props.myCollection
-  );
+  // const [showCollectionCategory, setShowCollectionCategory] = useState(
+  //   props.myCollection
+  // );
+  const [showCollectionCategory, setShowCollectionCategory] = useState("all");
+
+  /* 
+    {collection === "read" ? <Collection props={read} />
+        : collection === "wishlist" ? <Collection props={wishlist} />
+        : collection === "want" ? <Collection props={want} />
+        : <Collection props={all} />}
+        nije 
+        ternary ti je skracenica za if/else
+        ili else if 
+        mozes da imas koliko god imas uslova
+  */
 
   // useEffect(() => {
   //   setShowCollectionCategory(props.myCollection);
@@ -28,7 +41,32 @@ export default function MyCollectionList(props) {
         readingBooks={props.readingBooks}
         wantList={props.wantList}
       />
-      <ul className="results-list myCollection-list">
+      {showCollectionCategory === "all" ? (
+        <MyCollectionListTest
+          data={props.myCollection}
+          addNewCollectionItem={props.addNewCollectionItem}
+          removeCollectionItem={props.removeCollectionItem}
+        />
+      ) : showCollectionCategory === "read" ? (
+        <MyCollectionListTest
+          data={props.readBooks}
+          addNewCollectionItem={props.addNewCollectionItem}
+          removeCollectionItem={props.removeCollectionItem}
+        />
+      ) : showCollectionCategory === "reading" ? (
+        <MyCollectionListTest
+          data={props.readingBooks}
+          addNewCollectionItem={props.addNewCollectionItem}
+          removeCollectionItem={props.removeCollectionItem}
+        />
+      ) : (
+        <MyCollectionListTest
+          data={props.wantList}
+          addNewCollectionItem={props.addNewCollectionItem}
+          removeCollectionItem={props.removeCollectionItem}
+        />
+      )}
+      {/* <ul className="results-list myCollection-list">
         {showCollectionCategory.length === 0
           ? ""
           : showCollectionCategory.map((book) => {
@@ -103,7 +141,7 @@ export default function MyCollectionList(props) {
                 </li>
               );
             })}
-      </ul>
+      </ul> */}
     </div>
   );
 }

@@ -8,7 +8,8 @@ export default function MyCollectionNav(props) {
           <button
             className="myCollection-nav-list-shelve-button"
             onClick={() => {
-              props.setShowCollectionCategory(props.myCollection);
+              // props.setShowCollectionCategory(props.myCollection);
+              props.setShowCollectionCategory("all");
             }}
           >
             All
@@ -18,7 +19,8 @@ export default function MyCollectionNav(props) {
           <button
             className="myCollection-nav-list-shelve-button"
             onClick={() => {
-              props.setShowCollectionCategory(props.readBooks);
+              // props.setShowCollectionCategory(props.readBooks);
+              props.setShowCollectionCategory("read");
             }}
           >
             Read
@@ -28,7 +30,8 @@ export default function MyCollectionNav(props) {
           <button
             className="myCollection-nav-list-shelve-button"
             onClick={() => {
-              props.setShowCollectionCategory(props.readingBooks);
+              // props.setShowCollectionCategory(props.readingBooks);
+              props.setShowCollectionCategory("reading");
             }}
           >
             Reading
@@ -38,7 +41,8 @@ export default function MyCollectionNav(props) {
           <button
             className="myCollection-nav-list-shelve-button"
             onClick={() => {
-              props.setShowCollectionCategory(props.wantList);
+              // props.setShowCollectionCategory(props.wantList);
+              props.setShowCollectionCategory("want");
             }}
           >
             Want to read

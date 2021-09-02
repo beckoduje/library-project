@@ -73,6 +73,19 @@ function App() {
         //   setMyCollection([...myCollection, newCollectionItem]);
         // }
 
+        /*
+          !readBooks.some((book) => book.id === data.id) &&
+          !readingBooks.some((book) => book.id === data.id) &&
+          !wantList.some((book) => book.id === data.id)
+          vidim ovo te se ponavljda vise puta 
+          stavi to u neku variablu recimo 
+          let check = !readBooks.some((book) => book.id === data.id) &&
+          !readingBooks.some((book) => book.id === data.id) &&
+          !wantList.some((book) => book.id === data.id)
+          i onda uradis 
+          if ( e.target.dataset.collection === "read" && check) 
+        */
+
         if (!myCollection.some((book) => book.id === data.id)) {
           setMyCollection([...myCollection, newCollectionItem]);
         }
@@ -110,48 +123,39 @@ function App() {
     setWantList(wantList.filter((book) => book.id !== id));
   }
 
-  // -------------------------- ALL COLLECTION --------------------------
   useEffect(() => {
+    // -------------------------- ALL COLLECTION --------------------------
     const myCollectionJSON = localStorage.getItem(MY_COLLECTION_KEY);
     if (myCollectionJSON != null) setMyCollection(JSON.parse(myCollectionJSON));
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem(MY_COLLECTION_KEY, JSON.stringify(myCollection));
-    console.log(myCollection);
-  }, [myCollection]);
-
-  // -------------------------- READ COLLECTION --------------------------
-  useEffect(() => {
+    // -------------------------- READ COLLECTION --------------------------
     const myReadCollectionJSON = localStorage.getItem(READ_BOOKS_KEY);
     if (myReadCollectionJSON != null)
       setReadBooks(JSON.parse(myReadCollectionJSON));
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem(READ_BOOKS_KEY, JSON.stringify(readBooks));
-    console.log(readBooks);
-  }, [readBooks]);
-
-  // -------------------------- READING COLLECTION --------------------------
-  useEffect(() => {
+    // -------------------------- READING COLLECTION --------------------------
     const myReadingCollectionJSON = localStorage.getItem(READING_BOOKS_KEY);
     if (myReadingCollectionJSON != null)
       setReadingBooks(JSON.parse(myReadingCollectionJSON));
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem(READING_BOOKS_KEY, JSON.stringify(readingBooks));
-    console.log(readingBooks);
-  }, [readingBooks]);
-
-  // -------------------------- WANT COLLECTION --------------------------
-  useEffect(() => {
+    // -------------------------- WANT COLLECTION --------------------------
     const myWantCollectionJSON = localStorage.getItem(WANT_LIST_KEY);
     if (myWantCollectionJSON != null)
       setWantList(JSON.parse(myWantCollectionJSON));
   }, []);
-
+  // -------------------------- ALL COLLECTION --------------------------
+  useEffect(() => {
+    localStorage.setItem(MY_COLLECTION_KEY, JSON.stringify(myCollection));
+    console.log(myCollection);
+  }, [myCollection]);
+  // -------------------------- READ COLLECTION --------------------------
+  useEffect(() => {
+    localStorage.setItem(READ_BOOKS_KEY, JSON.stringify(readBooks));
+    console.log(readBooks);
+  }, [readBooks]);
+  // -------------------------- READING COLLECTION --------------------------
+  useEffect(() => {
+    localStorage.setItem(READING_BOOKS_KEY, JSON.stringify(readingBooks));
+    console.log(readingBooks);
+  }, [readingBooks]);
+  // -------------------------- WANT COLLECTION --------------------------
   useEffect(() => {
     localStorage.setItem(WANT_LIST_KEY, JSON.stringify(wantList));
     console.log(wantList);
