@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from "react";
 import MyCollectionNav from "./MyCollectionNav";
 
+// //create your forceUpdate hook
+// function useForceUpdate() {
+//   const [value, setValue] = useState(0); // integer state
+//   return () => setValue((value) => value + 1); // update the state to force render
+// }
+
 export default function MyCollectionList(props) {
+  // // call your hook here
+  // const forceUpdate = useForceUpdate();
+
   const [showCollectionCategory, setShowCollectionCategory] = useState(
     props.myCollection
   );
 
-  useEffect(() => {
-    setShowCollectionCategory(props.myCollection);
-  }, [props.myCollection]);
+  // useEffect(() => {
+  //   setShowCollectionCategory(props.myCollection);
+  // }, [props.myCollection]);
 
   return (
     <div className="results-container myCollection-container">
