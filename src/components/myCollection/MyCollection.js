@@ -1,7 +1,7 @@
 import React from "react";
 import FeatherImg from "../shared/FeatherImg";
 import Navigation from "../shared/Navigation";
-import MyCollectionList from "./MyCollectionList";
+import MyCollectionListContainer from "./MyCollectionListContainer";
 
 export default function MyCollection(props) {
   return (
@@ -15,7 +15,7 @@ export default function MyCollection(props) {
         results="results"
         setSelectedGenre={props.setSelectedGenre}
       />
-      <MyCollectionList
+      <MyCollectionListContainer
         myCollection={props.myCollection}
         readBooks={props.readBooks}
         readingBooks={props.readingBooks}
