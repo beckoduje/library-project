@@ -40,6 +40,11 @@
         padding: 1rem;
         margin-right: 1rem;
         cursor: pointer;
+
+        &.active {
+          background: white;
+          color: rgba(244, 163, 67, 1);
+        }
       }
     }
   }

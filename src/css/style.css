@@ -391,6 +391,11 @@
   cursor: pointer;
 }
 
+.myCollection-container .myCollection-nav .myCollection-nav-list .myCollection-nav-list-shelve-button.active {
+  background: white;
+  color: #f4a343;
+}
+
 .genres-list {
   visibility: hidden;
   position: absolute;

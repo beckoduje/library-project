@@ -6,7 +6,11 @@ export default function MyCollectionNav(props) {
       <ul className="myCollection-nav-list">
         <li className="myCollection-nav-list-shelve">
           <button
-            className="myCollection-nav-list-shelve-button"
+            className={
+              props.showCollectionCategory == "all"
+                ? "myCollection-nav-list-shelve-button active"
+                : "myCollection-nav-list-shelve-button"
+            }
             onClick={() => {
               // props.setShowCollectionCategory(props.myCollection);
               props.setShowCollectionCategory("all");
@@ -17,7 +21,11 @@ export default function MyCollectionNav(props) {
         </li>
         <li className="myCollection-nav-list-shelve">
           <button
-            className="myCollection-nav-list-shelve-button"
+            className={
+              props.showCollectionCategory == "read"
+                ? "myCollection-nav-list-shelve-button active"
+                : "myCollection-nav-list-shelve-button"
+            }
             onClick={() => {
               // props.setShowCollectionCategory(props.readBooks);
               props.setShowCollectionCategory("read");
@@ -28,7 +36,11 @@ export default function MyCollectionNav(props) {
         </li>
         <li className="myCollection-nav-list-shelve">
           <button
-            className="myCollection-nav-list-shelve-button"
+            className={
+              props.showCollectionCategory == "reading"
+                ? "myCollection-nav-list-shelve-button active"
+                : "myCollection-nav-list-shelve-button"
+            }
             onClick={() => {
               // props.setShowCollectionCategory(props.readingBooks);
               props.setShowCollectionCategory("reading");
@@ -39,7 +51,11 @@ export default function MyCollectionNav(props) {
         </li>
         <li className="myCollection-nav-list-shelve">
           <button
-            className="myCollection-nav-list-shelve-button"
+            className={
+              props.showCollectionCategory == "want"
+                ? "myCollection-nav-list-shelve-button active"
+                : "myCollection-nav-list-shelve-button"
+            }
             onClick={() => {
               // props.setShowCollectionCategory(props.wantList);
               props.setShowCollectionCategory("want");
