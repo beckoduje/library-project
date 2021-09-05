@@ -19,7 +19,7 @@ function App() {
   const [readingBooks, setReadingBooks] = useState([]);
   const [wantList, setWantList] = useState([]);
   const [searchedBooks, setSearchedBooks] = useState([]);
-  const [userInput, getUserInput] = useState();
+  const [userInput, getUserInput] = useState("reactJS");
   const [inputOK, setInputOK] = useState(true);
 
   const [selectedGenre, setSelectedGenre] = useState(1);

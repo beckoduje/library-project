@@ -43,6 +43,7 @@
 .navigation > a {
   text-decoration: none;
   cursor: pointer;
+  margin-right: 2.5rem;
 }
 
 .navigation .logo {
@@ -225,20 +226,6 @@
   font-size: 1.5rem;
   background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(60%, transparent), color-stop(60%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
   background-image: linear-gradient(to right, transparent 0%, transparent 60%, rgba(244, 163, 67, 0.8) 60%, rgba(244, 163, 67, 0.8) 100%);
-}
-
-.results-section .next-page {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 60%;
-}
-
-.results-section .next-page .load-next {
-  margin-left: 1.5rem;
 }
 
 .results-container {
@@ -470,6 +457,63 @@
   position: fixed;
   right: 2%;
   bottom: 10%;
+}
+
+.next-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 60%;
+}
+
+.next-page .pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+}
+
+.next-page .pagination li {
+  margin: 0.7rem;
+}
+
+.next-page .pagination li.active {
+  background: rgba(244, 163, 67, 0.65);
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.next-page .pagination li a {
+  color: white;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 *,
