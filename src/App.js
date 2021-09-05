@@ -27,19 +27,19 @@ function App() {
   function getData(userInput) {
     if (userInput && userInput.trim().length > 0) {
       setInputOK(true);
-      fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=0&maxResults=10&printType=books`
-      )
-        // fetch vraća Promise
-        // koristimo then metodu da nešto napravimo s promise
-        .then(function (response) {
-          // data moramo vratiti i na njemu koristiti json() metodu da dobijemo data (novi promise)
-          return response.json();
-        })
-        // onda opet then metodu
-        .then(function (data) {
-          setSearchedBooks(data); // ----------- maknut props.
-        });
+      // fetch(
+      //   `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=0&maxResults=10&printType=books`
+      // )
+      //   // fetch vraća Promise
+      //   // koristimo then metodu da nešto napravimo s promise
+      //   .then(function (response) {
+      //     // data moramo vratiti i na njemu koristiti json() metodu da dobijemo data (novi promise)
+      //     return response.json();
+      //   })
+      //   // onda opet then metodu
+      //   .then(function (data) {
+      //     setSearchedBooks(data); // ----------- maknut props.
+      //   });
       document.querySelector(".search-input").value = "";
     } else {
       setInputOK(false);

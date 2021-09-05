@@ -6,26 +6,57 @@ import ResultsList from "./ResultsList";
 
 export default function Results(props) {
   const [startIndex, setStartIndex] = useState(0);
-  function getNextVolume(userInput, startIndex) {
-    if (startIndex >= 0) {
-      // setStartIndex(startIndex + 10);
-      // setStartIndex((prevState) => {
-      //   return prevState + 10;
-      // });
-      fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${(
-          startIndex + 10
-        ).toString()}&maxResults=10&printType=books`
-      )
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          props.setSearchedBooks(data);
-        });
-      setStartIndex(startIndex + 10);
-    }
-  }
+
+  // fetching
+  useEffect(() => {
+    fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${props.userInput}&startIndex=${startIndex}&maxResults=10&printType=books`
+    )
+      // fetch vraća Promise
+      // koristimo then metodu da nešto napravimo s promise
+      .then(function (response) {
+        // data moramo vratiti i na njemu koristiti json() metodu da dobijemo data (novi promise)
+        return response.json();
+      })
+      // onda opet then metodu
+      .then(function (data) {
+        props.setSearchedBooks(data); // ----------- maknut props.
+      });
+  }, [startIndex]);
+
+  // ------------------------ zasada maknuto da probam fetch ode ----------------------
+  // function getNewVolume(userInput, startIndex) {
+  //   fetch(
+  //     `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${startIndex}&maxResults=10&printType=books`
+  //   )
+  //     .then(function (response) {
+  //       return response.json();
+  //     })
+  //     .then(function (data) {
+  //       props.setSearchedBooks(data);
+  //     });
+  // }
+
+  // function getNextVolume(userInput, startIndex) {
+  //   if (startIndex >= 0) {
+  //     // setStartIndex(startIndex + 10);
+  //     // setStartIndex((prevState) => {
+  //     //   return prevState + 10;
+  //     // });
+  //     fetch(
+  //       `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${(
+  //         startIndex + 10
+  //       ).toString()}&maxResults=10&printType=books`
+  //     )
+  //       .then(function (response) {
+  //         return response.json();
+  //       })
+  //       .then(function (data) {
+  //         props.setSearchedBooks(data);
+  //       });
+  //     setStartIndex(startIndex + 10);
+  //   }
+  // }
 
   // useEffect(() => {
   //   getNextVolume(props.userInput, startIndex);
@@ -35,26 +66,26 @@ export default function Results(props) {
   console.log(props.userInput);
   console.log(startIndex);
 
-  function getPreviousVolume(userInput, startIndex) {
-    if (startIndex > 0) {
-      // setStartIndex(startIndex - 10);
-      // setStartIndex((prevState) => {
-      //   return prevState - 10;
-      // });
-      fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${(
-          startIndex - 10
-        ).toString()}&maxResults=10&printType=books`
-      )
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          props.setSearchedBooks(data);
-        });
-      setStartIndex(startIndex - 10);
-    }
-  }
+  // function getPreviousVolume(userInput, startIndex) {
+  //   if (startIndex > 0) {
+  //     // setStartIndex(startIndex - 10);
+  //     // setStartIndex((prevState) => {
+  //     //   return prevState - 10;
+  //     // });
+  //     fetch(
+  //       `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${(
+  //         startIndex - 10
+  //       ).toString()}&maxResults=10&printType=books`
+  //     )
+  //       .then(function (response) {
+  //         return response.json();
+  //       })
+  //       .then(function (data) {
+  //         props.setSearchedBooks(data);
+  //       });
+  //     setStartIndex(startIndex - 10);
+  //   }
+  // }
 
   // useEffect(() => {
   //   getPreviousVolume(props.userInput, startIndex);
@@ -84,8 +115,8 @@ export default function Results(props) {
         searchedBooks={props.searchedBooks}
         userInput={props.userInput}
         startIndex={startIndex}
-        getNextVolume={getNextVolume}
-        getPreviousVolume={getPreviousVolume}
+        setStartIndex={setStartIndex}
+        // getNewVolume={getNewVolume}
       />
       <FeatherImg />
     </div>
