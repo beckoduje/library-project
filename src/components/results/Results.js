@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FeatherImg from "../shared/FeatherImg";
 import Navigation from "../shared/Navigation";
+import Paginations from "../shared/Paginations";
 import ResultsList from "./ResultsList";
 
 export default function Results(props) {
@@ -79,24 +80,13 @@ export default function Results(props) {
         setWantList={props.setWantList}
         addNewCollectionItem={props.addNewCollectionItem}
       />
-      <div className="next-page">
-        <span
-          className="load load-previous"
-          onClick={() => {
-            getPreviousVolume(props.userInput, startIndex);
-          }}
-        >
-          <i className="fas fa-arrow-alt-circle-left"></i>
-        </span>
-        <span
-          className="load load-next"
-          onClick={() => {
-            getNextVolume(props.userInput, startIndex);
-          }}
-        >
-          <i className="fas fa-arrow-alt-circle-right"></i>
-        </span>
-      </div>
+      <Paginations
+        searchedBooks={props.searchedBooks}
+        userInput={props.userInput}
+        startIndex={startIndex}
+        getNextVolume={getNextVolume}
+        getPreviousVolume={getPreviousVolume}
+      />
       <FeatherImg />
     </div>
   );

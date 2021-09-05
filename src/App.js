@@ -86,29 +86,37 @@ function App() {
           if ( e.target.dataset.collection === "read" && check) 
         */
 
+        const check =
+          !readBooks.some((book) => book.id === data.id) &&
+          !readingBooks.some((book) => book.id === data.id) &&
+          !wantList.some((book) => book.id === data.id);
+
         if (!myCollection.some((book) => book.id === data.id)) {
           setMyCollection([...myCollection, newCollectionItem]);
         }
 
         if (
           e.target.dataset.collection === "read" &&
-          !readBooks.some((book) => book.id === data.id) &&
-          !readingBooks.some((book) => book.id === data.id) &&
-          !wantList.some((book) => book.id === data.id)
+          check
+          // !readBooks.some((book) => book.id === data.id) &&
+          // !readingBooks.some((book) => book.id === data.id) &&
+          // !wantList.some((book) => book.id === data.id)
         ) {
           setReadBooks([...readBooks, newCollectionItem]);
         } else if (
           e.target.dataset.collection === "reading" &&
-          !readBooks.some((book) => book.id === data.id) &&
-          !readingBooks.some((book) => book.id === data.id) &&
-          !wantList.some((book) => book.id === data.id)
+          check
+          // !readBooks.some((book) => book.id === data.id) &&
+          // !readingBooks.some((book) => book.id === data.id) &&
+          // !wantList.some((book) => book.id === data.id)
         ) {
           setReadingBooks([...readingBooks, newCollectionItem]);
         } else if (
           e.target.dataset.collection === "want" &&
-          !readBooks.some((book) => book.id === data.id) &&
-          !readingBooks.some((book) => book.id === data.id) &&
-          !wantList.some((book) => book.id === data.id)
+          check
+          // !readBooks.some((book) => book.id === data.id) &&
+          // !readingBooks.some((book) => book.id === data.id) &&
+          // !wantList.some((book) => book.id === data.id)
         ) {
           setWantList([...wantList, newCollectionItem]);
         }

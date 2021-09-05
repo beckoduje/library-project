@@ -1,5 +1,6 @@
 .results-section {
   min-height: 100vh;
+  padding-bottom: 5rem;
   font-size: 1.5rem;
   background-image: linear-gradient(
     to right,
@@ -12,6 +13,7 @@
   .next-page {
     display: flex;
     justify-content: center;
+    width: 60%;
 
     .load-next {
       margin-left: 1.5rem;

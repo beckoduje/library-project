@@ -221,6 +221,7 @@
 
 .results-section {
   min-height: 100vh;
+  padding-bottom: 5rem;
   font-size: 1.5rem;
   background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(60%, transparent), color-stop(60%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
   background-image: linear-gradient(to right, transparent 0%, transparent 60%, rgba(244, 163, 67, 0.8) 60%, rgba(244, 163, 67, 0.8) 100%);
@@ -233,6 +234,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 60%;
 }
 
 .results-section .next-page .load-next {
@@ -251,6 +253,7 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   padding: 8rem;
+  padding-bottom: 0;
 }
 
 .results-container .results-list {
