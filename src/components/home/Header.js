@@ -10,7 +10,6 @@ export default function Header(props) {
         getData={props.getData}
         getUserInput={props.getUserInput}
         userInput={props.userInput}
-        // inputOK={props.inputOK}
       />
     </header>
   );

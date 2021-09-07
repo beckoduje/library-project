@@ -11,7 +11,6 @@ export default function SingleBook(props) {
         setSearchedBooks={props.setSearchedBooks}
         getUserInput={props.getUserInput}
         userInput={props.userInput}
-        results="results"
         setSelectedGenre={props.setSelectedGenre}
       />
       <SingleBookCard searchedBooks={props.searchedBooks} />

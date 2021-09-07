@@ -12,7 +12,6 @@ export default function MyCollectionNav(props) {
                 : "myCollection-nav-list-shelve-button"
             }
             onClick={() => {
-              // props.setShowCollectionCategory(props.myCollection);
               props.setShowCollectionCategory("all");
             }}
           >
@@ -27,7 +26,6 @@ export default function MyCollectionNav(props) {
                 : "myCollection-nav-list-shelve-button"
             }
             onClick={() => {
-              // props.setShowCollectionCategory(props.readBooks);
               props.setShowCollectionCategory("read");
             }}
           >
@@ -42,7 +40,6 @@ export default function MyCollectionNav(props) {
                 : "myCollection-nav-list-shelve-button"
             }
             onClick={() => {
-              // props.setShowCollectionCategory(props.readingBooks);
               props.setShowCollectionCategory("reading");
             }}
           >
@@ -57,7 +54,6 @@ export default function MyCollectionNav(props) {
                 : "myCollection-nav-list-shelve-button"
             }
             onClick={() => {
-              // props.setShowCollectionCategory(props.wantList);
               props.setShowCollectionCategory("want");
             }}
           >

@@ -7,8 +7,6 @@ export default function Paginations(props) {
   const handlePageChange = (pageNumber) => {
     getActivePage(pageNumber);
     props.setStartIndex((pageNumber - 1) * 10);
-    // props.getNewVolume(props.userInput, (pageNumber - 1) * 10);
-    console.log((pageNumber - 1) * 10);
   };
 
   return (

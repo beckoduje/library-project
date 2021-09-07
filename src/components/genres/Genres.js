@@ -11,9 +11,7 @@ export default function Genres(props) {
         getData={props.getData}
         getUserInput={props.getUserInput}
         userInput={props.userInput}
-        inputOK={props.inputOK}
         setSelectedGenre={props.setSelectedGenre}
-        results="results"
       />
       <GenresResultsList
         selectedGenre={props.selectedGenre}

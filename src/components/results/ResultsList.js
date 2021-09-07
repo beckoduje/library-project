@@ -23,7 +23,6 @@ export default function ResultsList(props) {
                     </Link>
                   </h4>
                   <div className="book-authors-cont">
-                    {/* by&nbsp; */}
                     {!book.volumeInfo.authors ? (
                       <span className="book-author">-</span>
                     ) : (
@@ -37,9 +36,6 @@ export default function ResultsList(props) {
                     )}
                   </div>
                   <div className="book-average-rating">
-                    {/* {!book.volumeInfo.averageRating
-                      ? `-`
-                      : book.volumeInfo.averageRating} */}
                     {!book.volumeInfo.averageRating
                       ? `-`
                       : Array.from({ length: 5 }, (v, i) => (
