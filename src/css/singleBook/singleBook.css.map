@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,oBAAoB,CAAC;EACnB,UAAU,EAAE,KAAK;EACjB,cAAc,EAAE,IAAI;EACpB,SAAS,EAAE,MAAM;EACjB,gBAAgB,EAAE,qHAMjB;CACF",
+    "sources": [
+        "singleBook.scss"
+    ],
+    "names": [],
+    "file": "singleBook.css"
+}

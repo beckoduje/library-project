@@ -12,7 +12,6 @@ export default function Home(props) {
         getData={props.getData}
         getUserInput={props.getUserInput}
         userInput={props.userInput}
-        inputOK={props.inputOK}
       />
       <HomeQuotes />
       <FeatherImg />

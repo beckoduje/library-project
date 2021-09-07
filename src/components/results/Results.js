@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import FeatherImg from "../shared/FeatherImg";
 import Navigation from "../shared/Navigation";
+import Paginations from "../shared/Paginations";
 import ResultsList from "./ResultsList";
 
 export default function Results(props) {
   const [startIndex, setStartIndex] = useState(0);
-  function getNextVolume(userInput, startIndex) {
-    if (startIndex >= 0) {
-      // setStartIndex(startIndex + 10);
-      // setStartIndex((prevState) => {
-      //   return prevState + 10;
-      // });
+
+  // fetching
+  useEffect(() => {
+    if (props.searchedBooks.length < 1) {
+      return;
+    } else {
       fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${(
-          startIndex + 10
-        ).toString()}&maxResults=10&printType=books`
+        `https://www.googleapis.com/books/v1/volumes?q=${props.userInput}&startIndex=${startIndex}&maxResults=10&printType=books`
       )
         .then(function (response) {
           return response.json();
@@ -22,42 +21,8 @@ export default function Results(props) {
         .then(function (data) {
           props.setSearchedBooks(data);
         });
-      setStartIndex(startIndex + 10);
     }
-  }
-
-  // useEffect(() => {
-  //   getNextVolume(props.userInput, startIndex);
-  // }, []);
-
-  console.log(props.searchedBooks, "hej haj");
-  console.log(props.userInput);
-  console.log(startIndex);
-
-  function getPreviousVolume(userInput, startIndex) {
-    if (startIndex > 0) {
-      // setStartIndex(startIndex - 10);
-      // setStartIndex((prevState) => {
-      //   return prevState - 10;
-      // });
-      fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${(
-          startIndex - 10
-        ).toString()}&maxResults=10&printType=books`
-      )
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          props.setSearchedBooks(data);
-        });
-      setStartIndex(startIndex - 10);
-    }
-  }
-
-  // useEffect(() => {
-  //   getPreviousVolume(props.userInput, startIndex);
-  // }, []);
+  }, [startIndex]);
 
   return (
     <div className="results-section">
@@ -66,8 +31,6 @@ export default function Results(props) {
         getData={props.getData}
         getUserInput={props.getUserInput}
         userInput={props.userInput}
-        inputOK={props.inputOK}
-        results="results"
         setSelectedGenre={props.setSelectedGenre}
       />
       <ResultsList
@@ -79,27 +42,76 @@ export default function Results(props) {
         setWantList={props.setWantList}
         addNewCollectionItem={props.addNewCollectionItem}
       />
-      <div className="next-page">
-        <span
-          className="load load-previous"
-          onClick={() => {
-            getPreviousVolume(props.userInput, startIndex);
-          }}
-        >
-          <i className="fas fa-arrow-alt-circle-left"></i>
-        </span>
-        <span
-          className="load load-next"
-          onClick={() => {
-            getNextVolume(props.userInput, startIndex);
-          }}
-        >
-          <i className="fas fa-arrow-alt-circle-right"></i>
-        </span>
-      </div>
+      <Paginations
+        searchedBooks={props.searchedBooks}
+        userInput={props.userInput}
+        startIndex={startIndex}
+        setStartIndex={setStartIndex}
+      />
       <FeatherImg />
     </div>
   );
 }
 
-// Maka iz Navigation: setSearchedBooks={props.setSearchedBooks}
+// ------------------------ zasada maknuto da probam fetch ode ----------------------
+// function getNewVolume(userInput, startIndex) {
+//   fetch(
+//     `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${startIndex}&maxResults=10&printType=books`
+//   )
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       props.setSearchedBooks(data);
+//     });
+// }
+
+// function getNextVolume(userInput, startIndex) {
+//   if (startIndex >= 0) {
+//     // setStartIndex(startIndex + 10);
+//     // setStartIndex((prevState) => {
+//     //   return prevState + 10;
+//     // });
+//     fetch(
+//       `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${(
+//         startIndex + 10
+//       ).toString()}&maxResults=10&printType=books`
+//     )
+//       .then(function (response) {
+//         return response.json();
+//       })
+//       .then(function (data) {
+//         props.setSearchedBooks(data);
+//       });
+//     setStartIndex(startIndex + 10);
+//   }
+// }
+
+// useEffect(() => {
+//   getNextVolume(props.userInput, startIndex);
+// }, []);
+
+// function getPreviousVolume(userInput, startIndex) {
+//   if (startIndex > 0) {
+//     // setStartIndex(startIndex - 10);
+//     // setStartIndex((prevState) => {
+//     //   return prevState - 10;
+//     // });
+//     fetch(
+//       `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${(
+//         startIndex - 10
+//       ).toString()}&maxResults=10&printType=books`
+//     )
+//       .then(function (response) {
+//         return response.json();
+//       })
+//       .then(function (data) {
+//         props.setSearchedBooks(data);
+//       });
+//     setStartIndex(startIndex - 10);
+//   }
+// }
+
+// useEffect(() => {
+//   getPreviousVolume(props.userInput, startIndex);
+// }, []);

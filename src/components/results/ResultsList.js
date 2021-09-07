@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function ResultsList(props) {
   return (
@@ -14,10 +15,14 @@ export default function ResultsList(props) {
                   data-id-number={book.id}
                 >
                   <h4 className="book-title">
-                    {!book.volumeInfo.title ? `-` : book.volumeInfo.title}
+                    <Link
+                      className="results-list-item-link"
+                      to={"/book/:" + book.id}
+                    >
+                      {!book.volumeInfo.title ? `-` : book.volumeInfo.title}
+                    </Link>
                   </h4>
                   <div className="book-authors-cont">
-                    {/* by&nbsp; */}
                     {!book.volumeInfo.authors ? (
                       <span className="book-author">-</span>
                     ) : (
@@ -31,9 +36,6 @@ export default function ResultsList(props) {
                     )}
                   </div>
                   <div className="book-average-rating">
-                    {/* {!book.volumeInfo.averageRating
-                      ? `-`
-                      : book.volumeInfo.averageRating} */}
                     {!book.volumeInfo.averageRating
                       ? `-`
                       : Array.from({ length: 5 }, (v, i) => (
@@ -87,6 +89,12 @@ export default function ResultsList(props) {
                       />
                     )}
                   </figure>
+                  <Link
+                    className="results-list-item-link sticker"
+                    to={"/book/:" + book.id}
+                  >
+                    About
+                  </Link>
                 </li>
               );
             })}
@@ -94,16 +102,3 @@ export default function ResultsList(props) {
     </div>
   );
 }
-// {Array.from({ length: 5 }, (v, i) => (
-//   <i
-//     key={`star_${i + 1}`}
-//     className={i < book.volumeInfo.averageRating ? "fas fa-star start-rating full" : "fas fa-star start-rating empty"}
-//   />
-// ))}
-
-// <i className="fas fa-star" />
-// className={
-//   props.inputOK // ----------- dodan props.
-//     ? "search-container-error-message"
-//     : "search-container-error-message show"
-// }

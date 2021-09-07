@@ -8,6 +8,7 @@ export default function MyCollectionListContainer(props) {
   return (
     <div className="results-container myCollection-container">
       <MyCollectionNav
+        showCollectionCategory={showCollectionCategory}
         setShowCollectionCategory={setShowCollectionCategory}
         myCollection={props.myCollection}
         readBooks={props.readBooks}

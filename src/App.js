@@ -1,67 +1,51 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./css/style.css";
 
 import Home from "./components/home/Home";
 import Results from "./components/results/Results";
 import MyCollection from "./components/myCollection/MyCollection";
-
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Genres from "./components/genres/Genres";
+import SingleBook from "./components/singleBook/SingleBook";
 
 function App() {
   const MY_COLLECTION_KEY = "myCollection";
   const READ_BOOKS_KEY = "readBooks";
   const READING_BOOKS_KEY = "readingBooks";
   const WANT_LIST_KEY = "wishList";
+
   const [myCollection, setMyCollection] = useState([]);
   const [readBooks, setReadBooks] = useState([]);
   const [readingBooks, setReadingBooks] = useState([]);
   const [wantList, setWantList] = useState([]);
   const [searchedBooks, setSearchedBooks] = useState([]);
-  const [userInput, getUserInput] = useState();
-  const [inputOK, setInputOK] = useState(true);
-
+  const [userInput, getUserInput] = useState("reactJS");
   const [selectedGenre, setSelectedGenre] = useState(1);
 
   function getData(userInput) {
     if (userInput && userInput.trim().length > 0) {
-      setInputOK(true);
       fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=0&maxResults=10&printType=books`
       )
-        // fetch vraća Promise
-        // koristimo then metodu da nešto napravimo s promise
         .then(function (response) {
-          // data moramo vratiti i na njemu koristiti json() metodu da dobijemo data (novi promise)
           return response.json();
         })
-        // onda opet then metodu
         .then(function (data) {
-          setSearchedBooks(data); // ----------- maknut props.
+          setSearchedBooks(data);
         });
       document.querySelector(".search-input").value = "";
-    } else {
-      setInputOK(false);
-      return;
     }
   }
-
-  console.log(searchedBooks);
 
   function addNewCollectionItem(e) {
     let volumeID = e.target.closest(".results-list-item").dataset.idNumber;
 
     fetch(`https://www.googleapis.com/books/v1/volumes/${volumeID}`)
-      // fetch vraća Promise
-      // koristimo then metodu da nešto napravimo s promise
       .then(function (response) {
-        // data moramo vratiti i na njemu koristiti json() metodu da dobijemo data (novi promise)
         return response.json();
       })
-      // onda opet then metodu
       .then(function (data) {
-        console.log(data.id);
         const newCollectionItem = {
           id: data.id,
           title: data.volumeInfo.title,
@@ -69,51 +53,23 @@ function App() {
           averageRating: data.volumeInfo.averageRating,
           imageLinks: data.volumeInfo.imageLinks.thumbnail,
         };
-        // if (myCollection.indexOf(newCollectionItem) === -1) {
-        //   setMyCollection([...myCollection, newCollectionItem]);
-        // }
 
-        /*
+        const check =
           !readBooks.some((book) => book.id === data.id) &&
           !readingBooks.some((book) => book.id === data.id) &&
-          !wantList.some((book) => book.id === data.id)
-          vidim ovo te se ponavljda vise puta 
-          stavi to u neku variablu recimo 
-          let check = !readBooks.some((book) => book.id === data.id) &&
-          !readingBooks.some((book) => book.id === data.id) &&
-          !wantList.some((book) => book.id === data.id)
-          i onda uradis 
-          if ( e.target.dataset.collection === "read" && check) 
-        */
+          !wantList.some((book) => book.id === data.id);
 
         if (!myCollection.some((book) => book.id === data.id)) {
           setMyCollection([...myCollection, newCollectionItem]);
         }
-
-        if (
-          e.target.dataset.collection === "read" &&
-          !readBooks.some((book) => book.id === data.id) &&
-          !readingBooks.some((book) => book.id === data.id) &&
-          !wantList.some((book) => book.id === data.id)
-        ) {
+        if (e.target.dataset.collection === "read" && check) {
           setReadBooks([...readBooks, newCollectionItem]);
-        } else if (
-          e.target.dataset.collection === "reading" &&
-          !readBooks.some((book) => book.id === data.id) &&
-          !readingBooks.some((book) => book.id === data.id) &&
-          !wantList.some((book) => book.id === data.id)
-        ) {
+        } else if (e.target.dataset.collection === "reading" && check) {
           setReadingBooks([...readingBooks, newCollectionItem]);
-        } else if (
-          e.target.dataset.collection === "want" &&
-          !readBooks.some((book) => book.id === data.id) &&
-          !readingBooks.some((book) => book.id === data.id) &&
-          !wantList.some((book) => book.id === data.id)
-        ) {
+        } else if (e.target.dataset.collection === "want" && check) {
           setWantList([...wantList, newCollectionItem]);
         }
       });
-    console.log(myCollection);
   }
 
   function removeCollectionItem(id) {
@@ -143,27 +99,40 @@ function App() {
   // -------------------------- ALL COLLECTION --------------------------
   useEffect(() => {
     localStorage.setItem(MY_COLLECTION_KEY, JSON.stringify(myCollection));
-    console.log(myCollection);
   }, [myCollection]);
   // -------------------------- READ COLLECTION --------------------------
   useEffect(() => {
     localStorage.setItem(READ_BOOKS_KEY, JSON.stringify(readBooks));
-    console.log(readBooks);
   }, [readBooks]);
   // -------------------------- READING COLLECTION --------------------------
   useEffect(() => {
     localStorage.setItem(READING_BOOKS_KEY, JSON.stringify(readingBooks));
-    console.log(readingBooks);
   }, [readingBooks]);
   // -------------------------- WANT COLLECTION --------------------------
   useEffect(() => {
     localStorage.setItem(WANT_LIST_KEY, JSON.stringify(wantList));
-    console.log(wantList);
   }, [wantList]);
 
   return (
     <Router>
       <Switch>
+        <Route path="/book/:id">
+          <SingleBook
+            searchedBooks={searchedBooks}
+            setSearchedBooks={setSearchedBooks}
+            getData={getData}
+            getUserInput={getUserInput}
+            userInput={userInput}
+            myCollection={myCollection}
+            setMyCollection={setMyCollection}
+            addNewCollectionItem={addNewCollectionItem}
+            readBooks={readBooks}
+            readingBooks={readingBooks}
+            wantList={wantList}
+            setSelectedGenre={setSelectedGenre}
+            removeCollectionItem={removeCollectionItem}
+          />
+        </Route>
         <Route path="/collection">
           <MyCollection
             searchedBooks={searchedBooks}
@@ -171,7 +140,6 @@ function App() {
             getData={getData}
             getUserInput={getUserInput}
             userInput={userInput}
-            inputOK={inputOK}
             myCollection={myCollection}
             setMyCollection={setMyCollection}
             addNewCollectionItem={addNewCollectionItem}
@@ -189,7 +157,6 @@ function App() {
             getData={getData}
             getUserInput={getUserInput}
             userInput={userInput}
-            inputOK={inputOK}
             addNewCollectionItem={addNewCollectionItem}
             selectedGenre={selectedGenre}
             setSelectedGenre={setSelectedGenre}
@@ -202,7 +169,6 @@ function App() {
             getData={getData}
             getUserInput={getUserInput}
             userInput={userInput}
-            inputOK={inputOK}
             myCollection={myCollection}
             setMyCollection={setMyCollection}
             setReadBooks={setReadBooks}
@@ -218,7 +184,6 @@ function App() {
             getData={getData}
             getUserInput={getUserInput}
             userInput={userInput}
-            inputOK={inputOK}
             setSelectedGenre={setSelectedGenre}
           />
         </Route>

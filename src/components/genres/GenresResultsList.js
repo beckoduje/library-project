@@ -4,11 +4,7 @@ import { genresData } from "../genresData.js";
 
 export default function GenresResultsList(props) {
   let selectedGen = props.selectedGenre - 1;
-  console.log(selectedGen);
-  console.log(genresData[selectedGen]);
-  console.log(props.searchedBooks);
 
-  // console.log(genresData[selectedGen].description);
   return (
     <div className="results-container genres">
       <div className="genre-description-container">

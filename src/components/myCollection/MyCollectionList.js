@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function MyCollectionList(props) {
   return (
@@ -12,7 +13,11 @@ export default function MyCollectionList(props) {
                 className="results-list-item myCollection-list-item"
                 data-id-number={book.id}
               >
-                <h4 className="book-title">{!book.title ? `-` : book.title}</h4>
+                <h4 className="book-title">
+                  <Link to={"/book/:" + book.id}>
+                    {!book.title ? `-` : book.title}
+                  </Link>
+                </h4>
                 <div className="book-authors-cont">
                   {!book.authors ? (
                     <span className="book-author">-</span>
@@ -70,6 +75,12 @@ export default function MyCollectionList(props) {
                 >
                   <i className="fas fa-times"></i>
                 </button>
+                <Link
+                  className="results-list-item-link sticker"
+                  to={"/book/:" + book.id}
+                >
+                  About
+                </Link>
               </li>
             );
           })}

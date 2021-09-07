@@ -1,4 +1,4 @@
-.results-section {
+.single-book-section {
   min-height: 100vh;
   padding-bottom: 5rem;
   font-size: 1.5rem;
@@ -9,15 +9,4 @@
     rgba(244, 163, 67, 0.8) 60%,
     rgba(244, 163, 67, 0.8) 100%
   );
-
-  // prebačeno u svoj file za sada
-  // .next-page {
-  //   display: flex;
-  //   justify-content: center;
-  //   width: 60%;
-
-  //   .load-next {
-  //     margin-left: 1.5rem;
-  //   }
-  // }
 }

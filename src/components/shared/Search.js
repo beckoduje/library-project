@@ -12,7 +12,7 @@ export default function Search(props) {
           placeholder="Search here..."
           type="text"
           className="search-input"
-          onChange={(e) => props.getUserInput(e.target.value)} // ----------- dodan props.
+          onChange={(e) => props.getUserInput(e.target.value)}
           onKeyPress={(e) => {
             if (e.key === "Enter") {
               e.preventDefault();
@@ -25,11 +25,10 @@ export default function Search(props) {
           to="/results"
           className="search-button-link"
           onClick={() => {
-            // props.getUserInput(document.querySelector(".search-input").value);  ------------ prebačeno radi next volume
+            props.getUserInput(document.querySelector(".search-input").value);
             console.log(props.userInput);
-            // ne treba ---- props.setStoredUserInput(props.userInput);
-            props.getData(props.userInput); // ----------- dodan props.
-            //props.getUserInput("");  ----------- dodan props.
+            props.getData(props.userInput);
+            props.getUserInput("");
           }}
         >
           <button className="search-button" type="button">
@@ -37,15 +36,6 @@ export default function Search(props) {
           </button>
         </Link>
       </form>
-      <div
-        className={
-          props.inputOK // ----------- dodan props.
-            ? "search-container-error-message"
-            : "search-container-error-message show"
-        }
-      >
-        At least one symbol required!
-      </div>
     </div>
   );
 }
