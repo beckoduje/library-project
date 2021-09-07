@@ -95,10 +95,10 @@ export default function Results(props) {
     <div className="results-section">
       <Navigation
         setSearchedBooks={props.setSearchedBooks}
-        getData={props.getData}
+        // getData={props.getData}
         getUserInput={props.getUserInput}
         userInput={props.userInput}
-        inputOK={props.inputOK}
+        // inputOK={props.inputOK}
         results="results"
         setSelectedGenre={props.setSelectedGenre}
       />

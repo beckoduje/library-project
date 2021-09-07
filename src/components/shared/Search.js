@@ -16,7 +16,7 @@ export default function Search(props) {
           onKeyPress={(e) => {
             if (e.key === "Enter") {
               e.preventDefault();
-              props.getData(props.userInput);
+              // props.getData(props.userInput);
               history.push("/results");
             }
           }}
@@ -28,8 +28,8 @@ export default function Search(props) {
             // props.getUserInput(document.querySelector(".search-input").value);  ------------ prebačeno radi next volume
             console.log(props.userInput);
             // ne treba ---- props.setStoredUserInput(props.userInput);
-            props.getData(props.userInput); // ----------- dodan props.
-            //props.getUserInput("");  ----------- dodan props.
+            props.getData(props.userInput); //---------- dodan props.
+            props.getUserInput(""); // ----------- dodan props.
           }}
         >
           <button className="search-button" type="button">
@@ -37,15 +37,6 @@ export default function Search(props) {
           </button>
         </Link>
       </form>
-      <div
-        className={
-          props.inputOK // ----------- dodan props.
-            ? "search-container-error-message"
-            : "search-container-error-message show"
-        }
-      >
-        At least one symbol required!
-      </div>
     </div>
   );
 }

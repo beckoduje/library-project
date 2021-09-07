@@ -8,6 +8,7 @@ import MyCollection from "./components/myCollection/MyCollection";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Genres from "./components/genres/Genres";
+import SingleBook from "./components/singleBook/SingleBook";
 
 function App() {
   const MY_COLLECTION_KEY = "myCollection";
@@ -20,13 +21,12 @@ function App() {
   const [wantList, setWantList] = useState([]);
   const [searchedBooks, setSearchedBooks] = useState([]);
   const [userInput, getUserInput] = useState("reactJS");
-  const [inputOK, setInputOK] = useState(true);
+  // const [inputOK, setInputOK] = useState(true);
 
   const [selectedGenre, setSelectedGenre] = useState(1);
 
   function getData(userInput) {
     if (userInput && userInput.trim().length > 0) {
-      setInputOK(true);
       // fetch(
       //   `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=0&maxResults=10&printType=books`
       // )
@@ -41,9 +41,6 @@ function App() {
       //     setSearchedBooks(data); // ----------- maknut props.
       //   });
       document.querySelector(".search-input").value = "";
-    } else {
-      setInputOK(false);
-      return;
     }
   }
 
@@ -172,14 +169,32 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/book/:id">
+          <SingleBook
+            searchedBooks={searchedBooks}
+            setSearchedBooks={setSearchedBooks}
+            // getData={getData}
+            getUserInput={getUserInput}
+            userInput={userInput}
+            // inputOK={inputOK}
+            myCollection={myCollection}
+            setMyCollection={setMyCollection}
+            addNewCollectionItem={addNewCollectionItem}
+            readBooks={readBooks}
+            readingBooks={readingBooks}
+            wantList={wantList}
+            setSelectedGenre={setSelectedGenre}
+            removeCollectionItem={removeCollectionItem}
+          />
+        </Route>
         <Route path="/collection">
           <MyCollection
             searchedBooks={searchedBooks}
             setSearchedBooks={setSearchedBooks}
-            getData={getData}
+            // getData={getData}
             getUserInput={getUserInput}
             userInput={userInput}
-            inputOK={inputOK}
+            // inputOK={inputOK}
             myCollection={myCollection}
             setMyCollection={setMyCollection}
             addNewCollectionItem={addNewCollectionItem}
@@ -194,10 +209,10 @@ function App() {
           <Genres
             searchedBooks={searchedBooks}
             setSearchedBooks={setSearchedBooks}
-            getData={getData}
+            // getData={getData}
             getUserInput={getUserInput}
             userInput={userInput}
-            inputOK={inputOK}
+            // inputOK={inputOK}
             addNewCollectionItem={addNewCollectionItem}
             selectedGenre={selectedGenre}
             setSelectedGenre={setSelectedGenre}
@@ -210,7 +225,7 @@ function App() {
             getData={getData}
             getUserInput={getUserInput}
             userInput={userInput}
-            inputOK={inputOK}
+            // inputOK={inputOK}
             myCollection={myCollection}
             setMyCollection={setMyCollection}
             setReadBooks={setReadBooks}
@@ -226,7 +241,7 @@ function App() {
             getData={getData}
             getUserInput={getUserInput}
             userInput={userInput}
-            inputOK={inputOK}
+            // inputOK={inputOK}
             setSelectedGenre={setSelectedGenre}
           />
         </Route>

@@ -55,15 +55,4 @@
       }
     }
   }
-
-  .search-container-error-message {
-    display: none;
-    position: absolute;
-    bottom: -2.5rem;
-    color: red;
-
-    &.show {
-      display: block;
-    }
-  }
 }

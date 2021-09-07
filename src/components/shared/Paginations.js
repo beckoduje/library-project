@@ -29,24 +29,3 @@ export default function Paginations(props) {
     </div>
   );
 }
-
-/* 
-<div className="next-page">
-        <span
-          className="load load-previous"
-          onClick={() => {
-            getPreviousVolume(props.userInput, startIndex);
-          }}
-        >
-          <i className="fas fa-arrow-alt-circle-left"></i>
-        </span>
-        <span
-          className="load load-next"
-          onClick={() => {
-            getNextVolume(props.userInput, startIndex);
-          }}
-        >
-          <i className="fas fa-arrow-alt-circle-right"></i>
-        </span>
-      </div>
-*/

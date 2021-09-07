@@ -18,7 +18,7 @@ export default function Navigation(props) {
         getData={props.getData}
         getUserInput={props.getUserInput}
         userInput={props.userInput}
-        inputOK={props.inputOK}
+        // inputOK={props.inputOK}
       />
       <ul className="navigation-links">
         <li className="navigation-link">
