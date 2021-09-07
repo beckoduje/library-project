@@ -12,6 +12,7 @@ export default function Results(props) {
     if (props.searchedBooks.length < 1) {
       return;
     } else {
+      console.log(`${props.userInput} iz fetcha`);
       fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${props.userInput}&startIndex=${startIndex}&maxResults=10&printType=books`
       )
