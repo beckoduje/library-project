@@ -22,8 +22,12 @@ export default function Results(props) {
         .then(function (data) {
           props.setSearchedBooks(data);
         });
+      console.log("drugi fetch");
     }
   }, [startIndex]);
+
+  console.log(props.searchedBooks);
+  console.log(props.userInput);
 
   return (
     <div className="results-section">

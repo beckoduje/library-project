@@ -9,9 +9,9 @@ export default function SingleBookDescription(props) {
   );
   return (
     <div className="single-book-description">
-      {!bookMatch.searchInfo.textSnippet
+      {!bookMatch.volumeInfo.description
         ? "-"
-        : bookMatch.searchInfo.textSnippet}
+        : bookMatch.volumeInfo.description}
     </div>
   );
 }

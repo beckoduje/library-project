@@ -20,11 +20,11 @@ function App() {
   const [readingBooks, setReadingBooks] = useState([]);
   const [wantList, setWantList] = useState([]);
   const [searchedBooks, setSearchedBooks] = useState([]);
-  const [userInput, getUserInput] = useState("reactJS");
+  const [userInput, getUserInput] = useState("");
   const [selectedGenre, setSelectedGenre] = useState(1);
 
   function getData(userInput) {
-    if (userInput && userInput.trim().length > 0) {
+    if (userInput.trim().length > 0) {
       fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=0&maxResults=10&printType=books`
       )
@@ -35,6 +35,7 @@ function App() {
           setSearchedBooks(data);
         });
       document.querySelector(".search-input").value = "";
+      console.log("prvi fetch");
     }
   }
 

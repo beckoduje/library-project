@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import BookStatusCurrent from "../shared/BookStatusCurrent";
+import BookStatusOptions from "../shared/BookStatusOptions";
 
 export default function ResultsList(props) {
   return (
     <div className="results-container">
       <ul className="results-list">
-        {props.searchedBooks.length < 1
+        {props.searchedBooks.length < 1 || props.searchedBooks.error
           ? ""
           : props.searchedBooks.items.map((book) => {
               return (
@@ -49,35 +51,13 @@ export default function ResultsList(props) {
                           />
                         ))}
                   </div>
-                  <div className="reading-status-container">
-                    <button
-                      data-collection="read"
-                      className="reading-status"
-                      onClick={(e) => {
-                        props.addNewCollectionItem(e);
-                      }}
-                    >
-                      Read
-                    </button>
-                    <button
-                      data-collection="reading"
-                      className="reading-status"
-                      onClick={(e) => {
-                        props.addNewCollectionItem(e);
-                      }}
-                    >
-                      Currently reading
-                    </button>
-                    <button
-                      data-collection="want"
-                      className="reading-status"
-                      onClick={(e) => {
-                        props.addNewCollectionItem(e);
-                      }}
-                    >
-                      Want to read
-                    </button>
-                  </div>
+                  {props.myCollection.some((e) => e.id === book.id) ? (
+                    <BookStatusCurrent />
+                  ) : (
+                    <BookStatusOptions
+                      addNewCollectionItem={props.addNewCollectionItem}
+                    />
+                  )}
                   <figure className="book-image-cont">
                     {!book.volumeInfo.imageLinks ? (
                       `No image`
