@@ -1,18 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function BookStatusCurrent(props) {
+  const [value, setValue] = useState();
+  const statusVal = () => {
+    return props.readBooks.some((e) => e.id === props.id)
+      ? "read"
+      : props.readingBooks.some((e) => e.id === props.id)
+      ? "reading"
+      : "want";
+  };
+  function handleChange(event) {
+    setValue(event.target.value);
+  }
+  useEffect(() => {
+    setValue(statusVal);
+  }, []);
   return (
     <div className="book-current-status">
       <select
         className="book-status-list"
-        value={
-          props.readBooks.some((e) => e.id === props.id)
-            ? "read"
-            : props.readingBooks.some((e) => e.id === props.id)
-            ? "reading"
-            : "want"
-        }
-        onChange={(e) => (value = e.target.value)}
+        value={value}
+        onChange={handleChange}
+        // value={
+        //   props.readBooks.some((e) => e.id === props.id)
+        //     ? "read"
+        //     : props.readingBooks.some((e) => e.id === props.id)
+        //     ? "reading"
+        //     : "want"
+        // }
+        // onChange={(e) => (value = e.target.value)}
       >
         {/* {props.readBooks.some((e) => e.id === props.id) ? (
           <option value="read" selected="selected">
