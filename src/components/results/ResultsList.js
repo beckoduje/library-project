@@ -52,7 +52,15 @@ export default function ResultsList(props) {
                         ))}
                   </div>
                   {props.myCollection.some((e) => e.id === book.id) ? (
-                    <BookStatusCurrent />
+                    <BookStatusCurrent
+                      id={book.id}
+                      readBooks={props.readBooks}
+                      readingBooks={props.readingBooks}
+                      wantList={props.wantList}
+                      setReadBooks={props.setReadBooks}
+                      setReadingBooks={props.setReadingBooks}
+                      setWantList={props.setWantList}
+                    />
                   ) : (
                     <BookStatusOptions
                       addNewCollectionItem={props.addNewCollectionItem}

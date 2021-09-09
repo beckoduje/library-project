@@ -175,6 +175,9 @@ function App() {
             setReadBooks={setReadBooks}
             setReadingBooks={setReadingBooks}
             setWantList={setWantList}
+            readBooks={readBooks}
+            readingBooks={readingBooks}
+            wantList={wantList}
             addNewCollectionItem={addNewCollectionItem}
             setSelectedGenre={setSelectedGenre}
           />

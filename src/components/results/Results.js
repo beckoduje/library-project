@@ -41,6 +41,9 @@ export default function Results(props) {
       <ResultsList
         searchedBooks={props.searchedBooks}
         myCollection={props.myCollection}
+        readBooks={props.readBooks}
+        readingBooks={props.readingBooks}
+        wantList={props.wantList}
         setMyCollection={props.setMyCollection}
         setReadBooks={props.setReadBooks}
         setReadingBooks={props.setReadingBooks}

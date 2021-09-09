@@ -1,0 +1,24 @@
+.book-current-status {
+  .book-status-list {
+    border: none;
+    outline: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 12px;
+    padding: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 1rem;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+.results-list-item:nth-child(even) {
+  .book-current-status {
+    .book-status-list {
+      border: none;
+      outline: none;
+      background: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
