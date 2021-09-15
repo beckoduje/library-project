@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { LibraryContext } from "../LibraryContext";
 
 export default function BookStatusOptions(props) {
+  const { addNewCollectionItem } = useContext(LibraryContext);
   return (
     <div className="reading-status-container">
       <button
         data-collection="read"
         className="reading-status"
         onClick={(e) => {
-          props.addNewCollectionItem(e);
+          addNewCollectionItem(e);
         }}
       >
         Read
@@ -16,7 +19,7 @@ export default function BookStatusOptions(props) {
         data-collection="reading"
         className="reading-status"
         onClick={(e) => {
-          props.addNewCollectionItem(e);
+          addNewCollectionItem(e);
         }}
       >
         Currently reading
@@ -25,7 +28,7 @@ export default function BookStatusOptions(props) {
         data-collection="want"
         className="reading-status"
         onClick={(e) => {
-          props.addNewCollectionItem(e);
+          addNewCollectionItem(e);
         }}
       >
         Want to read

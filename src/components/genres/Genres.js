@@ -3,25 +3,11 @@ import GenresResultsList from "./GenresResultsList";
 import Navigation from "../shared/Navigation";
 import FeatherImg from "../shared/FeatherImg";
 
-export default function Genres(props) {
+export default function Genres() {
   return (
     <div className="genres-section">
-      <Navigation
-        setSearchedBooks={props.setSearchedBooks}
-        getData={props.getData}
-        getUserInput={props.getUserInput}
-        userInput={props.userInput}
-        setSelectedGenre={props.setSelectedGenre}
-      />
-      <GenresResultsList
-        selectedGenre={props.selectedGenre}
-        searchedBooks={props.searchedBooks}
-        setMyCollection={props.setMyCollection}
-        setReadBooks={props.setReadBooks}
-        setReadingBooks={props.setReadingBooks}
-        setWantList={props.setWantList}
-        addNewCollectionItem={props.addNewCollectionItem}
-      />
+      <Navigation />
+      <GenresResultsList />
       <FeatherImg />
     </div>
   );

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { Link } from "react-router-dom";
 
+import { LibraryContext } from "../LibraryContext.js";
+
 import { genresData } from "../genresData.js";
 
-export default function GenresList(props) {
+export default function GenresList() {
+  const { setSearchedBooks, setSelectedGenre } = useContext(LibraryContext);
   function getGenresData(genre) {
     fetch(
       `https://www.googleapis.com/books/v1/volumes?q=${genre}+subject:${genre}&startIndex=10&maxResults=10&printType=books`
@@ -13,7 +16,7 @@ export default function GenresList(props) {
         return response.json();
       })
       .then(function (data) {
-        props.setSearchedBooks(data);
+        setSearchedBooks(data);
       });
   }
 
@@ -26,7 +29,7 @@ export default function GenresList(props) {
             className="single-genre"
             onClick={() => {
               getGenresData(genre.title);
-              props.setSelectedGenre(genre.id);
+              setSelectedGenre(genre.id);
             }}
           >
             <Link to="/genres">{genre.title}</Link>

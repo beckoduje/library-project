@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 
-export default function SingleBookDescription(props) {
+import { LibraryContext } from "../LibraryContext";
+
+export default function SingleBookDescription() {
+  const { searchedBooks } = useContext(LibraryContext);
+
   let { id } = useParams();
 
-  const bookMatch = props.searchedBooks.items.find(
+  const bookMatch = searchedBooks.items.find(
     (book) => book.id.toString() === id.substring(1)
   );
   return (

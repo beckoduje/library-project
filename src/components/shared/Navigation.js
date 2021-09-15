@@ -4,7 +4,7 @@ import GenresList from "./GenresList";
 
 import { Link } from "react-router-dom";
 
-export default function Navigation(props) {
+export default function Navigation() {
   return (
     <nav className="navigation">
       <Link to="/">
@@ -13,12 +13,7 @@ export default function Navigation(props) {
           <span className="logo-name">library</span>
         </div>
       </Link>
-      <Search
-        hidden={props.hidden}
-        getData={props.getData}
-        getUserInput={props.getUserInput}
-        userInput={props.userInput}
-      />
+      <Search />
       <ul className="navigation-links">
         <li className="navigation-link">
           <Link to="/">Home</Link>
@@ -28,10 +23,7 @@ export default function Navigation(props) {
             Genres
             <i className="fas fa-caret-down menu-open"></i>
           </a>
-          <GenresList
-            setSearchedBooks={props.setSearchedBooks}
-            setSelectedGenre={props.setSelectedGenre}
-          />
+          <GenresList />
         </li>
         <li className="navigation-link">
           <Link to="/collection">My Collection</Link>

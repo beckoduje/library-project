@@ -1,8 +1,12 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 
 import { Link, useHistory } from "react-router-dom";
 
+import { LibraryContext } from "../LibraryContext";
+
 export default function Search(props) {
+  const { getUserInput, getData, userInput } = useContext(LibraryContext);
+
   let history = useHistory();
   const inputEl = useRef(null);
 
@@ -14,11 +18,11 @@ export default function Search(props) {
           type="text"
           className="search-input"
           ref={inputEl}
-          onChange={(e) => props.getUserInput(e.target.value)}
+          onChange={(e) => getUserInput(e.target.value)}
           onKeyPress={(e) => {
             if (e.key === "Enter" && e.target.value !== undefined) {
               e.preventDefault();
-              props.getData(e.target.value);
+              getData(e.target.value);
               history.push("/results");
             }
           }}
@@ -28,7 +32,7 @@ export default function Search(props) {
           className="search-button-link"
           onClick={() => {
             if (inputEl.current.value !== undefined) {
-              props.getData(props.userInput);
+              getData(userInput);
             }
           }}
         >

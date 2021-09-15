@@ -1,44 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import MyCollectionList from "./MyCollectionList";
 import MyCollectionNav from "./MyCollectionNav";
 
-export default function MyCollectionListContainer(props) {
+import { LibraryContext } from "../LibraryContext";
+
+export default function MyCollectionListContainer() {
   const [showCollectionCategory, setShowCollectionCategory] = useState("all");
+
+  const { myCollection, readBooks, readingBooks, wantList } =
+    useContext(LibraryContext);
 
   return (
     <div className="results-container myCollection-container">
       <MyCollectionNav
         showCollectionCategory={showCollectionCategory}
         setShowCollectionCategory={setShowCollectionCategory}
-        myCollection={props.myCollection}
-        readBooks={props.readBooks}
-        readingBooks={props.readingBooks}
-        wantList={props.wantList}
       />
       {showCollectionCategory === "all" ? (
-        <MyCollectionList
-          data={props.myCollection}
-          addNewCollectionItem={props.addNewCollectionItem}
-          removeCollectionItem={props.removeCollectionItem}
-        />
+        <MyCollectionList data={myCollection} />
       ) : showCollectionCategory === "read" ? (
-        <MyCollectionList
-          data={props.readBooks}
-          addNewCollectionItem={props.addNewCollectionItem}
-          removeCollectionItem={props.removeCollectionItem}
-        />
+        <MyCollectionList data={readBooks} />
       ) : showCollectionCategory === "reading" ? (
-        <MyCollectionList
-          data={props.readingBooks}
-          addNewCollectionItem={props.addNewCollectionItem}
-          removeCollectionItem={props.removeCollectionItem}
-        />
+        <MyCollectionList data={readingBooks} />
       ) : (
-        <MyCollectionList
-          data={props.wantList}
-          addNewCollectionItem={props.addNewCollectionItem}
-          removeCollectionItem={props.removeCollectionItem}
-        />
+        <MyCollectionList data={wantList} />
       )}
     </div>
   );

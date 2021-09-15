@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 
+import { LibraryContext } from "../LibraryContext";
+
+import BookStatusCurrent from "../shared/BookStatusCurrent";
+import BookStatusOptions from "../shared/BookStatusOptions";
+
 export default function SingleBookCard(props) {
+  const { searchedBooks } = useContext(LibraryContext);
+
   let { id } = useParams();
 
-  const bookMatch = props.searchedBooks.items.find(
+  const bookMatch = searchedBooks.items.find(
     (book) => book.id.toString() === id.substring(1)
   );
   return (
@@ -41,35 +48,21 @@ export default function SingleBookCard(props) {
                   />
                 ))}
           </div>
-          <div className="reading-status-container">
-            <button
-              data-collection="read"
-              className="reading-status"
-              onClick={(e) => {
-                props.addNewCollectionItem(e);
-              }}
-            >
-              Read
-            </button>
-            <button
-              data-collection="reading"
-              className="reading-status"
-              onClick={(e) => {
-                props.addNewCollectionItem(e);
-              }}
-            >
-              Currently reading
-            </button>
-            <button
-              data-collection="want"
-              className="reading-status"
-              onClick={(e) => {
-                props.addNewCollectionItem(e);
-              }}
-            >
-              Want to read
-            </button>
-          </div>
+          {/* {props.myCollection.some((e) => e.id === bookMatch.id) ? (
+            <BookStatusCurrent
+              id={bookMatch.id}
+              readBooks={props.readBooks}
+              readingBooks={props.readingBooks}
+              wantList={props.wantList}
+              setReadBooks={props.setReadBooks}
+              setReadingBooks={props.setReadingBooks}
+              setWantList={props.setWantList}
+            />
+          ) : (
+            <BookStatusOptions
+              addNewCollectionItem={props.addNewCollectionItem}
+            />
+          )} */}
           <figure className="book-image-cont">
             {!bookMatch.volumeInfo.imageLinks ? (
               `No image`

@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import BookStatusCurrent from "../shared/BookStatusCurrent";
 import BookStatusOptions from "../shared/BookStatusOptions";
 
+import { LibraryContext } from "../LibraryContext";
+
 export default function ResultsList(props) {
+  const { searchedBooks, myCollection } = useContext(LibraryContext);
   return (
     <div className="results-container">
       <ul className="results-list">
-        {props.searchedBooks.length < 1 || props.searchedBooks.error
+        {searchedBooks.length < 1 || searchedBooks.error
           ? ""
-          : props.searchedBooks.items.map((book) => {
+          : searchedBooks.items.map((book) => {
               return (
                 <li
                   key={book.id}
@@ -51,20 +54,10 @@ export default function ResultsList(props) {
                           />
                         ))}
                   </div>
-                  {props.myCollection.some((e) => e.id === book.id) ? (
-                    <BookStatusCurrent
-                      id={book.id}
-                      readBooks={props.readBooks}
-                      readingBooks={props.readingBooks}
-                      wantList={props.wantList}
-                      setReadBooks={props.setReadBooks}
-                      setReadingBooks={props.setReadingBooks}
-                      setWantList={props.setWantList}
-                    />
+                  {myCollection.some((e) => e.id === book.id) ? (
+                    <BookStatusCurrent id={book.id} />
                   ) : (
-                    <BookStatusOptions
-                      addNewCollectionItem={props.addNewCollectionItem}
-                    />
+                    <BookStatusOptions />
                   )}
                   <figure className="book-image-cont">
                     {!book.volumeInfo.imageLinks ? (

@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Pagination from "react-js-pagination";
 
+import { LibraryContext } from "../LibraryContext";
+
 export default function Paginations(props) {
+  const { searchedBooks } = useContext(LibraryContext);
+
   const [activePage, getActivePage] = useState(1);
 
   const handlePageChange = (pageNumber) => {
@@ -19,7 +23,7 @@ export default function Paginations(props) {
         activePage={activePage}
         itemsCountPerPage={10}
         totalItemsCount={
-          !props.searchedBooks.totalItems ? 100 : props.searchedBooks.totalItems
+          !searchedBooks.totalItems ? 100 : searchedBooks.totalItems
         }
         pageRangeDisplayed={5}
         onChange={handlePageChange}

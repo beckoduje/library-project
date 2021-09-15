@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { LibraryContext } from "../LibraryContext";
+
 export default function MyCollectionList(props) {
+  const { addNewCollectionItem, removeCollectionItem } =
+    useContext(LibraryContext);
   return (
     <ul className="results-list myCollection-list">
       {props.data.length === 0
@@ -50,7 +54,7 @@ export default function MyCollectionList(props) {
                   <button
                     className="reading-status"
                     onClick={(e) => {
-                      props.addNewCollectionItem(e);
+                      addNewCollectionItem(e);
                     }}
                   >
                     Read
@@ -71,7 +75,7 @@ export default function MyCollectionList(props) {
                 </figure>
                 <button
                   className="remove-book-btn"
-                  onClick={() => props.removeCollectionItem(book.id)}
+                  onClick={() => removeCollectionItem(book.id)}
                 >
                   <i className="fas fa-times"></i>
                 </button>

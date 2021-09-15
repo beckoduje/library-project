@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+
+import { LibraryContext } from "../LibraryContext";
 
 export default function BookStatusCurrent(props) {
   const [value, setValue] = useState();
+  const { readBooks, readingBooks } = useContext(LibraryContext);
   const statusVal = () => {
-    return props.readBooks.some((e) => e.id === props.id)
+    return readBooks.some((e) => e.id === props.id)
       ? "read"
-      : props.readingBooks.some((e) => e.id === props.id)
+      : readingBooks.some((e) => e.id === props.id)
       ? "reading"
       : "want";
   };

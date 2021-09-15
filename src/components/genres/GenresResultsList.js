@@ -1,28 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { LibraryContext } from "../LibraryContext.js";
 
 import { genresData } from "../genresData.js";
 
-export default function GenresResultsList(props) {
-  let selectedGen = props.selectedGenre - 1;
+export default function GenresResultsList() {
+  const { selectedGenre, searchedBooks, addNewCollectionItem } =
+    useContext(LibraryContext);
+  let selectedGen = selectedGenre - 1;
 
   return (
     <div className="results-container genres">
       <div className="genre-description-container">
         <h2 className="genre-description-title">
-          {props.searchedBooks.length < 1
+          {searchedBooks.length < 1
             ? "Browse by genre"
             : genresData[selectedGen].title}
         </h2>
         <p className="genre-description">
-          {props.searchedBooks.length < 1
-            ? ""
-            : genresData[selectedGen].description}
+          {searchedBooks.length < 1 ? "" : genresData[selectedGen].description}
         </p>
       </div>
       <ul className="results-list">
-        {props.searchedBooks.length < 1
+        {searchedBooks.length < 1
           ? ""
-          : props.searchedBooks.items.map((book) => {
+          : searchedBooks.items.map((book) => {
               return (
                 <li
                   key={book.id}
@@ -64,7 +66,7 @@ export default function GenresResultsList(props) {
                       data-collection="read"
                       className="reading-status"
                       onClick={(e) => {
-                        props.addNewCollectionItem(e);
+                        addNewCollectionItem(e);
                       }}
                     >
                       Read
@@ -73,7 +75,7 @@ export default function GenresResultsList(props) {
                       data-collection="reading"
                       className="reading-status"
                       onClick={(e) => {
-                        props.addNewCollectionItem(e);
+                        addNewCollectionItem(e);
                       }}
                     >
                       Currently reading
@@ -82,7 +84,7 @@ export default function GenresResultsList(props) {
                       data-collection="want"
                       className="reading-status"
                       onClick={(e) => {
-                        props.addNewCollectionItem(e);
+                        addNewCollectionItem(e);
                       }}
                     >
                       Want to read

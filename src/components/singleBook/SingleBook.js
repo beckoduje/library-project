@@ -4,17 +4,12 @@ import Navigation from "../shared/Navigation";
 import SingleBookCard from "./SingleBookCard";
 import SingleBookDescription from "./SingleBookDescription";
 
-export default function SingleBook(props) {
+export default function SingleBook() {
   return (
     <div className="single-book-section">
-      <Navigation
-        setSearchedBooks={props.setSearchedBooks}
-        getUserInput={props.getUserInput}
-        userInput={props.userInput}
-        setSelectedGenre={props.setSelectedGenre}
-      />
-      <SingleBookCard searchedBooks={props.searchedBooks} />
-      <SingleBookDescription searchedBooks={props.searchedBooks} />
+      <Navigation />
+      <SingleBookCard />
+      <SingleBookDescription />
       <FeatherImg />
     </div>
   );
