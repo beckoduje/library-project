@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 
 import { LibraryContext } from "../LibraryContext";
 
+import BookStatusCurrent from "../shared/BookStatusCurrent";
+import BookStatusOptions from "../shared/BookStatusOptions";
+
 export default function MyCollectionList(props) {
-  const { addNewCollectionItem, removeCollectionItem } =
+  const { myCollection, removeCollectionItem, getSingleBook } =
     useContext(LibraryContext);
   return (
     <ul className="results-list myCollection-list">
@@ -17,8 +20,13 @@ export default function MyCollectionList(props) {
                 className="results-list-item myCollection-list-item"
                 data-id-number={book.id}
               >
-                <h4 className="book-title">
-                  <Link to={"/book/:" + book.id}>
+                <h4
+                  className="book-title"
+                  onClick={() => {
+                    getSingleBook(book.id);
+                  }}
+                >
+                  <Link className="results-list-item-link" to={"/book"}>
                     {!book.title ? `-` : book.title}
                   </Link>
                 </h4>
@@ -50,18 +58,11 @@ export default function MyCollectionList(props) {
                         />
                       ))}
                 </div>
-                <div className="reading-status-container">
-                  <button
-                    className="reading-status"
-                    onClick={(e) => {
-                      addNewCollectionItem(e);
-                    }}
-                  >
-                    Read
-                  </button>
-                  <button className="reading-status">Currently reading</button>
-                  <button className="reading-status">Want to read</button>
-                </div>
+                {myCollection.some((e) => e.id === book.id) ? (
+                  <BookStatusCurrent id={book.id} />
+                ) : (
+                  <BookStatusOptions />
+                )}
                 <figure className="book-image-cont">
                   {!book.imageLinks ? (
                     `No image`
@@ -81,7 +82,10 @@ export default function MyCollectionList(props) {
                 </button>
                 <Link
                   className="results-list-item-link sticker"
-                  to={"/book/:" + book.id}
+                  onClick={() => {
+                    getSingleBook(book.id);
+                  }}
+                  to={"/book/"}
                 >
                   About
                 </Link>

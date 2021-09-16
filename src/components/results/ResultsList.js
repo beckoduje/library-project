@@ -5,8 +5,9 @@ import BookStatusOptions from "../shared/BookStatusOptions";
 
 import { LibraryContext } from "../LibraryContext";
 
-export default function ResultsList(props) {
-  const { searchedBooks, myCollection } = useContext(LibraryContext);
+export default function ResultsList() {
+  const { searchedBooks, myCollection, getSingleBook } =
+    useContext(LibraryContext);
   return (
     <div className="results-container">
       <ul className="results-list">
@@ -19,11 +20,13 @@ export default function ResultsList(props) {
                   className="results-list-item"
                   data-id-number={book.id}
                 >
-                  <h4 className="book-title">
-                    <Link
-                      className="results-list-item-link"
-                      to={"/book/:" + book.id}
-                    >
+                  <h4
+                    className="book-title"
+                    onClick={() => {
+                      getSingleBook(book.id);
+                    }}
+                  >
+                    <Link className="results-list-item-link" to={"/book"}>
                       {!book.volumeInfo.title ? `-` : book.volumeInfo.title}
                     </Link>
                   </h4>
@@ -72,7 +75,10 @@ export default function ResultsList(props) {
                   </figure>
                   <Link
                     className="results-list-item-link sticker"
-                    to={"/book/:" + book.id}
+                    to={"/book"}
+                    onClick={() => {
+                      getSingleBook(book.id);
+                    }}
                   >
                     About
                   </Link>

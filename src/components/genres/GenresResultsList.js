@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { LibraryContext } from "../LibraryContext.js";
 
 import { genresData } from "../genresData.js";
 
+import BookStatusCurrent from "../shared/BookStatusCurrent.js";
+import BookStatusOptions from "../shared/BookStatusOptions.js";
+
 export default function GenresResultsList() {
-  const { selectedGenre, searchedBooks, addNewCollectionItem } =
+  const { selectedGenre, searchedBooks, myCollection, getSingleBook } =
     useContext(LibraryContext);
   let selectedGen = selectedGenre - 1;
 
@@ -31,8 +35,15 @@ export default function GenresResultsList() {
                   className="results-list-item"
                   data-id-number={book.id}
                 >
-                  <h4 className="book-title">
-                    {!book.volumeInfo.title ? `-` : book.volumeInfo.title}
+                  <h4
+                    className="book-title"
+                    onClick={() => {
+                      getSingleBook(book.id);
+                    }}
+                  >
+                    <Link className="results-list-item-link" to={"/book"}>
+                      {!book.volumeInfo.title ? `-` : book.volumeInfo.title}
+                    </Link>
                   </h4>
                   <div className="book-authors-cont">
                     {!book.volumeInfo.authors ? (
@@ -61,35 +72,11 @@ export default function GenresResultsList() {
                           />
                         ))}
                   </div>
-                  <div className="reading-status-container">
-                    <button
-                      data-collection="read"
-                      className="reading-status"
-                      onClick={(e) => {
-                        addNewCollectionItem(e);
-                      }}
-                    >
-                      Read
-                    </button>
-                    <button
-                      data-collection="reading"
-                      className="reading-status"
-                      onClick={(e) => {
-                        addNewCollectionItem(e);
-                      }}
-                    >
-                      Currently reading
-                    </button>
-                    <button
-                      data-collection="want"
-                      className="reading-status"
-                      onClick={(e) => {
-                        addNewCollectionItem(e);
-                      }}
-                    >
-                      Want to read
-                    </button>
-                  </div>
+                  {myCollection.some((e) => e.id === book.id) ? (
+                    <BookStatusCurrent id={book.id} />
+                  ) : (
+                    <BookStatusOptions />
+                  )}
                   <figure className="book-image-cont">
                     {!book.volumeInfo.imageLinks ? (
                       `No image`
@@ -101,6 +88,15 @@ export default function GenresResultsList() {
                       />
                     )}
                   </figure>
+                  <Link
+                    className="results-list-item-link sticker"
+                    onClick={() => {
+                      getSingleBook(book.id);
+                    }}
+                    to={"/book/"}
+                  >
+                    About
+                  </Link>
                 </li>
               );
             })}

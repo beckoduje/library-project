@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const LibraryContext = createContext();
 
@@ -10,6 +10,46 @@ export const LibraryProvider = ({ children }) => {
   const [searchedBooks, setSearchedBooks] = useState([]);
   const [userInput, getUserInput] = useState("");
   const [selectedGenre, setSelectedGenre] = useState(1);
+  const [singleBook, setSingleBook] = useState();
+
+  const MY_COLLECTION_KEY = "myCollection";
+  const READ_BOOKS_KEY = "readBooks";
+  const READING_BOOKS_KEY = "readingBooks";
+  const WANT_LIST_KEY = "wishList";
+
+  useEffect(() => {
+    // -------------------------- ALL COLLECTION --------------------------
+    const myCollectionJSON = localStorage.getItem(MY_COLLECTION_KEY);
+    if (myCollectionJSON != null) setMyCollection(JSON.parse(myCollectionJSON));
+    // -------------------------- READ COLLECTION --------------------------
+    const myReadCollectionJSON = localStorage.getItem(READ_BOOKS_KEY);
+    if (myReadCollectionJSON != null)
+      setReadBooks(JSON.parse(myReadCollectionJSON));
+    // -------------------------- READING COLLECTION --------------------------
+    const myReadingCollectionJSON = localStorage.getItem(READING_BOOKS_KEY);
+    if (myReadingCollectionJSON != null)
+      setReadingBooks(JSON.parse(myReadingCollectionJSON));
+    // -------------------------- WANT COLLECTION --------------------------
+    const myWantCollectionJSON = localStorage.getItem(WANT_LIST_KEY);
+    if (myWantCollectionJSON != null)
+      setWantList(JSON.parse(myWantCollectionJSON));
+  }, []);
+  // -------------------------- ALL COLLECTION --------------------------
+  useEffect(() => {
+    localStorage.setItem(MY_COLLECTION_KEY, JSON.stringify(myCollection));
+  }, [myCollection]);
+  // -------------------------- READ COLLECTION --------------------------
+  useEffect(() => {
+    localStorage.setItem(READ_BOOKS_KEY, JSON.stringify(readBooks));
+  }, [readBooks]);
+  // -------------------------- READING COLLECTION --------------------------
+  useEffect(() => {
+    localStorage.setItem(READING_BOOKS_KEY, JSON.stringify(readingBooks));
+  }, [readingBooks]);
+  // -------------------------- WANT COLLECTION --------------------------
+  useEffect(() => {
+    localStorage.setItem(WANT_LIST_KEY, JSON.stringify(wantList));
+  }, [wantList]);
 
   function getData(userInput) {
     if (userInput.trim().length > 0) {
@@ -23,8 +63,19 @@ export const LibraryProvider = ({ children }) => {
           setSearchedBooks(data);
         });
       document.querySelector(".search-input").value = "";
-      console.log("prvi fetch");
     }
+  }
+
+  function getSingleBook(volumeID) {
+    // let volumeID = e.target.closest(".results-list-item").dataset.idNumber;
+    fetch(`https://www.googleapis.com/books/v1/volumes/${volumeID}`)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        setSingleBook(data);
+      });
+    console.log(singleBook);
   }
 
   function addNewCollectionItem(e) {
@@ -88,6 +139,9 @@ export const LibraryProvider = ({ children }) => {
         getData,
         addNewCollectionItem,
         removeCollectionItem,
+        singleBook,
+        setSingleBook,
+        getSingleBook,
       }}
     >
       {children}

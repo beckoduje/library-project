@@ -4,7 +4,7 @@ import { LibraryContext } from "../LibraryContext";
 
 export default function BookStatusCurrent(props) {
   const [value, setValue] = useState();
-  const { readBooks, readingBooks } = useContext(LibraryContext);
+  const { readBooks, readingBooks, wantList } = useContext(LibraryContext);
   const statusVal = () => {
     return readBooks.some((e) => e.id === props.id)
       ? "read"
@@ -17,7 +17,7 @@ export default function BookStatusCurrent(props) {
   }
   useEffect(() => {
     setValue(statusVal);
-  }, []);
+  }, [readBooks, readingBooks, wantList]);
   return (
     <div className="book-current-status">
       <select
