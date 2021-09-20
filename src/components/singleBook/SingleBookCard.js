@@ -6,7 +6,7 @@ import BookStatusCurrent from "../shared/BookStatusCurrent";
 import BookStatusOptions from "../shared/BookStatusOptions";
 
 export default function SingleBookCard() {
-  const { singleBook } = useContext(LibraryContext);
+  const { singleBook, myCollection } = useContext(LibraryContext);
 
   return (
     <div className="results-container">
@@ -14,7 +14,7 @@ export default function SingleBookCard() {
         ""
       ) : (
         <div className="results-list">
-          <div className="results-list-item">
+          <div className="results-list-item" data-id-number={singleBook.id}>
             <h4 className="book-title">
               {!singleBook.volumeInfo.title ? "-" : singleBook.volumeInfo.title}
             </h4>
@@ -45,21 +45,11 @@ export default function SingleBookCard() {
                     />
                   ))}
             </div>
-            {/* {props.myCollection.some((e) => e.id === bookMatch.id) ? (
-            <BookStatusCurrent
-              id={bookMatch.id}
-              readBooks={props.readBooks}
-              readingBooks={props.readingBooks}
-              wantList={props.wantList}
-              setReadBooks={props.setReadBooks}
-              setReadingBooks={props.setReadingBooks}
-              setWantList={props.setWantList}
-            />
-          ) : (
-            <BookStatusOptions
-              addNewCollectionItem={props.addNewCollectionItem}
-            />
-          )} */}
+            {myCollection.some((e) => e.id === singleBook.id) ? (
+              <BookStatusCurrent id={singleBook.id} />
+            ) : (
+              <BookStatusOptions id={singleBook.id} />
+            )}
             <figure className="book-image-cont">
               {!singleBook.volumeInfo.imageLinks ? (
                 `No image`

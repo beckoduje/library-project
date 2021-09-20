@@ -86,6 +86,7 @@ export const LibraryProvider = ({ children }) => {
         return response.json();
       })
       .then(function (data) {
+        console.log(data);
         const newCollectionItem = {
           id: data.id,
           title: data.volumeInfo.title,

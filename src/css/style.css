@@ -247,6 +247,7 @@
       grid-template-columns: 1fr max-content;
   -ms-grid-rows: (1fr)[4];
       grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 3rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -555,7 +556,7 @@
 }
 
 .single-book-description {
-  width: calc(60% - 8rem);
+  width: calc(60% - 10rem);
   padding-top: 2rem;
   padding-left: 8rem;
   text-align: justify;
@@ -578,6 +579,50 @@
   border: none;
   outline: none;
   background: rgba(255, 255, 255, 0.5);
+}
+
+.star-rating {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  width: calc(60% - 18rem);
+  margin-left: 8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.star-rating .star-rating-text {
+  padding: 1.4rem;
+}
+
+.star-rating .stars-wrapper {
+  padding: 1.4rem;
+}
+
+.star-rating .stars-wrapper .star-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.star-rating .stars-wrapper .star-btn.on {
+  color: #209b80;
+}
+
+.star-rating .stars-wrapper .star-btn.off {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.star-rating .stars-wrapper .star-btn i {
+  font-size: 2.2rem;
+  margin-right: 0.7rem;
 }
 
 *,

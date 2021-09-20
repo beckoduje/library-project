@@ -17,7 +17,6 @@ export default function Results() {
     if (searchedBooks.length < 1) {
       return;
     } else {
-      console.log(`${userInput} iz fetcha`);
       fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=${startIndex}&maxResults=10&printType=books`
       )
@@ -27,12 +26,8 @@ export default function Results() {
         .then(function (data) {
           setSearchedBooks(data);
         });
-      console.log("drugi fetch");
     }
   }, [startIndex]);
-
-  console.log(searchedBooks);
-  console.log(userInput);
 
   return (
     <div className="results-section">
