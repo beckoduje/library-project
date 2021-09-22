@@ -4,42 +4,47 @@ import { LibraryContext } from "../LibraryContext";
 
 export default function StarRating() {
   const { singleBook } = useContext(LibraryContext);
-  const [userRatings, setUserRatings] = useState();
+  const [userRatings, setUserRatings] = useState([]);
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
 
-  const ID = !singleBook ? "1234" : singleBook.id;
-
-  let userRatingsHelper = new Set();
-
-  console.log(`${userRatings} + Stanje jebeno`);
-  console.log(`${userRatingsHelper} + helper set`);
+  /*
+    console.log(`ID varijabla: ${ID}`);
+    console.log(`Ternary vrijednost: ${!singleBook ? "1234" : singleBook.id}`);
+  */
 
   const USER_RATING_KEY = "userRating";
-
-  useEffect(() => {
-    // -------------------------- ALL COLLECTION --------------------------
-    const userRatingJSON = localStorage.getItem(USER_RATING_KEY);
-    // if (userRatingJSON != null) setUserRatings(JSON.parse(userRatingJSON));
-    if (userRatingJSON != null) {
-      setUserRatings(JSON.parse(userRatingJSON));
-      userRatingsHelper.add(userRatings);
-    }
-  }, []);
-  // -------------------------- ALL COLLECTION --------------------------
-  useEffect(() => {
-    localStorage.setItem(USER_RATING_KEY, JSON.stringify(userRatings));
-  }, [userRatings]);
+  let ID;
 
   function addRatingToLS(index) {
-    setRating(index);
     let tempRating = {
       id: ID,
       userRating: index,
     };
-    userRatingsHelper.add(tempRating);
-    setUserRatings(...userRatingsHelper);
+    // setUserRatings([...userRatings].filter((book) => book.id !== ID));
+    [...userRatings].forEach((book) => console.log(book.id));
+    console.log(`Iz dodavanja funckije ${[...userRatings]}`);
+    setUserRatings([...userRatings, tempRating]);
+    console.log(userRatings);
   }
+
+  useEffect(() => {
+    const userRatingsJSON = localStorage.getItem(USER_RATING_KEY);
+    if (userRatingsJSON != null) {
+      setUserRatings(JSON.parse(userRatingsJSON));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (userRatings.length > 0) {
+      localStorage.setItem(USER_RATING_KEY, JSON.stringify(userRatings));
+    }
+    console.log(`Iz use Effekta ${userRatings}`);
+  }, [userRatings]);
+
+  useEffect(() => {
+    ID = !singleBook ? "1234" : singleBook.id;
+  });
 
   return (
     <div className="star-rating">
@@ -53,17 +58,11 @@ export default function StarRating() {
               key={index}
               className={
                 index <= (hover || rating) ? "star-btn on" : "star-btn off"
-                // index <= (hover || userRatings.singleBook.id)
-                //   ? "star-btn on"
-                //   : "star-btn off"
               }
-              onClick={() => addRatingToLS(index)}
-              // onClick={() =>
-              //   setUserRatings([
-              //     ...userRatings,
-              //     { id: singleBook.id, userRating: index },
-              //   ])
-              // }
+              onClick={() => {
+                setRating(index);
+                addRatingToLS(index);
+              }}
               onMouseEnter={() => setHover(index)}
               onMouseLeave={() => setHover(rating)}
             >
