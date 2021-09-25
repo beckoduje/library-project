@@ -10,11 +10,6 @@ export default function StarRating() {
 
   let userRatings = [];
 
-  /*
-    console.log(`ID varijabla: ${ID}`);
-    console.log(`Ternary vrijednost: ${!singleBook ? "1234" : singleBook.id}`);
-  */
-
   const USER_RATING_KEY = "userRating";
   let ID;
 
@@ -23,49 +18,49 @@ export default function StarRating() {
       id: ID,
       userRating: index,
     };
-    // setUserRatings([...userRatings].filter((book) => book.id !== ID));
-    // setUserRatings([...userRatings, tempRating]); ----------------- opet bez stanja -----------------
-    // setUserRatings(userRatings.add(tempRating));
-    // console.log(userRatings); ----------------- opet bez stanja -----------------
-    userRatings.filter((book) => book.id !== ID);
+    let tempArray = userRatings.filter((book) => book.id !== ID);
+    userRatings = tempArray;
     userRatings.push(tempRating);
     localStorage.setItem(USER_RATING_KEY, JSON.stringify(userRatings));
   }
 
-  // useEffect(() => { // ----------------- opet bez stanja -----------------
+  // useEffect(() => {
   //   const userRatingsJSON = localStorage.getItem(USER_RATING_KEY);
   //   if (userRatingsJSON != null) {
-  //     setUserRatings(JSON.parse(userRatingsJSON));
-  //     console.log(`Iz GET use Effekta ${userRatings}`);
+  //     userRatings.push(JSON.parse(userRatingsJSON));
   //   }
   // }, []);
 
-  useEffect(() => {
-    const userRatingsJSON = localStorage.getItem(USER_RATING_KEY);
-    if (userRatingsJSON != null) {
-      userRatings.push(JSON.parse(userRatingsJSON));
-    }
-  }, []);
-
-  // const userRatingsJSON = localStorage.getItem(USER_RATING_KEY); ----- s ovim se normalno array loguje ali onda imam one nestane arraya kad dodajem (i kad je ovaj gornji iskomentiran)
-  // if (userRatingsJSON != null) {
-  //   userRatings.push(JSON.parse(userRatingsJSON));
-  //   console.log(userRatings);
-  // }
-
-  useEffect(() => {
-    if (userRatings.length > 0) {
-      localStorage.setItem(USER_RATING_KEY, JSON.stringify(userRatings));
-    }
-    console.log(`Iz use Effekta ${userRatings}`);
-  }, [userRatings]);
-
-  useEffect(() => {
-    ID = !singleBook ? "1234" : singleBook.id;
-  });
+  const userRatingsJSON = localStorage.getItem(USER_RATING_KEY);
+  if (userRatingsJSON != null) {
+    userRatings = JSON.parse(userRatingsJSON);
+  }
 
   // useEffect(() => {
-  //   console.log(`User rating iz zadnjeg UseEffecta: ${userRatings}`);
+  //   if (userRatings.length > 0) {
+  //     localStorage.setItem(USER_RATING_KEY, JSON.stringify(userRatings));
+  //   }
+  //   console.log(`Iz use Effekta di postavljam LS  ${userRatings}`);
+  // }, [userRatings]);
+
+  // if (userRatings.length > 0) { makao trenutno
+  //   localStorage.setItem(USER_RATING_KEY, JSON.stringify(userRatings));
+  // }
+
+  // useEffect(() => {
+  //   ID = !singleBook ? "1234" : singleBook.id;
+  //   console.log("logiram id iz effekta di ga traim" + ID);
+  // });
+  ID = !singleBook ? "1234" : singleBook.id;
+
+  // useEffect(() => {
+  //   console.log(
+  //     "use effekt userRatings di bi treba nać u arrayu ID" + userRatings
+  //   );
+  //   console.log("use effekt userRatings di bi treba nać u arrayu ID" + ID);
+  //   console.log(
+  //     "use effekt userRatings di bi treba nać u arrayu ID" + userRatings[0].id
+  //   );
   //   if (userRatings.some((book) => book.id === ID)) {
   //     console.log("naddjeno");
   //   } else {
@@ -73,19 +68,25 @@ export default function StarRating() {
   //   }
   // }, []);
 
-  useEffect(() => {
-    console.log(`User rating iz zadnjeg UseEffecta: ${userRatings}`);
-    if (userRatings.some((book) => book.id === ID)) {
-      console.log("naddjeno");
-    } else {
-      console.log("nije nadeo");
-    }
-  }, []);
+  // if (userRatings.some((book) => book.id === ID) && rating == 0) {
+  //   console.log("naddjeno");
+  //   // setRating();
+  //   console.log(rating);
+  // } else {
+  //   console.log("nije nadeo");
+  // }
 
-  /*E ne ide ti onda push
-Nego
-userRatings= userRatingsJSON
-Jer ti ovako pokusavas array da pushujes u array*/
+  userRatings.forEach((book) => {
+    if (book.id === ID && rating == 0) {
+      console.log(book.userRating);
+      setRating(book.userRating);
+      return;
+    }
+  });
+
+  useEffect(() => {
+    console.log(rating);
+  }, []);
 
   return (
     <div className="star-rating">
