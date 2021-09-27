@@ -67,7 +67,6 @@ export const LibraryProvider = ({ children }) => {
   }
 
   function getSingleBook(volumeID) {
-    // let volumeID = e.target.closest(".results-list-item").dataset.idNumber;
     fetch(`https://www.googleapis.com/books/v1/volumes/${volumeID}`)
       .then(function (response) {
         return response.json();
@@ -75,7 +74,6 @@ export const LibraryProvider = ({ children }) => {
       .then(function (data) {
         setSingleBook(data);
       });
-    console.log(singleBook);
   }
 
   function addNewCollectionItem(e) {

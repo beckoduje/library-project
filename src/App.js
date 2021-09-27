@@ -17,6 +17,8 @@ function App() {
       <Router>
         <Switch>
           <Route path="/book">
+            {" "}
+            {/*onLeave={setRating(0)}*/}
             <SingleBook />
           </Route>
           <Route path="/collection">

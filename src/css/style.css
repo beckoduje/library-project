@@ -242,9 +242,8 @@
   height: 24rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr max-content;
-      grid-template-columns: 1fr -webkit-max-content;
-      grid-template-columns: 1fr max-content;
+  -ms-grid-columns: 1fr 13rem;
+      grid-template-columns: 1fr 13rem;
   -ms-grid-rows: (1fr)[4];
       grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 3rem;
@@ -290,6 +289,11 @@
 .results-container .results-list .results-list-item .book-authors-cont {
   font-size: 1.6rem;
   color: #353535;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .results-container .results-list .results-list-item .book-average-rating .start-rating {
@@ -314,10 +318,14 @@
   grid-column: 2 / 3;
   overflow: hidden;
   border-radius: 12px;
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
 }
 
 .results-container .results-list .results-list-item .book-image-cont .book-image {
   height: 100%;
+  width: 100%;
 }
 
 .results-container .results-list .results-list-item .reading-status-container .reading-status {
@@ -358,6 +366,14 @@
 .results-container .results-list .results-list-item .remove-book-btn i {
   font-size: 1.5rem;
   color: white;
+}
+
+.results-container .results-list .results-list-item .results-list-item-link {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .results-container .results-list .results-list-item .results-list-item-link.sticker {
@@ -545,6 +561,10 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.next-page .pagination li a .last-page {
+  display: none;
 }
 
 .single-book-section {

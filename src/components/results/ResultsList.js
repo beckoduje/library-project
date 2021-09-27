@@ -34,10 +34,11 @@ export default function ResultsList() {
                     {!book.volumeInfo.authors ? (
                       <span className="book-author">-</span>
                     ) : (
-                      book.volumeInfo.authors.map((author) => {
+                      book.volumeInfo.authors.map((author, i) => {
                         return (
                           <span key={Math.random()} className="book-author">
                             {author}
+                            {i < book.volumeInfo.authors.length - 1 ? ", " : ""}
                           </span>
                         );
                       })

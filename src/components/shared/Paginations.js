@@ -16,8 +16,8 @@ export default function Paginations(props) {
   return (
     <div className="next-page">
       <Pagination
-        firstPageText={<span className="first-page">Prva</span>}
-        lastPageText={<span className="last-page">Zadnja</span>}
+        firstPageText={<span className="first-page">First</span>}
+        lastPageText={<span className="last-page">Last</span>}
         prevPageText={<i className="fas fa-arrow-alt-circle-left"></i>}
         nextPageText={<i className="fas fa-arrow-alt-circle-right"></i>}
         activePage={activePage}

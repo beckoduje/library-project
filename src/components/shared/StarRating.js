@@ -24,69 +24,25 @@ export default function StarRating() {
     localStorage.setItem(USER_RATING_KEY, JSON.stringify(userRatings));
   }
 
-  // useEffect(() => {
-  //   const userRatingsJSON = localStorage.getItem(USER_RATING_KEY);
-  //   if (userRatingsJSON != null) {
-  //     userRatings.push(JSON.parse(userRatingsJSON));
-  //   }
-  // }, []);
-
   const userRatingsJSON = localStorage.getItem(USER_RATING_KEY);
   if (userRatingsJSON != null) {
     userRatings = JSON.parse(userRatingsJSON);
   }
 
-  // useEffect(() => {
-  //   if (userRatings.length > 0) {
-  //     localStorage.setItem(USER_RATING_KEY, JSON.stringify(userRatings));
-  //   }
-  //   console.log(`Iz use Effekta di postavljam LS  ${userRatings}`);
-  // }, [userRatings]);
-
-  // if (userRatings.length > 0) { makao trenutno
-  //   localStorage.setItem(USER_RATING_KEY, JSON.stringify(userRatings));
-  // }
-
-  // useEffect(() => {
-  //   ID = !singleBook ? "1234" : singleBook.id;
-  //   console.log("logiram id iz effekta di ga traim" + ID);
-  // });
   ID = !singleBook ? "1234" : singleBook.id;
-
-  // useEffect(() => {
-  //   console.log(
-  //     "use effekt userRatings di bi treba nać u arrayu ID" + userRatings
-  //   );
-  //   console.log("use effekt userRatings di bi treba nać u arrayu ID" + ID);
-  //   console.log(
-  //     "use effekt userRatings di bi treba nać u arrayu ID" + userRatings[0].id
-  //   );
-  //   if (userRatings.some((book) => book.id === ID)) {
-  //     console.log("naddjeno");
-  //   } else {
-  //     console.log("nije nadeo");
-  //   }
-  // }, []);
-
-  // if (userRatings.some((book) => book.id === ID) && rating == 0) {
-  //   console.log("naddjeno");
-  //   // setRating();
-  //   console.log(rating);
-  // } else {
-  //   console.log("nije nadeo");
-  // }
 
   userRatings.forEach((book) => {
     if (book.id === ID && rating == 0) {
-      console.log(book.userRating);
       setRating(book.userRating);
       return;
     }
   });
 
   useEffect(() => {
-    console.log(rating);
-  }, []);
+    if (!userRatings.some((book) => book.id === ID)) {
+      setRating(0);
+    }
+  });
 
   return (
     <div className="star-rating">
