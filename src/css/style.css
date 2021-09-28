@@ -25,6 +25,38 @@
   text-transform: capitalize;
 }
 
+/* 720px */
+@media only screen and (max-width: 720px) {
+  .home-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(55%, transparent), color-stop(55%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 55%, rgba(244, 163, 67, 0.8) 55%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 640px */
+@media only screen and (max-width: 640px) {
+  .home-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(45%, transparent), color-stop(45%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 45%, rgba(244, 163, 67, 0.8) 45%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 530px */
+@media only screen and (max-width: 530px) {
+  .home-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(40%, transparent), color-stop(40%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 40%, rgba(244, 163, 67, 0.8) 40%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 460px */
+@media only screen and (max-width: 460px) {
+  .home-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(30%, transparent), color-stop(30%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 30%, rgba(244, 163, 67, 0.8) 30%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
 .navigation {
   width: 100%;
   display: -webkit-box;
@@ -102,6 +134,12 @@
 .navigation .navigation-links .navigation-link a {
   text-decoration: none;
   color: white;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.navigation .navigation-links .navigation-link a:hover {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .navigation .navigation-links .navigation-link a .menu-open {
@@ -110,6 +148,54 @@
 
 .navigation .navigation-links .navigation-link:not(:last-child) {
   margin-right: 3rem;
+}
+
+/* 1250px */
+@media only screen and (max-width: 1250px) {
+  .navigation {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  .navigation .navigation-links .navigation-link:not(:last-child) {
+    margin-right: 2.5rem;
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px) {
+  .navigation {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .navigation .navigation-links .navigation-link:not(:last-child) {
+    margin-right: 2rem;
+  }
+}
+
+/* 740px */
+@media only screen and (max-width: 740px) {
+  .navigation {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+/* 500px */
+@media only screen and (max-width: 500px) {
+  .navigation {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* 400px */
+@media only screen and (max-width: 400px) {
+  .navigation .navigation-links .navigation-link:not(:last-child) {
+    margin-right: 1.5rem;
+  }
+  .navigation .navigation-link {
+    font-size: 1.3rem;
+  }
 }
 
 .header {
@@ -133,12 +219,12 @@
       align-self: center;
 }
 
-.home-page-quotes .quote.quote-1 {
+.home-page-quotes .quote {
   margin-bottom: 5rem;
   position: relative;
 }
 
-.home-page-quotes .quote.quote-1::before {
+.home-page-quotes .quote::before {
   position: absolute;
   content: "\201C";
   font-size: 30rem;
@@ -149,9 +235,76 @@
   z-index: -1;
 }
 
-.home-page-quotes .quote.quote-2 {
-  font-size: 3rem;
-  display: none;
+/* 1250px */
+@media only screen and (max-width: 1250px) {
+  .home-page-quotes {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+/* 1150px */
+@media only screen and (max-width: 1150px) {
+  .home-page-quotes {
+    font-size: 6.5rem;
+  }
+  .home-page-quotes .quote {
+    margin-bottom: 0;
+  }
+}
+
+/* 1150px */
+@media only screen and (max-width: 1150px) {
+  .home-page-quotes {
+    font-size: 6rem;
+  }
+}
+
+/* 1000px */
+@media only screen and (max-width: 1000px) {
+  .home-page-quotes {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    font-size: 5.5rem;
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px) {
+  .home-page-quotes {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 5rem;
+  }
+}
+
+/* 720px */
+@media only screen and (max-width: 720px) {
+  .home-page-quotes {
+    grid-column: span 2;
+    font-size: 7rem;
+  }
+}
+
+/* 590px */
+@media only screen and (max-width: 590px) {
+  .home-page-quotes {
+    font-size: 6rem;
+  }
+}
+
+/* 510px */
+@media only screen and (max-width: 510px) {
+  .home-page-quotes {
+    font-size: 5rem;
+  }
+}
+
+/* 380px */
+@media only screen and (max-width: 380px) {
+  .home-page-quotes {
+    font-size: 4.5rem;
+  }
 }
 
 .search-container {
@@ -208,6 +361,33 @@
   background: none;
   cursor: pointer;
   color: white;
+}
+
+/* 1000px */
+@media only screen and (max-width: 1000px) {
+  .search-container {
+    width: 40rem;
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px) {
+  .search-container {
+    width: 30rem;
+    margin-right: 2rem;
+  }
+}
+
+/* 740px */
+@media only screen and (max-width: 740px) {
+  .search-container {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 1.5rem;
+    -webkit-box-ordinal-group: 6;
+        -ms-flex-order: 5;
+            order: 5;
+  }
 }
 
 .results-section {
@@ -405,6 +585,106 @@
   font-size: 1.2rem;
 }
 
+/* 1250px */
+@media only screen and (max-width: 1250px) {
+  .results-container {
+    padding-left: 4rem;
+  }
+  .results-container .results-list {
+    width: calc(60% - 4rem);
+  }
+}
+
+/* 1130px */
+@media only screen and (max-width: 1130px) {
+  .results-container .results-list {
+    width: 68%;
+  }
+  .results-container .results-list .results-list-item .results-list-item-link.sticker {
+    background: #209b80;
+  }
+}
+
+/* 960px */
+@media only screen and (max-width: 960px) {
+  .results-container
+.results-list
+.results-list-item
+.reading-status-container
+.reading-status {
+    font-size: 1.1rem;
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px) {
+  .results-container {
+    padding-left: 2rem;
+  }
+  .results-container .results-list {
+    width: 70%;
+  }
+  .results-container .results-list .results-list-item {
+    height: 22rem;
+    -ms-grid-columns: 1fr 12rem;
+        grid-template-columns: 1fr 12rem;
+    grid-column-gap: 1rem;
+  }
+  .results-container .results-list .results-list-item .book-title {
+    font-size: 2rem;
+  }
+  .results-container .results-list .results-list-item .reading-status-container .reading-status {
+    margin-right: 0.5rem;
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px) {
+  .results-container .results-list {
+    width: 100%;
+  }
+  .results-container .results-list .results-list-item {
+    height: 24rem;
+    -ms-grid-columns: 1fr 13rem;
+        grid-template-columns: 1fr 13rem;
+    grid-column-gap: 3rem;
+  }
+  .results-container .results-list .results-list-item .book-title {
+    font-size: 2.2rem;
+  }
+  .results-container .results-list .results-list-item .reading-status-container .reading-status {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* 740px */
+@media only screen and (max-width: 740px) {
+  .results-container {
+    padding-right: 6rem;
+  }
+}
+
+/* 680px */
+@media only screen and (max-width: 680px) {
+  .results-container .results-list {
+    width: 100%;
+  }
+  .results-container .results-list .results-list-item {
+    height: 22rem;
+    -ms-grid-columns: 1fr 12rem;
+        grid-template-columns: 1fr 12rem;
+    grid-column-gap: 1rem;
+  }
+  .results-container .results-list .results-list-item .book-title {
+    font-size: 2rem;
+  }
+  .results-container .results-list .results-list-item .reading-status-container .reading-status {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+  }
+}
+
 .myCollection-section {
   min-height: 100vh;
   font-size: 1.5rem;
@@ -504,6 +784,13 @@
   position: fixed;
   right: 2%;
   bottom: 10%;
+}
+
+/* 720px */
+@media only screen and (max-width: 720px) {
+  .feather-image {
+    display: none;
+  }
 }
 
 .next-page {

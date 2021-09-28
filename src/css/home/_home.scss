@@ -3,9 +3,6 @@
   display: grid;
   grid-template-columns: 60% 1fr;
   grid-template-rows: max-content 1fr;
-  // padding: 2rem;
-  // padding-left: 4rem;
-  // padding-right: 4rem;
   font-size: 1.5rem;
   background-image: linear-gradient(
     to right,
@@ -22,5 +19,57 @@
     padding-bottom: 1rem;
     font-weight: 400;
     text-transform: capitalize;
+  }
+}
+
+/* 720px */
+@media only screen and (max-width: 720px /*xyrem*/) {
+  .home-section {
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      transparent 55%,
+      rgba(244, 163, 67, 0.8) 55%,
+      rgba(244, 163, 67, 0.8) 100%
+    );
+  }
+}
+
+/* 640px */
+@media only screen and (max-width: 640px /*xyrem*/) {
+  .home-section {
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      transparent 45%,
+      rgba(244, 163, 67, 0.8) 45%,
+      rgba(244, 163, 67, 0.8) 100%
+    );
+  }
+}
+
+/* 530px */
+@media only screen and (max-width: 530px /*xyrem*/) {
+  .home-section {
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      transparent 40%,
+      rgba(244, 163, 67, 0.8) 40%,
+      rgba(244, 163, 67, 0.8) 100%
+    );
+  }
+}
+
+/* 460px */
+@media only screen and (max-width: 460px /*xyrem*/) {
+  .home-section {
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      transparent 30%,
+      rgba(244, 163, 67, 0.8) 30%,
+      rgba(244, 163, 67, 0.8) 100%
+    );
   }
 }

@@ -9,24 +9,90 @@
   align-self: center;
 
   .quote {
-    &.quote-1 {
-      margin-bottom: 5rem;
-      position: relative;
+    margin-bottom: 5rem;
+    position: relative;
 
-      &::before {
-        position: absolute;
-        content: "\201C";
-        font-size: 30rem;
-        font-family: sans-serif;
-        color: rgba(244, 163, 67, 0.35);
-        top: -10.5rem;
-        left: -3rem;
-        z-index: -1;
-      }
+    &::before {
+      position: absolute;
+      content: "\201C";
+      font-size: 30rem;
+      font-family: sans-serif;
+      color: rgba(244, 163, 67, 0.35);
+      top: -10.5rem;
+      left: -3rem;
+      z-index: -1;
     }
-    &.quote-2 {
-      font-size: 3rem;
-      display: none;
+  }
+}
+
+/* 1250px */
+@media only screen and (max-width: 1250px /*xyrem*/) {
+  .home-page-quotes {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+/* 1150px */
+@media only screen and (max-width: 1150px /*xyrem*/) {
+  .home-page-quotes {
+    font-size: 6.5rem;
+    .quote {
+      margin-bottom: 0;
     }
+  }
+}
+
+/* 1150px */
+@media only screen and (max-width: 1150px /*xyrem*/) {
+  .home-page-quotes {
+    font-size: 6rem;
+  }
+}
+
+/* 1000px */
+@media only screen and (max-width: 1000px /*xyrem*/) {
+  .home-page-quotes {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    font-size: 5.5rem;
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px /*xyrem*/) {
+  .home-page-quotes {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 5rem;
+  }
+}
+
+/* 720px */
+@media only screen and (max-width: 720px /*xyrem*/) {
+  .home-page-quotes {
+    grid-column: span 2;
+    font-size: 7rem;
+  }
+}
+
+/* 590px */
+@media only screen and (max-width: 590px /*xyrem*/) {
+  .home-page-quotes {
+    font-size: 6rem;
+  }
+}
+
+/* 510px */
+@media only screen and (max-width: 510px /*xyrem*/) {
+  .home-page-quotes {
+    font-size: 5rem;
+  }
+}
+
+/* 380px */
+@media only screen and (max-width: 380px /*xyrem*/) {
+  .home-page-quotes {
+    font-size: 4.5rem;
   }
 }

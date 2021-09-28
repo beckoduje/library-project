@@ -5,6 +5,8 @@ import { LibraryContext } from "../LibraryContext";
 export default function SingleBookDescription() {
   const { singleBook } = useContext(LibraryContext);
 
+  console.log(singleBook);
+
   return (
     <>
       {!singleBook ? (
@@ -13,9 +15,11 @@ export default function SingleBookDescription() {
         <div className="single-book-description">
           {!singleBook.volumeInfo.description
             ? "-"
-            : singleBook.volumeInfo.description}
+            : singleBook.volumeInfo.description.replace(/<\/?[^>]+(>|$)/g, "")}
         </div>
       )}
     </>
   );
 }
+
+//cleanText = strInputCode.replace(/<\/?[^>]+(>|$)/g, "");
