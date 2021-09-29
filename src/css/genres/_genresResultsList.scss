@@ -15,3 +15,30 @@
     }
   }
 }
+
+/* 1250px */
+@media only screen and (max-width: 1250px /*xyrem*/) {
+  .results-container.genres {
+    .genre-description-container {
+      width: calc(60% - 4rem);
+    }
+  }
+}
+
+/* 1130px */
+@media only screen and (max-width: 1130px /*xyrem*/) {
+  .results-container.genres {
+    .genre-description-container {
+      width: 68%;
+    }
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px /*xyrem*/) {
+  .results-container.genres {
+    .genre-description-container {
+      width: 100%;
+    }
+  }
+}

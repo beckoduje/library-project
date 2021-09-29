@@ -17,3 +17,16 @@
     display: none;
   }
 }
+
+// --------------------------- REZULTATI
+/* 880px */
+@media only screen and (max-width: 880px /*xyrem*/) {
+  .results-section,
+  .genres-section,
+  .myCollection-section,
+  .single-book-section {
+    .feather-image {
+      display: none;
+    }
+  }
+}

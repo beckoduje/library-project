@@ -9,15 +9,56 @@
     rgba(244, 163, 67, 0.8) 60%,
     rgba(244, 163, 67, 0.8) 100%
   );
+}
 
-  // prebačeno u svoj file za sada
-  // .next-page {
-  //   display: flex;
-  //   justify-content: center;
-  //   width: 60%;
+/* 720px */
+@media only screen and (max-width: 720px /*xyrem*/) {
+  .results-section {
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      transparent 55%,
+      rgba(244, 163, 67, 0.8) 55%,
+      rgba(244, 163, 67, 0.8) 100%
+    );
+  }
+}
 
-  //   .load-next {
-  //     margin-left: 1.5rem;
-  //   }
-  // }
+/* 640px */
+@media only screen and (max-width: 640px /*xyrem*/) {
+  .results-section {
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      transparent 45%,
+      rgba(244, 163, 67, 0.8) 45%,
+      rgba(244, 163, 67, 0.8) 100%
+    );
+  }
+}
+
+/* 530px */
+@media only screen and (max-width: 530px /*xyrem*/) {
+  .results-section {
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      transparent 40%,
+      rgba(244, 163, 67, 0.8) 40%,
+      rgba(244, 163, 67, 0.8) 100%
+    );
+  }
+}
+
+/* 460px */
+@media only screen and (max-width: 460px /*xyrem*/) {
+  .results-section {
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      transparent 30%,
+      rgba(244, 163, 67, 0.8) 30%,
+      rgba(244, 163, 67, 0.8) 100%
+    );
+  }
 }

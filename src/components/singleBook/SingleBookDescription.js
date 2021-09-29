@@ -8,7 +8,7 @@ export default function SingleBookDescription() {
   console.log(singleBook);
 
   return (
-    <>
+    <div className="single-book-description-wrapper">
       {!singleBook ? (
         ""
       ) : (
@@ -18,7 +18,7 @@ export default function SingleBookDescription() {
             : singleBook.volumeInfo.description.replace(/<\/?[^>]+(>|$)/g, "")}
         </div>
       )}
-    </>
+    </div>
   );
 }
 

@@ -45,29 +45,31 @@ export default function StarRating() {
   });
 
   return (
-    <div className="star-rating">
-      <p className="star-rating-text">Leave your rating:</p>
-      <div className="stars-wrapper">
-        {[...Array(5)].map((star, index) => {
-          index += 1;
-          return (
-            <button
-              type="button"
-              key={index}
-              className={
-                index <= (hover || rating) ? "star-btn on" : "star-btn off"
-              }
-              onClick={() => {
-                setRating(index);
-                addRatingToLS(index);
-              }}
-              onMouseEnter={() => setHover(index)}
-              onMouseLeave={() => setHover(rating)}
-            >
-              <i className="star fas fa-star start-rating empty" />
-            </button>
-          );
-        })}
+    <div className="star-rating-wrapper">
+      <div className="star-rating">
+        <p className="star-rating-text">Leave your rating:</p>
+        <div className="stars-wrapper">
+          {[...Array(5)].map((star, index) => {
+            index += 1;
+            return (
+              <button
+                type="button"
+                key={index}
+                className={
+                  index <= (hover || rating) ? "star-btn on" : "star-btn off"
+                }
+                onClick={() => {
+                  setRating(index);
+                  addRatingToLS(index);
+                }}
+                onMouseEnter={() => setHover(index)}
+                onMouseLeave={() => setHover(rating)}
+              >
+                <i className="star fas fa-star start-rating empty" />
+              </button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,47 @@
-.single-book-description {
-  width: calc(60% - 10rem);
+.single-book-description-wrapper {
   padding-top: 2rem;
   padding-left: 8rem;
-  text-align: justify;
+  padding-right: 8rem;
+  .single-book-description {
+    width: calc(60% - 8rem);
+    text-align: justify;
+  }
+}
+
+/* 1250px */
+@media only screen and (max-width: 1250px /*xyrem*/) {
+  .single-book-description-wrapper {
+    padding-left: 4rem;
+    .single-book-description {
+      width: calc(60% - 4rem);
+    }
+  }
+}
+
+/* 1130px */
+@media only screen and (max-width: 1130px /*xyrem*/) {
+  .single-book-description-wrapper {
+    .single-book-description {
+      width: 68%;
+    }
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px /*xyrem*/) {
+  .single-book-description-wrapper {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    .single-book-description {
+      width: 100%;
+    }
+  }
+}
+
+/* 500px */
+@media only screen and (max-width: 500px /*xyrem*/) {
+  .single-book-description-wrapper {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
 }

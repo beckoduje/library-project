@@ -178,6 +178,9 @@
         .results-list-item-link.sticker {
           background: #209b80;
         }
+        .remove-book-btn {
+          background: rgba(0, 0, 0, 0.7);
+        }
       }
     }
   }
@@ -199,30 +202,6 @@
   .results-container {
     padding-left: 2rem;
     .results-list {
-      width: 70%;
-      .results-list-item {
-        height: 22rem;
-        grid-template-columns: 1fr 12rem;
-        grid-column-gap: 1rem;
-
-        .book-title {
-          font-size: 2rem;
-        }
-
-        .reading-status-container {
-          .reading-status {
-            margin-right: 0.5rem;
-          }
-        }
-      }
-    }
-  }
-}
-
-/* 880px */
-@media only screen and (max-width: 880px /*xyrem*/) {
-  .results-container {
-    .results-list {
       width: 100%;
       .results-list-item {
         height: 24rem;
@@ -231,6 +210,12 @@
 
         .book-title {
           font-size: 2.2rem;
+        }
+
+        .book-average-rating {
+          .start-rating {
+            font-size: 2rem;
+          }
         }
 
         .reading-status-container {
@@ -270,6 +255,59 @@
             margin-right: 0.5rem;
             font-size: 1.1rem;
           }
+        }
+      }
+    }
+  }
+}
+
+/* 550px */
+@media only screen and (max-width: 550px /*xyrem*/) {
+  .results-container {
+    padding-right: 2rem;
+    .results-list {
+      .results-list-item {
+        .reading-status-container {
+          .reading-status {
+            margin-top: 0.5rem;
+          }
+        }
+        .results-list-item-link.sticker {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+/* 500px */
+@media only screen and (max-width: 500px /*xyrem*/) {
+  .results-container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    .results-list {
+      .results-list-item {
+        padding: 1.4rem;
+
+        .book-title {
+          font-size: 1.8rem;
+        }
+
+        .book-authors-cont {
+          font-size: 1.5rem;
+        }
+
+        .reading-status-container {
+          .reading-status {
+            font-size: 1rem;
+            border-radius: 10px;
+            padding: 0.9rem;
+          }
+        }
+
+        .remove-book-btn {
+          top: -1.3rem;
+          right: -0.6rem;
         }
       }
     }

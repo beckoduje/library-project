@@ -1,35 +1,117 @@
-.star-rating {
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 12px;
-  width: calc(60% - 18rem);
-  margin-left: 8rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.star-rating-wrapper {
+  padding-left: 8rem;
+  padding-right: 8rem;
+  .star-rating {
+    width: calc(60% - 8rem);
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  .star-rating-text {
-    padding: 1.4rem;
+    .star-rating-text {
+      padding: 1.4rem;
+    }
+
+    .stars-wrapper {
+      padding: 1.4rem;
+      .star-btn {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+
+        &.on {
+          color: #209b80;
+        }
+
+        &.off {
+          color: rgba(255, 255, 255, 0.5);
+        }
+
+        i {
+          font-size: 2.2rem;
+          margin-right: 0.7rem;
+        }
+      }
+    }
   }
+}
 
-  .stars-wrapper {
-    padding: 1.4rem;
-    .star-btn {
-      background-color: transparent;
-      border: none;
-      outline: none;
-      cursor: pointer;
+/* 1250px */
+@media only screen and (max-width: 1250px /*xyrem*/) {
+  .star-rating-wrapper {
+    padding-left: 4rem;
+    .star-rating {
+      width: calc(60% - 4rem);
+    }
+  }
+}
 
-      &.on {
-        color: #209b80;
+/* 1130px */
+@media only screen and (max-width: 1130px /*xyrem*/) {
+  .star-rating-wrapper {
+    .star-rating {
+      width: 68%;
+    }
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px /*xyrem*/) {
+  .star-rating-wrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    .star-rating {
+      width: 100%;
+    }
+  }
+}
+
+/* 500px */
+@media only screen and (max-width: 500px /*xyrem*/) {
+  .star-rating-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    .star-rating {
+      .stars-wrapper {
+        padding-right: 0.5rem;
       }
+    }
+  }
+}
 
-      &.off {
-        color: rgba(255, 255, 255, 0.5);
+/* 450px */
+@media only screen and (max-width: 450px /*xyrem*/) {
+  .star-rating-wrapper {
+    .star-rating {
+      .stars-wrapper {
+        padding-right: 0.7rem;
+        .star-btn {
+          i {
+            font-size: 2rem;
+            margin-right: 0.5rem;
+          }
+        }
       }
+    }
+  }
+}
 
-      i {
-        font-size: 2.2rem;
-        margin-right: 0.7rem;
+/* 360px */
+@media only screen and (max-width: 360px /*xyrem*/) {
+  .star-rating-wrapper {
+    .star-rating {
+      .star-rating-text {
+        font-size: 1.3rem;
+      }
+      .stars-wrapper {
+        .star-btn {
+          i {
+            font-size: 1.8rem;
+            margin-right: 0.4rem;
+          }
+        }
       }
     }
   }

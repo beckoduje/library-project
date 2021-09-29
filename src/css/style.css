@@ -398,6 +398,38 @@
   background-image: linear-gradient(to right, transparent 0%, transparent 60%, rgba(244, 163, 67, 0.8) 60%, rgba(244, 163, 67, 0.8) 100%);
 }
 
+/* 720px */
+@media only screen and (max-width: 720px) {
+  .results-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(55%, transparent), color-stop(55%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 55%, rgba(244, 163, 67, 0.8) 55%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 640px */
+@media only screen and (max-width: 640px) {
+  .results-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(45%, transparent), color-stop(45%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 45%, rgba(244, 163, 67, 0.8) 45%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 530px */
+@media only screen and (max-width: 530px) {
+  .results-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(40%, transparent), color-stop(40%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 40%, rgba(244, 163, 67, 0.8) 40%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 460px */
+@media only screen and (max-width: 460px) {
+  .results-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(30%, transparent), color-stop(30%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 30%, rgba(244, 163, 67, 0.8) 30%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
 .results-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -603,6 +635,9 @@
   .results-container .results-list .results-list-item .results-list-item-link.sticker {
     background: #209b80;
   }
+  .results-container .results-list .results-list-item .remove-book-btn {
+    background: rgba(0, 0, 0, 0.7);
+  }
 }
 
 /* 960px */
@@ -622,25 +657,6 @@
     padding-left: 2rem;
   }
   .results-container .results-list {
-    width: 70%;
-  }
-  .results-container .results-list .results-list-item {
-    height: 22rem;
-    -ms-grid-columns: 1fr 12rem;
-        grid-template-columns: 1fr 12rem;
-    grid-column-gap: 1rem;
-  }
-  .results-container .results-list .results-list-item .book-title {
-    font-size: 2rem;
-  }
-  .results-container .results-list .results-list-item .reading-status-container .reading-status {
-    margin-right: 0.5rem;
-  }
-}
-
-/* 880px */
-@media only screen and (max-width: 880px) {
-  .results-container .results-list {
     width: 100%;
   }
   .results-container .results-list .results-list-item {
@@ -651,6 +667,9 @@
   }
   .results-container .results-list .results-list-item .book-title {
     font-size: 2.2rem;
+  }
+  .results-container .results-list .results-list-item .book-average-rating .start-rating {
+    font-size: 2rem;
   }
   .results-container .results-list .results-list-item .reading-status-container .reading-status {
     margin-right: 1rem;
@@ -685,11 +704,82 @@
   }
 }
 
+/* 550px */
+@media only screen and (max-width: 550px) {
+  .results-container {
+    padding-right: 2rem;
+  }
+  .results-container .results-list .results-list-item .reading-status-container .reading-status {
+    margin-top: 0.5rem;
+  }
+  .results-container .results-list .results-list-item .results-list-item-link.sticker {
+    display: none;
+  }
+}
+
+/* 500px */
+@media only screen and (max-width: 500px) {
+  .results-container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  .results-container .results-list .results-list-item {
+    padding: 1.4rem;
+  }
+  .results-container .results-list .results-list-item .book-title {
+    font-size: 1.8rem;
+  }
+  .results-container .results-list .results-list-item .book-authors-cont {
+    font-size: 1.5rem;
+  }
+  .results-container .results-list .results-list-item .reading-status-container .reading-status {
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 0.9rem;
+  }
+  .results-container .results-list .results-list-item .remove-book-btn {
+    top: -1.3rem;
+    right: -0.6rem;
+  }
+}
+
 .myCollection-section {
   min-height: 100vh;
   font-size: 1.5rem;
   background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(60%, transparent), color-stop(60%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
   background-image: linear-gradient(to right, transparent 0%, transparent 60%, rgba(244, 163, 67, 0.8) 60%, rgba(244, 163, 67, 0.8) 100%);
+}
+
+/* 720px */
+@media only screen and (max-width: 720px) {
+  .myCollection-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(55%, transparent), color-stop(55%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 55%, rgba(244, 163, 67, 0.8) 55%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 640px */
+@media only screen and (max-width: 640px) {
+  .myCollection-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(45%, transparent), color-stop(45%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 45%, rgba(244, 163, 67, 0.8) 45%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 530px */
+@media only screen and (max-width: 530px) {
+  .myCollection-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(40%, transparent), color-stop(40%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 40%, rgba(244, 163, 67, 0.8) 40%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 460px */
+@media only screen and (max-width: 460px) {
+  .myCollection-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(30%, transparent), color-stop(30%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 30%, rgba(244, 163, 67, 0.8) 30%, rgba(244, 163, 67, 0.8) 100%);
+  }
 }
 
 .myCollection-container .myCollection-nav .myCollection-nav-list {
@@ -757,6 +847,38 @@
   background-image: linear-gradient(to right, transparent 0%, transparent 60%, rgba(244, 163, 67, 0.8) 60%, rgba(244, 163, 67, 0.8) 100%);
 }
 
+/* 720px */
+@media only screen and (max-width: 720px) {
+  .genres-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(55%, transparent), color-stop(55%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 55%, rgba(244, 163, 67, 0.8) 55%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 640px */
+@media only screen and (max-width: 640px) {
+  .genres-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(45%, transparent), color-stop(45%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 45%, rgba(244, 163, 67, 0.8) 45%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 530px */
+@media only screen and (max-width: 530px) {
+  .genres-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(40%, transparent), color-stop(40%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 40%, rgba(244, 163, 67, 0.8) 40%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 460px */
+@media only screen and (max-width: 460px) {
+  .genres-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(30%, transparent), color-stop(30%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 30%, rgba(244, 163, 67, 0.8) 30%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
 .results-container.genres .genre-description-container {
   width: calc(60% - 8rem);
   margin-bottom: 2rem;
@@ -771,6 +893,27 @@
 .results-container.genres .genre-description-container .genre-description {
   font-size: 1.6rem;
   text-align: justify;
+}
+
+/* 1250px */
+@media only screen and (max-width: 1250px) {
+  .results-container.genres .genre-description-container {
+    width: calc(60% - 4rem);
+  }
+}
+
+/* 1130px */
+@media only screen and (max-width: 1130px) {
+  .results-container.genres .genre-description-container {
+    width: 68%;
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px) {
+  .results-container.genres .genre-description-container {
+    width: 100%;
+  }
 }
 
 .feather-image {
@@ -789,6 +932,16 @@
 /* 720px */
 @media only screen and (max-width: 720px) {
   .feather-image {
+    display: none;
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px) {
+  .results-section .feather-image,
+  .genres-section .feather-image,
+  .myCollection-section .feather-image,
+  .single-book-section .feather-image {
     display: none;
   }
 }
@@ -854,6 +1007,20 @@
   display: none;
 }
 
+/* 1130px */
+@media only screen and (max-width: 1130px) {
+  .next-page {
+    width: 68%;
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px) {
+  .next-page {
+    width: 100%;
+  }
+}
+
 .single-book-section {
   min-height: 100vh;
   padding-bottom: 5rem;
@@ -862,11 +1029,97 @@
   background-image: linear-gradient(to right, transparent 0%, transparent 60%, rgba(244, 163, 67, 0.8) 60%, rgba(244, 163, 67, 0.8) 100%);
 }
 
-.single-book-description {
-  width: calc(60% - 10rem);
+/* 880px */
+@media only screen and (max-width: 880px) {
+  .single-book-section .results-container {
+    padding-right: 2rem;
+  }
+}
+
+/* 720px */
+@media only screen and (max-width: 720px) {
+  .single-book-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(55%, transparent), color-stop(55%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 55%, rgba(244, 163, 67, 0.8) 55%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 640px */
+@media only screen and (max-width: 640px) {
+  .single-book-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(45%, transparent), color-stop(45%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 45%, rgba(244, 163, 67, 0.8) 45%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 530px */
+@media only screen and (max-width: 530px) {
+  .single-book-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(40%, transparent), color-stop(40%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 40%, rgba(244, 163, 67, 0.8) 40%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+/* 500px */
+@media only screen and (max-width: 500px) {
+  .single-book-section .results-container {
+    padding-right: 1rem;
+  }
+}
+
+/* 460px */
+@media only screen and (max-width: 460px) {
+  .single-book-section {
+    background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(30%, transparent), color-stop(30%, rgba(244, 163, 67, 0.8)), to(rgba(244, 163, 67, 0.8)));
+    background-image: linear-gradient(to right, transparent 0%, transparent 30%, rgba(244, 163, 67, 0.8) 30%, rgba(244, 163, 67, 0.8) 100%);
+  }
+}
+
+.single-book-description-wrapper {
   padding-top: 2rem;
   padding-left: 8rem;
+  padding-right: 8rem;
+}
+
+.single-book-description-wrapper .single-book-description {
+  width: calc(60% - 8rem);
   text-align: justify;
+}
+
+/* 1250px */
+@media only screen and (max-width: 1250px) {
+  .single-book-description-wrapper {
+    padding-left: 4rem;
+  }
+  .single-book-description-wrapper .single-book-description {
+    width: calc(60% - 4rem);
+  }
+}
+
+/* 1130px */
+@media only screen and (max-width: 1130px) {
+  .single-book-description-wrapper .single-book-description {
+    width: 68%;
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px) {
+  .single-book-description-wrapper {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+  .single-book-description-wrapper .single-book-description {
+    width: 100%;
+  }
+}
+
+/* 500px */
+@media only screen and (max-width: 500px) {
+  .single-book-description-wrapper {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
 }
 
 .book-current-status .book-status-list {
@@ -888,11 +1141,45 @@
   background: rgba(255, 255, 255, 0.5);
 }
 
-.star-rating {
+/* 960px */
+@media only screen and (max-width: 960px) {
+  .book-current-status .book-status-list {
+    font-size: 1.1rem;
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px) {
+  .book-current-status .book-status-list {
+    font-size: 1.5rem;
+  }
+}
+
+/* 680px */
+@media only screen and (max-width: 680px) {
+  .book-current-status .book-status-list {
+    font-size: 1.1rem;
+  }
+}
+
+/* 500px */
+@media only screen and (max-width: 500px) {
+  .book-current-status .book-status-list {
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 0.9rem;
+  }
+}
+
+.star-rating-wrapper {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
+.star-rating-wrapper .star-rating {
+  width: calc(60% - 8rem);
   background: rgba(255, 255, 255, 0.5);
   border-radius: 12px;
-  width: calc(60% - 18rem);
-  margin-left: 8rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -904,32 +1191,93 @@
           align-items: center;
 }
 
-.star-rating .star-rating-text {
+.star-rating-wrapper .star-rating .star-rating-text {
   padding: 1.4rem;
 }
 
-.star-rating .stars-wrapper {
+.star-rating-wrapper .star-rating .stars-wrapper {
   padding: 1.4rem;
 }
 
-.star-rating .stars-wrapper .star-btn {
+.star-rating-wrapper .star-rating .stars-wrapper .star-btn {
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
 }
 
-.star-rating .stars-wrapper .star-btn.on {
+.star-rating-wrapper .star-rating .stars-wrapper .star-btn.on {
   color: #209b80;
 }
 
-.star-rating .stars-wrapper .star-btn.off {
+.star-rating-wrapper .star-rating .stars-wrapper .star-btn.off {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.star-rating .stars-wrapper .star-btn i {
+.star-rating-wrapper .star-rating .stars-wrapper .star-btn i {
   font-size: 2.2rem;
   margin-right: 0.7rem;
+}
+
+/* 1250px */
+@media only screen and (max-width: 1250px) {
+  .star-rating-wrapper {
+    padding-left: 4rem;
+  }
+  .star-rating-wrapper .star-rating {
+    width: calc(60% - 4rem);
+  }
+}
+
+/* 1130px */
+@media only screen and (max-width: 1130px) {
+  .star-rating-wrapper .star-rating {
+    width: 68%;
+  }
+}
+
+/* 880px */
+@media only screen and (max-width: 880px) {
+  .star-rating-wrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .star-rating-wrapper .star-rating {
+    width: 100%;
+  }
+}
+
+/* 500px */
+@media only screen and (max-width: 500px) {
+  .star-rating-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .star-rating-wrapper .star-rating .stars-wrapper {
+    padding-right: 0.5rem;
+  }
+}
+
+/* 450px */
+@media only screen and (max-width: 450px) {
+  .star-rating-wrapper .star-rating .stars-wrapper {
+    padding-right: 0.7rem;
+  }
+  .star-rating-wrapper .star-rating .stars-wrapper .star-btn i {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+  }
+}
+
+/* 360px */
+@media only screen and (max-width: 360px) {
+  .star-rating-wrapper .star-rating .star-rating-text {
+    font-size: 1.3rem;
+  }
+  .star-rating-wrapper .star-rating .stars-wrapper .star-btn i {
+    font-size: 1.8rem;
+    margin-right: 0.4rem;
+  }
 }
 
 *,
