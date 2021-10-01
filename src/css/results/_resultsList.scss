@@ -242,7 +242,7 @@
     .results-list {
       width: 100%;
       .results-list-item {
-        height: 22rem;
+        min-height: 22rem;
         grid-template-columns: 1fr 12rem;
         grid-column-gap: 1rem;
 
@@ -283,6 +283,7 @@
 /* 500px */
 @media only screen and (max-width: 500px /*xyrem*/) {
   .results-container {
+    padding-top: 2rem;
     padding-right: 1rem;
     padding-left: 1rem;
     .results-list {
@@ -302,6 +303,13 @@
             font-size: 1rem;
             border-radius: 10px;
             padding: 0.9rem;
+          }
+        }
+
+        .book-average-rating {
+          .start-rating {
+            font-size: 1.7rem;
+            margin-right: 0.4rem;
           }
         }
 

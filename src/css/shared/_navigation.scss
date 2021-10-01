@@ -108,8 +108,20 @@
 /* 400px */
 @media only screen and (max-width: 400px /*xyrem*/) {
   .navigation {
+    .logo {
+      width: 5rem;
+      height: 5rem;
+      &-image {
+        font-size: 1.8rem;
+      }
+      &-name {
+        font-size: 0.8rem;
+        font-weight: 900;
+      }
+    }
+
     .navigation-links .navigation-link:not(:last-child) {
-      margin-right: 1.5rem;
+      margin-right: 1rem;
     }
 
     .navigation-link {
