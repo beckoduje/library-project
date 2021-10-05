@@ -12,7 +12,7 @@ export default function ResultsList() {
     <div className="results-container">
       <ul className="results-list">
         {searchedBooks.length < 1 || searchedBooks.error
-          ? ""
+          ? "Search the library"
           : searchedBooks.items.map((book) => {
               return (
                 <li
