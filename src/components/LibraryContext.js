@@ -10,7 +10,7 @@ export const LibraryProvider = ({ children }) => {
   const [searchedBooks, setSearchedBooks] = useState([]);
   const [userInput, getUserInput] = useState("");
   const [selectedGenre, setSelectedGenre] = useState(1);
-  const [singleBook, setSingleBook] = useState();
+  // const [singleBook, setSingleBook] = useState(); najnovie linkččččč
 
   const MY_COLLECTION_KEY = "myCollection";
   const READ_BOOKS_KEY = "readBooks";
@@ -66,15 +66,15 @@ export const LibraryProvider = ({ children }) => {
     }
   }
 
-  function getSingleBook(volumeID) {
-    fetch(`https://www.googleapis.com/books/v1/volumes/${volumeID}`)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        setSingleBook(data);
-      });
-  }
+  // function getSingleBook(volumeID) {  -------------- njnobie link
+  //   fetch(`https://www.googleapis.com/books/v1/volumes/${volumeID}`)
+  //     .then(function (response) {
+  //       return response.json();
+  //     })
+  //     .then(function (data) {
+  //       setSingleBook(data);
+  //     });
+  // }
 
   function addNewCollectionItem(e) {
     let volumeID = e.target.closest(".results-list-item").dataset.idNumber;
@@ -138,9 +138,9 @@ export const LibraryProvider = ({ children }) => {
         getData,
         addNewCollectionItem,
         removeCollectionItem,
-        singleBook,
-        setSingleBook,
-        getSingleBook,
+        // singleBook,
+        // setSingleBook,
+        // getSingleBook,
       }}
     >
       {children}

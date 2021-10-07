@@ -4,7 +4,6 @@ import { LibraryContext } from "../LibraryContext";
 
 export default function StarRating() {
   const { singleBook } = useContext(LibraryContext);
-  // const [userRatings, setUserRatings] = useState([]); --- opet bez stanja
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
 

@@ -5,8 +5,9 @@ import { LibraryContext } from "../LibraryContext";
 import BookStatusCurrent from "../shared/BookStatusCurrent";
 import BookStatusOptions from "../shared/BookStatusOptions";
 
-export default function SingleBookCard() {
-  const { singleBook, myCollection } = useContext(LibraryContext);
+export default function SingleBookCard({ singleBook }) {
+  // const { singleBook, myCollection } = useContext(LibraryContext);  --- novo link
+  const { myCollection } = useContext(LibraryContext);
 
   return (
     <div className="results-container">

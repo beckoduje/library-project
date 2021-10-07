@@ -16,9 +16,10 @@ function App() {
     <LibraryProvider>
       <Router>
         <Switch>
-          <Route path="/book">
-            {" "}
-            {/*onLeave={setRating(0)}*/}
+          {/* <Route path="/book">
+            <SingleBook />
+          </Route> */}
+          <Route path="/book/:id">
             <SingleBook />
           </Route>
           <Route path="/collection">

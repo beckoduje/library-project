@@ -8,6 +8,7 @@ import { LibraryContext } from "../LibraryContext";
 export default function ResultsList() {
   const { searchedBooks, myCollection, getSingleBook } =
     useContext(LibraryContext);
+
   return (
     <div className="results-container">
       <ul className="results-list">
@@ -76,13 +77,22 @@ export default function ResultsList() {
                   </figure>
                   <Link
                     className="results-list-item-link sticker"
+                    to={"/book/:" + book.id}
+                    // onClick={() => {
+                    //   getSingleBook(book.id);
+                    // }}
+                  >
+                    About
+                  </Link>
+                  {/* <Link
+                    className="results-list-item-link sticker"
                     to={"/book"}
                     onClick={() => {
                       getSingleBook(book.id);
                     }}
                   >
                     About
-                  </Link>
+                  </Link> */}
                 </li>
               );
             })}
