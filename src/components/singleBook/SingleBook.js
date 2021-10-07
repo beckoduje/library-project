@@ -11,6 +11,7 @@ export default function SingleBook() {
   /* Sve ovo je novo za link */
   let { id } = useParams();
   const [singleBook, setSingleBook] = useState();
+  const osisanID = id.substring(1);
 
   function getSingleBook(id) {
     fetch(`https://www.googleapis.com/books/v1/volumes/${id}`)
@@ -22,10 +23,9 @@ export default function SingleBook() {
       });
   }
 
-  useEffect(()=>{
-    getSingleBook(id);
-  },[])
-
+  useEffect(() => {
+    getSingleBook(osisanID);
+  }, []);
 
   return (
     <div className="single-book-section">
