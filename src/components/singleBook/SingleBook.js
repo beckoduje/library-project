@@ -1,4 +1,4 @@
-import React, { useState } from "react"; // novo linkovi
+import React, { useState, useEffect } from "react"; // novo linkovi
 import FeatherImg from "../shared/FeatherImg";
 import Navigation from "../shared/Navigation";
 import StarRating from "../shared/StarRating";
@@ -10,11 +10,10 @@ import { useParams } from "react-router-dom"; // novo linkovi
 export default function SingleBook() {
   /* Sve ovo je novo za link */
   let { id } = useParams();
-  const bID = id.substring(1);
   const [singleBook, setSingleBook] = useState();
 
-  function getSingleBook(bookID) {
-    fetch(`https://www.googleapis.com/books/v1/volumes/${bookID}`)
+  function getSingleBook(id) {
+    fetch(`https://www.googleapis.com/books/v1/volumes/${id}`)
       .then(function (response) {
         return response.json();
       })
@@ -23,7 +22,10 @@ export default function SingleBook() {
       });
   }
 
-  getSingleBook(bID);
+  useEffect(()=>{
+    getSingleBook(id);
+  },[])
+
 
   return (
     <div className="single-book-section">

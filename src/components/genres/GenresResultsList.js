@@ -37,11 +37,8 @@ export default function GenresResultsList() {
                 >
                   <h4
                     className="book-title"
-                    onClick={() => {
-                      getSingleBook(book.id);
-                    }}
                   >
-                    <Link className="results-list-item-link" to={"/book"}>
+                    <Link className="results-list-item-link"  to={`/book/${book.id}`}>
                       {!book.volumeInfo.title ? `-` : book.volumeInfo.title}
                     </Link>
                   </h4>
@@ -91,10 +88,7 @@ export default function GenresResultsList() {
                   </figure>
                   <Link
                     className="results-list-item-link sticker"
-                    onClick={() => {
-                      getSingleBook(book.id);
-                    }}
-                    to={"/book/"}
+                    to={`/book/${book.id}`}
                   >
                     About
                   </Link>
