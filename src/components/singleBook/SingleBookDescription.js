@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 
-import { LibraryContext } from "../LibraryContext";
+// import { LibraryContext } from "../LibraryContext";
 
-export default function SingleBookDescription() {
-  const { singleBook } = useContext(LibraryContext);
+export default function SingleBookDescription({ singleBook }) {
+  // const { singleBook } = useContext(LibraryContext);
 
   console.log(singleBook);
 
