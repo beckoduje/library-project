@@ -35,10 +35,11 @@ export default function GenresResultsList() {
                   className="results-list-item"
                   data-id-number={book.id}
                 >
-                  <h4
-                    className="book-title"
-                  >
-                    <Link className="results-list-item-link"  to={`/book/${book.id}`}>
+                  <h4 className="book-title">
+                    <Link
+                      className="results-list-item-link"
+                      to={"/book/:" + book.id}
+                    >
                       {!book.volumeInfo.title ? `-` : book.volumeInfo.title}
                     </Link>
                   </h4>
@@ -88,7 +89,7 @@ export default function GenresResultsList() {
                   </figure>
                   <Link
                     className="results-list-item-link sticker"
-                    to={`/book/${book.id}`}
+                    to={"/book/:" + book.id}
                   >
                     About
                   </Link>

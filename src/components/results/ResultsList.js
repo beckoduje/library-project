@@ -23,11 +23,14 @@ export default function ResultsList() {
                 >
                   <h4
                     className="book-title"
-                    onClick={() => {
-                      getSingleBook(book.id);
-                    }}
+                    // onClick={() => {
+                    //   getSingleBook(book.id);
+                    // }}
                   >
-                    <Link className="results-list-item-link" to={"/book"}>
+                    <Link
+                      className="results-list-item-link"
+                      to={"/book/:" + book.id}
+                    >
                       {!book.volumeInfo.title ? `-` : book.volumeInfo.title}
                     </Link>
                   </h4>

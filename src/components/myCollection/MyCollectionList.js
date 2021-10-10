@@ -22,11 +22,14 @@ export default function MyCollectionList(props) {
               >
                 <h4
                   className="book-title"
-                  onClick={() => {
-                    getSingleBook(book.id);
-                  }}
+                  // onClick={() => {
+                  //   getSingleBook(book.id);
+                  // }}
                 >
-                  <Link className="results-list-item-link" to={"/book"}>
+                  <Link
+                    className="results-list-item-link"
+                    to={"/book/:" + book.id}
+                  >
                     {!book.title ? `-` : book.title}
                   </Link>
                 </h4>
@@ -82,10 +85,10 @@ export default function MyCollectionList(props) {
                 </button>
                 <Link
                   className="results-list-item-link sticker"
-                  onClick={() => {
-                    getSingleBook(book.id);
-                  }}
-                  to={"/book/"}
+                  // onClick={() => {
+                  //   getSingleBook(book.id);
+                  // }}
+                  to={"/book/:" + book.id}
                 >
                   About
                 </Link>
