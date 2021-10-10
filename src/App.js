@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { LibraryProvider } from "./components/LibraryContext";
 
@@ -29,10 +25,10 @@ function App() {
           <Route path="/collection">
             <MyCollection />
           </Route>
-          <Route path="/genres">
+          <Route path="/genres/:genre">
             <Genres />
           </Route>
-          <Route path="/results">
+          <Route path="/results/:userInput">
             <Results />
           </Route>
           <Route path="/">

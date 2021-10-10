@@ -18,17 +18,25 @@ export default function Search(props) {
           type="text"
           className="search-input"
           ref={inputEl}
-          onChange={(e) => getUserInput(e.target.value)}
+          onChange={(e) => getUserInput(e.target.value.trim())}
           onKeyPress={(e) => {
             if (e.key === "Enter" && e.target.value !== undefined) {
               e.preventDefault();
-              getData(e.target.value);
-              history.push("/results");
+              // getData(e.target.value);
+              history.push("/results/:" + userInput);
             }
           }}
+          // onKeyPress={(e) => {
+          //   if (e.key === "Enter" && e.target.value !== undefined) {
+          //     e.preventDefault();
+          //     getData(e.target.value);
+          //     history.push("/results");
+          //   }
+          // }}
         />
         <Link
-          to="/results"
+          // to="/results"
+          to={"/results/:" + userInput}
           className="search-button-link"
           onClick={() => {
             if (inputEl.current.value !== undefined) {
