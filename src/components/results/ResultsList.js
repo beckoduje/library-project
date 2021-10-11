@@ -74,7 +74,7 @@ export default function ResultsList() {
                   </figure>
                   <Link
                     className="results-list-item-link sticker"
-                    to={"/book/:" + book.id}
+                    to={"/book/" + book.id}
                   >
                     About
                   </Link>

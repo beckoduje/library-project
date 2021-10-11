@@ -22,12 +22,12 @@ export default function Search() {
           onKeyPress={(e) => {
             if (e.key === "Enter" && e.target.value !== undefined) {
               e.preventDefault();
-              history.push("/results/:" + userInput);
+              history.push("/results/" + userInput);
             }
           }}
         />
         <Link
-          to={"/results/:" + userInput}
+          to={"/results/" + userInput}
           className="search-button-link"
           onClick={() => {
             if (inputEl.current.value !== undefined) {

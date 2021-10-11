@@ -13,7 +13,7 @@ export default function GenresResultsList() {
     useContext(LibraryContext);
 
   let { genre } = useParams();
-  const cutGenre = genre.substring(1);
+  const cutGenre = genre;
 
   function getGenresData(genre) {
     fetch(
@@ -56,7 +56,7 @@ export default function GenresResultsList() {
                   <h4 className="book-title">
                     <Link
                       className="results-list-item-link"
-                      to={"/book/:" + book.id}
+                      to={"/book/" + book.id}
                     >
                       {!book.volumeInfo.title ? `-` : book.volumeInfo.title}
                     </Link>
@@ -107,7 +107,7 @@ export default function GenresResultsList() {
                   </figure>
                   <Link
                     className="results-list-item-link sticker"
-                    to={"/book/:" + book.id}
+                    to={"/book/" + book.id}
                   >
                     About
                   </Link>

@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 export default function SingleBook() {
   let { id } = useParams();
   const [singleBook, setSingleBook] = useState();
-  const osisanID = id.substring(1);
+  const osisanID = id;
 
   function getSingleBook(id) {
     fetch(`https://www.googleapis.com/books/v1/volumes/${id}`)

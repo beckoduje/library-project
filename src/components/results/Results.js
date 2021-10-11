@@ -26,6 +26,7 @@ export default function Results() {
       .then(function (data) {
         setSearchedBooks(data);
       });
+
   }, [startIndex]);
 
   return (

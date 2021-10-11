@@ -10,7 +10,7 @@ export default function GenresList() {
       {genresData.map((genre) => {
         return (
           <li key={genre.id} className="single-genre">
-            <Link to={"/genres/:" + genre.title}>{genre.title}</Link>
+            <Link to={"/genres/" + genre.title}>{genre.title}</Link>
           </li>
         );
       })}

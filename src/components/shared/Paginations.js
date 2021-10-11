@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext , useEffect} from "react";
 import Pagination from "react-js-pagination";
 
 import { LibraryContext } from "../LibraryContext";
@@ -8,10 +8,31 @@ export default function Paginations(props) {
 
   const [activePage, getActivePage] = useState(1);
 
+   function searchPage(pageNumber){
+    
+    let here = new URL(window.location.href);
+    let params = new URLSearchParams(document.location.search.substring(1));
+    let pageQuery = params.get("page");
+    
+    if(!params.has('page')){
+    here.searchParams.append('page', pageNumber);
+    window.location.href = here;
+    }else if(params.has('page') && pageQuery !== `${pageNumber}` && pageNumber !== '0'){
+      here.searchParams.set("page", pageNumber);
+      window.location.href = here;
+    }  
+   }
+
   const handlePageChange = (pageNumber) => {
+
     getActivePage(pageNumber);
     props.setStartIndex((pageNumber - 1) * 10);
+    searchPage(pageNumber);
+    
   };
+
+  searchPage('0');
+
 
   return (
     <div className="next-page">
