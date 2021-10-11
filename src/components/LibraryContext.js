@@ -51,20 +51,20 @@ export const LibraryProvider = ({ children }) => {
     localStorage.setItem(WANT_LIST_KEY, JSON.stringify(wantList));
   }, [wantList]);
 
-  function getData(userInput) {
-    if (userInput.trim().length > 0) {
-      fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=0&maxResults=10&printType=books`
-      )
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          setSearchedBooks(data);
-        });
-      document.querySelector(".search-input").value = "";
-    }
-  }
+  // function getData(userInput) {
+  //   if (userInput.trim().length > 0) {
+  //     fetch(
+  //       `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=0&maxResults=10&printType=books`
+  //     )
+  //       .then(function (response) {
+  //         return response.json();
+  //       })
+  //       .then(function (data) {
+  //         setSearchedBooks(data);
+  //       });
+  //     document.querySelector(".search-input").value = "";
+  //   }
+  // }
 
   // function getSingleBook(volumeID) {  -------------- njnobie link
   //   fetch(`https://www.googleapis.com/books/v1/volumes/${volumeID}`)
@@ -135,7 +135,7 @@ export const LibraryProvider = ({ children }) => {
         getUserInput,
         selectedGenre,
         setSelectedGenre,
-        getData,
+        // getData,
         addNewCollectionItem,
         removeCollectionItem,
         // singleBook,

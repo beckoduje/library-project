@@ -16,9 +16,6 @@ function App() {
     <LibraryProvider>
       <Router>
         <Switch>
-          {/* <Route path="/book">
-            <SingleBook />
-          </Route> */}
           <Route path="/book/:id">
             <SingleBook />
           </Route>

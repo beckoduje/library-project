@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 
 import { LibraryContext } from "../LibraryContext";
 
-export default function Search(props) {
+export default function Search() {
   const { getUserInput, getData, userInput } = useContext(LibraryContext);
 
   let history = useHistory();
@@ -22,20 +22,11 @@ export default function Search(props) {
           onKeyPress={(e) => {
             if (e.key === "Enter" && e.target.value !== undefined) {
               e.preventDefault();
-              // getData(e.target.value);
               history.push("/results/:" + userInput);
             }
           }}
-          // onKeyPress={(e) => {
-          //   if (e.key === "Enter" && e.target.value !== undefined) {
-          //     e.preventDefault();
-          //     getData(e.target.value);
-          //     history.push("/results");
-          //   }
-          // }}
         />
         <Link
-          // to="/results"
           to={"/results/:" + userInput}
           className="search-button-link"
           onClick={() => {

@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 
 import { LibraryContext } from "../LibraryContext.js";
 
@@ -9,17 +9,35 @@ import BookStatusCurrent from "../shared/BookStatusCurrent.js";
 import BookStatusOptions from "../shared/BookStatusOptions.js";
 
 export default function GenresResultsList() {
-  const { selectedGenre, searchedBooks, myCollection, getSingleBook } =
+  const { searchedBooks, setSearchedBooks, myCollection } =
     useContext(LibraryContext);
-  let selectedGen = selectedGenre - 1;
+
+  let { genre } = useParams();
+  const cutGenre = genre.substring(1);
+
+  function getGenresData(genre) {
+    fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${genre}+subject:${genre}&startIndex=10&maxResults=10&printType=books`
+    )
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        setSearchedBooks(data);
+      });
+  }
+
+  let selectedGen = genresData.findIndex((gen) => gen.title === cutGenre);
+
+  useEffect(() => {
+    getGenresData(cutGenre);
+  }, []);
 
   return (
     <div className="results-container genres">
       <div className="genre-description-container">
         <h2 className="genre-description-title">
-          {searchedBooks.length < 1
-            ? "Browse by genre"
-            : genresData[selectedGen].title}
+          {searchedBooks.length < 1 ? "" : cutGenre}
         </h2>
         <p className="genre-description">
           {searchedBooks.length < 1 ? "" : genresData[selectedGen].description}

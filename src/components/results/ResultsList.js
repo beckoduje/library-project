@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import BookStatusCurrent from "../shared/BookStatusCurrent";
 import BookStatusOptions from "../shared/BookStatusOptions";
 
 import { LibraryContext } from "../LibraryContext";
 
 export default function ResultsList() {
-  const { searchedBooks, myCollection, getSingleBook } =
-    useContext(LibraryContext);
+  const { searchedBooks, myCollection } = useContext(LibraryContext);
 
   return (
     <div className="results-container">
@@ -21,12 +20,7 @@ export default function ResultsList() {
                   className="results-list-item"
                   data-id-number={book.id}
                 >
-                  <h4
-                    className="book-title"
-                    // onClick={() => {
-                    //   getSingleBook(book.id);
-                    // }}
-                  >
+                  <h4 className="book-title">
                     <Link
                       className="results-list-item-link"
                       to={"/book/:" + book.id}
@@ -81,21 +75,9 @@ export default function ResultsList() {
                   <Link
                     className="results-list-item-link sticker"
                     to={"/book/:" + book.id}
-                    // onClick={() => {
-                    //   getSingleBook(book.id);
-                    // }}
                   >
                     About
                   </Link>
-                  {/* <Link
-                    className="results-list-item-link sticker"
-                    to={"/book"}
-                    onClick={() => {
-                      getSingleBook(book.id);
-                    }}
-                  >
-                    About
-                  </Link> */}
                 </li>
               );
             })}

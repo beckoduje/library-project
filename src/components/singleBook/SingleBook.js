@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react"; // novo linkovi
+import React, { useState, useEffect } from "react";
 import FeatherImg from "../shared/FeatherImg";
 import Navigation from "../shared/Navigation";
 import StarRating from "../shared/StarRating";
 import SingleBookCard from "./SingleBookCard";
 import SingleBookDescription from "./SingleBookDescription";
 
-import { useParams } from "react-router-dom"; // novo linkovi
+import { useParams } from "react-router-dom";
 
 export default function SingleBook() {
-  /* Sve ovo je novo za link */
   let { id } = useParams();
   const [singleBook, setSingleBook] = useState();
   const osisanID = id.substring(1);

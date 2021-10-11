@@ -7,8 +7,7 @@ import BookStatusCurrent from "../shared/BookStatusCurrent";
 import BookStatusOptions from "../shared/BookStatusOptions";
 
 export default function MyCollectionList(props) {
-  const { myCollection, removeCollectionItem, getSingleBook } =
-    useContext(LibraryContext);
+  const { myCollection, removeCollectionItem } = useContext(LibraryContext);
   return (
     <ul className="results-list myCollection-list">
       {props.data.length === 0
@@ -20,12 +19,7 @@ export default function MyCollectionList(props) {
                 className="results-list-item myCollection-list-item"
                 data-id-number={book.id}
               >
-                <h4
-                  className="book-title"
-                  // onClick={() => {
-                  //   getSingleBook(book.id);
-                  // }}
-                >
+                <h4 className="book-title">
                   <Link
                     className="results-list-item-link"
                     to={"/book/:" + book.id}
@@ -85,9 +79,6 @@ export default function MyCollectionList(props) {
                 </button>
                 <Link
                   className="results-list-item-link sticker"
-                  // onClick={() => {
-                  //   getSingleBook(book.id);
-                  // }}
                   to={"/book/:" + book.id}
                 >
                   About

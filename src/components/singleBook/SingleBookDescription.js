@@ -1,12 +1,6 @@
-import React, { useContext } from "react";
-
-// import { LibraryContext } from "../LibraryContext";
+import React from "react";
 
 export default function SingleBookDescription({ singleBook }) {
-  // const { singleBook } = useContext(LibraryContext);
-
-  console.log(singleBook);
-
   return (
     <div className="single-book-description-wrapper">
       {!singleBook ? (
@@ -21,5 +15,3 @@ export default function SingleBookDescription({ singleBook }) {
     </div>
   );
 }
-
-//cleanText = strInputCode.replace(/<\/?[^>]+(>|$)/g, "");
