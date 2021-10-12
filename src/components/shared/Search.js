@@ -29,11 +29,11 @@ export default function Search() {
         <Link
           to={"/results/" + userInput}
           className="search-button-link"
-          onClick={() => {
-            if (inputEl.current.value !== undefined) {
-              getData(userInput);
-            }
-          }}
+          // onClick={() => {
+          //   if (inputEl.current.value !== undefined) {
+          //     getData(userInput);
+          //   }
+          // }}
         >
           <button className="search-button" type="button">
             <i className="fas fa-search"></i>
