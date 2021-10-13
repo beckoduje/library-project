@@ -1,4 +1,4 @@
-import React, { useState, useContext , useEffect} from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Pagination from "react-js-pagination";
 
 import { LibraryContext } from "../LibraryContext";
@@ -8,34 +8,49 @@ export default function Paginations(props) {
 
   const [activePage, getActivePage] = useState(1);
 
-   function searchPage(pageNumber){
-    
+  function searchPage(pageNumber) {
     let url = new URL(window.location);
     let params = new URLSearchParams(document.location.search.substring(1));
     let pageQuery = params.get("page");
-    
-    if(!params.has('page')){
-      url.searchParams.set('page', 0);
-      window.history.pushState({}, '', url);
-    }else if(params.has('page') && pageQuery !== `${pageNumber}` && pageNumber !== '0'){
-       url.searchParams.set('page', pageNumber);
-       window.history.pushState({}, '', url);
-    }  
-   }
 
+    if (!params.has("page")) {
+      url.searchParams.set("page", 1);
+      window.history.pushState({}, "", url);
+    } else if (
+      params.has("page") &&
+      pageQuery !== `${pageNumber}` &&
+      pageNumber !== "1"
+    ) {
+      url.searchParams.set("page", pageNumber);
+      window.history.pushState({}, "", url);
+    }
+  }
 
   const handlePageChange = (pageNumber) => {
     getActivePage(pageNumber);
     props.setStartIndex((pageNumber - 1) * 10);
     searchPage(pageNumber);
-    console.log(pageNumber)
+    console.log(pageNumber);
   };
 
-useEffect(()=>{
-  searchPage('0');
-},[])
+  useEffect(() => {
+    searchPage("1");
+  }, []);
 
+  useEffect(() => {
+    // let url2 = new URL(window.location);
+    let params2 = new URLSearchParams(document.location.search.substring(1));
+    let pageQuery2 = params2.get("page");
+    // console.log(`Ovo je url2: ${url2}`);
+    console.log(`Ovo je params2: ${params2}`);
+    console.log(`Ovo je PQ2: ${pageQuery2}`);
+    if (pageQuery2 !== "1") {
+      props.setStartIndex((pageQuery2 - 1) * 10);
+    }
+  }, []);
 
+  let params3 = new URLSearchParams(document.location.search.substring(1));
+  let pageQuery3 = params3.get("page");
   return (
     <div className="next-page">
       <Pagination
@@ -43,7 +58,7 @@ useEffect(()=>{
         lastPageText={<span className="last-page">Last</span>}
         prevPageText={<i className="fas fa-arrow-alt-circle-left"></i>}
         nextPageText={<i className="fas fa-arrow-alt-circle-right"></i>}
-        activePage={activePage}
+        activePage={+pageQuery3}
         itemsCountPerPage={10}
         totalItemsCount={
           !searchedBooks.totalItems ? 100 : searchedBooks.totalItems
