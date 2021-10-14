@@ -24,7 +24,8 @@ export default function Search() {
             }
           }}
         />
-        <Link
+
+        {/* <Link
           to={"/results/" + userInput}
           className="search-button-link"
           // onClick={() => {
@@ -36,7 +37,21 @@ export default function Search() {
           <button className="search-button" type="button">
             <i className="fas fa-search"></i>
           </button>
-        </Link>
+        </Link> */}
+        
+        {userInput.length !== 0 ? <Link to={"/results/" + userInput} className="search-button-link">
+          
+        >
+          <button className="search-button" type="button">
+            <i className="fas fa-search"></i>
+          </button>
+        </Link> : <Link to={"/"} className="search-button-link">
+          
+        >
+          <button className="search-button" type="button">
+            <i className="fas fa-search"></i>
+          </button>
+        </Link>}
       </form>
     </div>
   );

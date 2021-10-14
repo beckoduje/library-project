@@ -6,6 +6,8 @@ import { LibraryContext } from "../LibraryContext";
 import BookStatusCurrent from "../shared/BookStatusCurrent";
 import BookStatusOptions from "../shared/BookStatusOptions";
 
+import noImage from "../../images/noImage.png";
+
 export default function MyCollectionList(props) {
   const { myCollection, removeCollectionItem } = useContext(LibraryContext);
   return (
@@ -61,8 +63,12 @@ export default function MyCollectionList(props) {
                   <BookStatusOptions />
                 )}
                 <figure className="book-image-cont">
-                  {!book.imageLinks ? (
-                    `No image`
+                  {book.imageLinks === "no image" ? (
+                    <img
+                        className="book-image no-image"
+                        alt="book image"
+                        src={noImage}
+                      />
                   ) : (
                     <img
                       className="book-image"

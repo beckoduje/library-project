@@ -10,6 +10,8 @@ import { LibraryContext } from "../LibraryContext";
 export default function ResultsList() {
   const { searchedBooks, myCollection } = useContext(LibraryContext);
 
+  console.log(searchedBooks);
+
   return (
     <div className="results-container">
       <ul className="results-list">
