@@ -22,7 +22,7 @@ export default function MyCollectionList(props) {
                 <h4 className="book-title">
                   <Link
                     className="results-list-item-link"
-                    to={"/book/:" + book.id}
+                    to={"/book/" + book.id}
                   >
                     {!book.title ? `-` : book.title}
                   </Link>
@@ -79,7 +79,7 @@ export default function MyCollectionList(props) {
                 </button>
                 <Link
                   className="results-list-item-link sticker"
-                  to={"/book/:" + book.id}
+                  to={"/book/" + book.id}
                 >
                   About
                 </Link>

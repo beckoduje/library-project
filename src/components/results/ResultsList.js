@@ -23,7 +23,7 @@ export default function ResultsList() {
                   <h4 className="book-title">
                     <Link
                       className="results-list-item-link"
-                      to={"/book/:" + book.id}
+                      to={"/book/" + book.id}
                     >
                       {!book.volumeInfo.title ? `-` : book.volumeInfo.title}
                     </Link>
