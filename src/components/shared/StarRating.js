@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 
-import { LibraryContext } from "../LibraryContext";
+// import { LibraryContext } from "../LibraryContext";
 
-export default function StarRating() {
-  const { singleBook } = useContext(LibraryContext);
+export default function StarRating({ singleBook }) {
+  // const { singleBook } = useContext(LibraryContext);
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
 

@@ -5,6 +5,8 @@ import { LibraryContext } from "../LibraryContext";
 import BookStatusCurrent from "../shared/BookStatusCurrent";
 import BookStatusOptions from "../shared/BookStatusOptions";
 
+import noImage from "../../images/noImage.png";
+
 export default function SingleBookCard({ singleBook }) {
   const { myCollection } = useContext(LibraryContext);
 
@@ -22,15 +24,17 @@ export default function SingleBookCard({ singleBook }) {
               {!singleBook.volumeInfo.authors ? (
                 <span className="book-author">-</span>
               ) : (
-                singleBook.volumeInfo.authors.map((author) => {
+                singleBook.volumeInfo.authors.map((author, i) => {
                   return (
                     <span key={Math.random()} className="book-author">
                       {author}
+                      {i < singleBook.volumeInfo.authors.length - 1 ? ", " : ""}
                     </span>
                   );
                 })
               )}
             </div>
+
             <div className="book-average-rating">
               {!singleBook.volumeInfo.averageRating
                 ? `-`
@@ -52,7 +56,11 @@ export default function SingleBookCard({ singleBook }) {
             )}
             <figure className="book-image-cont">
               {!singleBook.volumeInfo.imageLinks ? (
-                `No image`
+                <img
+                  className="book-image no-image"
+                  alt="book image"
+                  src={noImage}
+                />
               ) : (
                 <img
                   className="book-image"

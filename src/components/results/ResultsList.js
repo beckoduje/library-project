@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import BookStatusCurrent from "../shared/BookStatusCurrent";
 import BookStatusOptions from "../shared/BookStatusOptions";
 
+import noImage from "../../images/noImage.png";
+
 import { LibraryContext } from "../LibraryContext";
 
 export default function ResultsList() {
@@ -63,7 +65,11 @@ export default function ResultsList() {
                   )}
                   <figure className="book-image-cont">
                     {!book.volumeInfo.imageLinks ? (
-                      `No image`
+                      <img
+                        className="book-image no-image"
+                        alt="book image"
+                        src={noImage}
+                      />
                     ) : (
                       <img
                         className="book-image"
