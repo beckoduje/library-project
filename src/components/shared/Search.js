@@ -6,7 +6,12 @@ export default function Search() {
   const { getUserInput, getData, userInput } = useContext(LibraryContext);
 
   let history = useHistory();
-  const inputEl = useRef(null);
+  // const inputEl = useRef(null);
+
+  const url = new URL(window.location);
+  console.log(url);
+  const currPath = url.pathname + url.search;
+  console.log(currPath);
 
   return (
     <div className="search-container">
@@ -15,12 +20,21 @@ export default function Search() {
           placeholder="Search here..."
           type="text"
           className="search-input"
-          ref={inputEl}
+          // ref={inputEl}
           onChange={(e) => getUserInput(e.target.value.trim())}
+          // onKeyPress={(e) => {
+          //   if (e.key === "Enter" && e.target.value !== undefined) {
+          //     e.preventDefault();
+          //     history.push("/results/" + userInput);
+          //   }
+          // }}
           onKeyPress={(e) => {
-            if (e.key === "Enter" && e.target.value !== undefined) {
+            if (e.key === "Enter" && e.target.value.trim() !== "") {
+              //userInput
               e.preventDefault();
               history.push("/results/" + userInput);
+            } else if (e.key === "Enter") {
+              e.preventDefault();
             }
           }}
         />
@@ -38,20 +52,20 @@ export default function Search() {
             <i className="fas fa-search"></i>
           </button>
         </Link> */}
-        
-        {userInput.length !== 0 ? <Link to={"/results/" + userInput} className="search-button-link">
-          
-        >
-          <button className="search-button" type="button">
-            <i className="fas fa-search"></i>
-          </button>
-        </Link> : <Link to={"/"} className="search-button-link">
-          
-        >
-          <button className="search-button" type="button">
-            <i className="fas fa-search"></i>
-          </button>
-        </Link>}
+
+        {userInput || userInput.length >= 1 ? (
+          <Link to={"/results/" + userInput} className="search-button-link">
+            <button className="search-button" type="button">
+              <i className="fas fa-search"></i>
+            </button>
+          </Link>
+        ) : (
+          <Link to={currPath} className="search-button-link">
+            <button className="search-button" type="button">
+              <i className="fas fa-search"></i>
+            </button>
+          </Link>
+        )}
       </form>
     </div>
   );

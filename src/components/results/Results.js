@@ -14,7 +14,7 @@ export default function Results() {
 
   const [startIndex, setStartIndex] = useState(0);
 
-  const { setSearchedBooks } = useContext(LibraryContext);
+  const { setSearchedBooks, getUserInput } = useContext(LibraryContext);
 
   useEffect(() => {
     fetch(
@@ -27,6 +27,7 @@ export default function Results() {
         setSearchedBooks(data);
       });
 
+    getUserInput("");
   }, [startIndex]);
 
   return (
