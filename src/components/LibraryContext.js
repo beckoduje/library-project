@@ -10,6 +10,7 @@ export const LibraryProvider = ({ children }) => {
   const [searchedBooks, setSearchedBooks] = useState([]);
   const [userInput, getUserInput] = useState("");
   const [selectedGenre, setSelectedGenre] = useState(1);
+  const [goSearch, setGoSearch] = useState(true);
   // const [singleBook, setSingleBook] = useState(); najnovie linkččččč
 
   const MY_COLLECTION_KEY = "myCollection";
@@ -90,7 +91,9 @@ export const LibraryProvider = ({ children }) => {
           title: data.volumeInfo.title,
           authors: data.volumeInfo.authors,
           averageRating: data.volumeInfo.averageRating,
-          imageLinks: data.volumeInfo.imageLinks ? data.volumeInfo.imageLinks.thumbnail : "no image",
+          imageLinks: data.volumeInfo.imageLinks
+            ? data.volumeInfo.imageLinks.thumbnail
+            : "no image",
           // imageLinks: data.volumeInfo.imageLinks.thumbnail,
         };
 
@@ -142,6 +145,8 @@ export const LibraryProvider = ({ children }) => {
         // singleBook,
         // setSingleBook,
         // getSingleBook,
+        goSearch,
+        setGoSearch,
       }}
     >
       {children}

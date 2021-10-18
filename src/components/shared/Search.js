@@ -3,7 +3,8 @@ import { Link, useHistory } from "react-router-dom";
 import { LibraryContext } from "../LibraryContext";
 
 export default function Search() {
-  const { getUserInput, getData, userInput } = useContext(LibraryContext);
+  const { getUserInput, getData, userInput, goSearch, setGoSearch } =
+    useContext(LibraryContext);
 
   let history = useHistory();
   // const inputEl = useRef(null);
@@ -33,6 +34,10 @@ export default function Search() {
               //userInput
               e.preventDefault();
               history.push("/results/" + userInput);
+              // setGoSearch((prevState) => {
+              //   !prevState;
+              // });
+              setGoSearch(!goSearch);
             } else if (e.key === "Enter") {
               e.preventDefault();
             }
@@ -54,7 +59,16 @@ export default function Search() {
         </Link> */}
 
         {userInput || userInput.length >= 1 ? (
-          <Link to={"/results/" + userInput} className="search-button-link">
+          <Link
+            to={"/results/" + userInput}
+            className="search-button-link"
+            onClick={() =>
+              // setGoSearch((prevState) => {
+              //   !prevState;
+              // });
+              setGoSearch(!goSearch)
+            }
+          >
             <button className="search-button" type="button">
               <i className="fas fa-search"></i>
             </button>

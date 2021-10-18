@@ -4,7 +4,7 @@ import Pagination from "react-js-pagination";
 import { LibraryContext } from "../LibraryContext";
 
 export default function Paginations(props) {
-  const { searchedBooks } = useContext(LibraryContext);
+  const { searchedBooks, goSearch } = useContext(LibraryContext);
 
   const [activePage, getActivePage] = useState(1);
 
@@ -35,7 +35,7 @@ export default function Paginations(props) {
 
   useEffect(() => {
     searchPage("1");
-  }, []);
+  }, [goSearch]);
 
   useEffect(() => {
     // let url2 = new URL(window.location);

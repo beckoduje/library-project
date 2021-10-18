@@ -15,7 +15,9 @@ export default function ResultsList() {
   return (
     <div className="results-container">
       <ul className="results-list">
-        {searchedBooks.length < 1 || searchedBooks.error
+        {searchedBooks.length < 1 ||
+        searchedBooks.error ||
+        searchedBooks.totalItems === 0
           ? "Search the library"
           : searchedBooks.items.map((book) => {
               return (

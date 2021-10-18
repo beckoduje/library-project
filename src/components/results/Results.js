@@ -14,7 +14,8 @@ export default function Results() {
 
   const [startIndex, setStartIndex] = useState(0);
 
-  const { setSearchedBooks, getUserInput } = useContext(LibraryContext);
+  const { setSearchedBooks, getUserInput, goSearch } =
+    useContext(LibraryContext);
 
   useEffect(() => {
     fetch(
@@ -28,6 +29,14 @@ export default function Results() {
       });
 
     getUserInput("");
+
+    // return () => {
+    //   document.querySelector(".results-container").innerHTML = "Loading...";
+    // };
+  }, [startIndex, goSearch]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, [startIndex]);
 
   return (
