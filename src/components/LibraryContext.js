@@ -12,6 +12,7 @@ export const LibraryProvider = ({ children }) => {
   const [selectedGenre, setSelectedGenre] = useState(1);
   const [goSearch, setGoSearch] = useState(true);
   // const [singleBook, setSingleBook] = useState(); najnovie linkččččč
+  const [loading, setLoading] = useState(false);
 
   const MY_COLLECTION_KEY = "myCollection";
   const READ_BOOKS_KEY = "readBooks";
@@ -147,6 +148,8 @@ export const LibraryProvider = ({ children }) => {
         // getSingleBook,
         goSearch,
         setGoSearch,
+        loading,
+        setLoading,
       }}
     >
       {children}

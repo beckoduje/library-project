@@ -14,10 +14,11 @@ export default function Results() {
 
   const [startIndex, setStartIndex] = useState(0);
 
-  const { setSearchedBooks, getUserInput, goSearch } =
+  const { setSearchedBooks, getUserInput, goSearch, setLoading } =
     useContext(LibraryContext);
 
   useEffect(() => {
+    setLoading(true);
     fetch(
       `https://www.googleapis.com/books/v1/volumes?q=${cutUserInp}&startIndex=${startIndex}&maxResults=10&printType=books`
     )
@@ -29,10 +30,7 @@ export default function Results() {
       });
 
     getUserInput("");
-
-    // return () => {
-    //   document.querySelector(".results-container").innerHTML = "Loading...";
-    // };
+    setLoading(false);
   }, [startIndex, goSearch]);
 
   useEffect(() => {
