@@ -3,17 +3,18 @@ import React from "react";
 import { loadAnimation } from "lottie-web";
 import { defineLordIconElement } from "lord-icon-element";
 
-// register lottie and define custom element
-defineLordIconElement(loadAnimation);
+import book from "../../images/bookAnima.gif";
 
 export default function Loading() {
+  // register lottie and define custom element
+  defineLordIconElement(loadAnimation);
   return (
     <div className="loading-container">
-      <lord-icon
-        className="loading-icon"
-        trigger="loop"
-        src="/my-icon.json"
-      ></lord-icon>
+      {/* <lord-icon
+        trigger="hover"
+        src="/522-fish-outline.json"
+      ></lord-icon> */}
+      <img src={book} />
     </div>
   );
 }

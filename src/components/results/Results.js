@@ -3,6 +3,7 @@ import FeatherImg from "../shared/FeatherImg";
 import Navigation from "../shared/Navigation";
 import Paginations from "../shared/Paginations";
 import ResultsList from "./ResultsList";
+import Loading from "../shared/Loading";
 
 import { useParams } from "react-router-dom";
 
@@ -40,8 +41,9 @@ export default function Results() {
   return (
     <div className="results-section">
       <Navigation />
-      <ResultsList />
-      <Paginations startIndex={startIndex} setStartIndex={setStartIndex} />
+      <Loading />
+      {/* <ResultsList />
+      <Paginations startIndex={startIndex} setStartIndex={setStartIndex} /> */}
       <FeatherImg />
     </div>
   );
