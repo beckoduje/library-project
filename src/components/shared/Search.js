@@ -38,6 +38,7 @@ export default function Search() {
               //   !prevState;
               // });
               setGoSearch(!goSearch);
+              e.target.value = "";
             } else if (e.key === "Enter") {
               e.preventDefault();
             }

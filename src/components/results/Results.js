@@ -15,7 +15,7 @@ export default function Results() {
 
   const [startIndex, setStartIndex] = useState(0);
 
-  const { setSearchedBooks, getUserInput, goSearch, setLoading } =
+  const { setSearchedBooks, getUserInput, goSearch, loading, setLoading } =
     useContext(LibraryContext);
 
   useEffect(() => {
@@ -24,6 +24,7 @@ export default function Results() {
       `https://www.googleapis.com/books/v1/volumes?q=${cutUserInp}&startIndex=${startIndex}&maxResults=10&printType=books`
     )
       .then(function (response) {
+        setLoading(false);
         return response.json();
       })
       .then(function (data) {
@@ -31,7 +32,6 @@ export default function Results() {
       });
 
     getUserInput("");
-    setLoading(false);
   }, [startIndex, goSearch]);
 
   useEffect(() => {
@@ -41,9 +41,18 @@ export default function Results() {
   return (
     <div className="results-section">
       <Navigation />
-      <Loading />
-      {/* <ResultsList />
-      <Paginations startIndex={startIndex} setStartIndex={setStartIndex} /> */}
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          {" "}
+          <ResultsList />
+          <Paginations
+            startIndex={startIndex}
+            setStartIndex={setStartIndex}
+          />{" "}
+        </>
+      )}
       <FeatherImg />
     </div>
   );

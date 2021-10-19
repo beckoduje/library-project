@@ -8,36 +8,38 @@ import { genresData } from "../genresData.js";
 import BookStatusCurrent from "../shared/BookStatusCurrent.js";
 import BookStatusOptions from "../shared/BookStatusOptions.js";
 
-export default function GenresResultsList() {
-  const { searchedBooks, setSearchedBooks, myCollection } =
+export default function GenresResultsList({ genre }) {
+  const { searchedBooks, setSearchedBooks, myCollection, setLoading } =
     useContext(LibraryContext);
 
-  let { genre } = useParams();
-  const cutGenre = genre;
+  // let { genre } = useParams();
+  // const cutGenre = genre;
 
-  function getGenresData(genre) {
-    fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${genre}+subject:${genre}&startIndex=10&maxResults=10&printType=books`
-    )
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        setSearchedBooks(data);
-      });
-  }
+  // function getGenresData(genre) {
+  //   setLoading(true);
+  //   fetch(
+  //     `https://www.googleapis.com/books/v1/volumes?q=${genre}+subject:${genre}&startIndex=10&maxResults=10&printType=books`
+  //   )
+  //     .then(function (response) {
+  //       setLoading(false);
+  //       return response.json();
+  //     })
+  //     .then(function (data) {
+  //       setSearchedBooks(data);
+  //     });
+  // }
 
-  let selectedGen = genresData.findIndex((gen) => gen.title === cutGenre);
+  let selectedGen = genresData.findIndex((gen) => gen.title === genre);
 
-  useEffect(() => {
-    getGenresData(cutGenre);
-  }, []);
+  // useEffect(() => {
+  //   getGenresData(cutGenre);
+  // }, []);
 
   return (
     <div className="results-container genres">
       <div className="genre-description-container">
         <h2 className="genre-description-title">
-          {searchedBooks.length < 1 ? "" : cutGenre}
+          {searchedBooks.length < 1 ? "" : genre}
         </h2>
         <p className="genre-description">
           {searchedBooks.length < 1 ? "" : genresData[selectedGen].description}
