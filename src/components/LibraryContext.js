@@ -11,7 +11,6 @@ export const LibraryProvider = ({ children }) => {
   const [userInput, getUserInput] = useState("");
   const [selectedGenre, setSelectedGenre] = useState(1);
   const [goSearch, setGoSearch] = useState(true);
-  // const [singleBook, setSingleBook] = useState(); najnovie linkččččč
   const [loading, setLoading] = useState(false);
 
   const MY_COLLECTION_KEY = "myCollection";
@@ -53,31 +52,6 @@ export const LibraryProvider = ({ children }) => {
     localStorage.setItem(WANT_LIST_KEY, JSON.stringify(wantList));
   }, [wantList]);
 
-  // function getData(userInput) {
-  //   if (userInput.trim().length > 0) {
-  //     fetch(
-  //       `https://www.googleapis.com/books/v1/volumes?q=${userInput}&startIndex=0&maxResults=10&printType=books`
-  //     )
-  //       .then(function (response) {
-  //         return response.json();
-  //       })
-  //       .then(function (data) {
-  //         setSearchedBooks(data);
-  //       });
-  //     document.querySelector(".search-input").value = "";
-  //   }
-  // }
-
-  // function getSingleBook(volumeID) {  -------------- njnobie link
-  //   fetch(`https://www.googleapis.com/books/v1/volumes/${volumeID}`)
-  //     .then(function (response) {
-  //       return response.json();
-  //     })
-  //     .then(function (data) {
-  //       setSingleBook(data);
-  //     });
-  // }
-
   function addNewCollectionItem(e) {
     let volumeID = e.target.closest(".results-list-item").dataset.idNumber;
 
@@ -95,7 +69,6 @@ export const LibraryProvider = ({ children }) => {
           imageLinks: data.volumeInfo.imageLinks
             ? data.volumeInfo.imageLinks.thumbnail
             : "no image",
-          // imageLinks: data.volumeInfo.imageLinks.thumbnail,
         };
 
         const check =
@@ -140,12 +113,8 @@ export const LibraryProvider = ({ children }) => {
         getUserInput,
         selectedGenre,
         setSelectedGenre,
-        // getData,
         addNewCollectionItem,
         removeCollectionItem,
-        // singleBook,
-        // setSingleBook,
-        // getSingleBook,
         goSearch,
         setGoSearch,
         loading,

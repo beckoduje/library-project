@@ -30,7 +30,6 @@ export default function Paginations(props) {
     getActivePage(pageNumber);
     props.setStartIndex((pageNumber - 1) * 10);
     searchPage(pageNumber);
-    console.log(pageNumber);
   };
 
   useEffect(() => {
@@ -38,12 +37,8 @@ export default function Paginations(props) {
   }, [goSearch]);
 
   useEffect(() => {
-    // let url2 = new URL(window.location);
     let params2 = new URLSearchParams(document.location.search.substring(1));
     let pageQuery2 = params2.get("page");
-    // console.log(`Ovo je url2: ${url2}`);
-    console.log(`Ovo je params2: ${params2}`);
-    console.log(`Ovo je PQ2: ${pageQuery2}`);
     if (pageQuery2 !== "1") {
       props.setStartIndex((pageQuery2 - 1) * 10);
     }

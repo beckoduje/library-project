@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import BookStatusCurrent from "../shared/BookStatusCurrent";
 import BookStatusOptions from "../shared/BookStatusOptions";
-// import Loading from "../shared/Loading";
 
 import noImage from "../../images/noImage.png";
 
@@ -11,15 +10,13 @@ import { LibraryContext } from "../LibraryContext";
 export default function ResultsList() {
   const { searchedBooks, myCollection } = useContext(LibraryContext);
 
-  console.log(searchedBooks);
-
   return (
     <div className="results-container">
       <ul className="results-list">
         {searchedBooks.length < 1 ||
         searchedBooks.error ||
         searchedBooks.totalItems === 0
-          ? "Search the library"
+          ? "Hm, what was that?!"
           : searchedBooks.items.map((book) => {
               return (
                 <li

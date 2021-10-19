@@ -14,7 +14,6 @@ export default function SingleBook() {
   const { loading, setLoading } = useContext(LibraryContext);
   let { id } = useParams();
   const [singleBook, setSingleBook] = useState();
-  const osisanID = id;
 
   function getSingleBook(id) {
     setLoading(true);
@@ -29,7 +28,7 @@ export default function SingleBook() {
   }
 
   useEffect(() => {
-    getSingleBook(osisanID);
+    getSingleBook(id);
   }, []);
 
   return (
@@ -45,9 +44,6 @@ export default function SingleBook() {
           <SingleBookDescription singleBook={singleBook} />{" "}
         </>
       )}
-      {/* <SingleBookCard singleBook={singleBook} />
-      <StarRating singleBook={singleBook} />
-      <SingleBookDescription singleBook={singleBook} /> */}
       <FeatherImg />
     </div>
   );

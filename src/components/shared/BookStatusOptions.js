@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { LibraryContext } from "../LibraryContext";
 
-export default function BookStatusOptions(props) {
+export default function BookStatusOptions() {
   const { addNewCollectionItem } = useContext(LibraryContext);
   return (
     <div className="reading-status-container">

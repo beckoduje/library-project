@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { LibraryContext } from "../LibraryContext.js";
 
@@ -9,31 +9,9 @@ import BookStatusCurrent from "../shared/BookStatusCurrent.js";
 import BookStatusOptions from "../shared/BookStatusOptions.js";
 
 export default function GenresResultsList({ genre }) {
-  const { searchedBooks, setSearchedBooks, myCollection, setLoading } =
-    useContext(LibraryContext);
-
-  // let { genre } = useParams();
-  // const cutGenre = genre;
-
-  // function getGenresData(genre) {
-  //   setLoading(true);
-  //   fetch(
-  //     `https://www.googleapis.com/books/v1/volumes?q=${genre}+subject:${genre}&startIndex=10&maxResults=10&printType=books`
-  //   )
-  //     .then(function (response) {
-  //       setLoading(false);
-  //       return response.json();
-  //     })
-  //     .then(function (data) {
-  //       setSearchedBooks(data);
-  //     });
-  // }
+  const { searchedBooks, myCollection } = useContext(LibraryContext);
 
   let selectedGen = genresData.findIndex((gen) => gen.title === genre);
-
-  // useEffect(() => {
-  //   getGenresData(cutGenre);
-  // }, []);
 
   return (
     <div className="results-container genres">

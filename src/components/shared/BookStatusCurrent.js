@@ -40,8 +40,9 @@ export default function BookStatusCurrent(props) {
           title: data.volumeInfo.title,
           authors: data.volumeInfo.authors,
           averageRating: data.volumeInfo.averageRating,
-          // imageLinks: data.volumeInfo.imageLinks.thumbnail,
-          imageLinks: data.volumeInfo.imageLinks ? data.volumeInfo.imageLinks.thumbnail : "no image",
+          imageLinks: data.volumeInfo.imageLinks
+            ? data.volumeInfo.imageLinks.thumbnail
+            : "no image",
         };
         if (catName == "read") {
           setReadBooks([...readBooks, temporaryItem]);

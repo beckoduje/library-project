@@ -12,7 +12,6 @@ export default function Genres() {
   const { setSearchedBooks, loading, setLoading } = useContext(LibraryContext);
 
   let { genre } = useParams();
-  // const cutGenre = genre;
 
   function getGenresData(genre) {
     setLoading(true);
