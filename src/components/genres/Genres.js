@@ -29,7 +29,7 @@ export default function Genres() {
 
   useEffect(() => {
     getGenresData(genre);
-  }, []);
+  }, [genre]);
 
   return (
     <div className="genres-section">
